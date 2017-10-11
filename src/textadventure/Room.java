@@ -12,9 +12,9 @@ public class Room {
     private boolean winGame;
     private String description;
 
-    public Room() {
+    public Room(String description, boolean winGame) {
         id = 0; //for loop på room arraylength
-        description = "blabla"; //random decription
+        this.description = description;//"blabla"; //random decription
         winGame = false;
     }
 
@@ -34,6 +34,28 @@ public class Room {
     public void setRooms(Room north, Room east, Room south, Room west) {
 
     }
+
+    public void setNorth(Room north)
+    {
+        this.north = north;
+    }
+
+    public void setEast(Room east)
+    {
+        this.east = east;
+    }
+
+    public void setSouth(Room south)
+    {
+        this.south = south;
+    }
+
+    public void setWest(Room west)
+    {
+        this.west = west;
+    }
+    
+    
 
     public Room getRoom(String direction) {
         Room returnRoom = null;
@@ -58,5 +80,10 @@ public class Room {
 
     public boolean winGame() {
         return id == 19; //last room in array, kantine
+    }
+     @Override
+    public String toString()
+    {
+        return "Game{" + description + '}';
     }
 }
