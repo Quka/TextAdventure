@@ -52,26 +52,26 @@ public class Game
     public void createRooms()
     {
 
-        rooms.add(new Room("0", false));
-        rooms.add(new Room("1descriptiont bla bla", false));
-        rooms.add(new Room("2descriptiont bla bla", false));
-        rooms.add(new Room("3descriptiont bla bla", false));
-        rooms.add(new Room("4descriptiont bla bla", false));
-        rooms.add(new Room("5descriptiont bla bla", false));
-        rooms.add(new Room("6descriptiont bla bla", false));
-        rooms.add(new Room("7descriptiont bla bla", false));
-        rooms.add(new Room("8descriptiont bla bla", false));
-        rooms.add(new Room("9descriptiont bla bla", false));
-        rooms.add(new Room("10descriptiont bla bla", false));
-        rooms.add(new Room("11descriptiont bla bla", false));
-        rooms.add(new Room("12descriptiont bla bla", false));
-        rooms.add(new Room("13descriptiont bla bla", false));
-        rooms.add(new Room("14descriptiont bla bla", false));
-        rooms.add(new Room("15descriptiont bla bla", false));
-        rooms.add(new Room("16descriptiont bla bla", false));
-        rooms.add(new Room("17descriptiont bla bla", false));
-        rooms.add(new Room("18descriptiont bla bla", false));
-        rooms.add(new Room("19descriptiont bla bla", true));
+        rooms.add(new Room("Your office, ......", false, 0));
+        rooms.add(new Room("Employee office1", false, 1));
+        rooms.add(new Room("Copy room1", false, 2));
+        rooms.add(new Room("Womens restroom2", false, 3));
+        rooms.add(new Room("Employee office4", false, 4));
+        rooms.add(new Room("Meeting3", false, 5));
+        rooms.add(new Room("Employee office6", false, 6));
+        rooms.add(new Room("Employee office7", false, 7));
+        rooms.add(new Room("Copy room2", false, 8));
+        rooms.add(new Room("Executive office", false, 9));
+        rooms.add(new Room("Employee office8", false, 10));
+        rooms.add(new Room("Mens restroom2", false, 11));
+        rooms.add(new Room("Employee office3", false, 12));
+        rooms.add(new Room("Mens restroom1 ", false, 13));
+        rooms.add(new Room("Janitor room", false, 14));
+        rooms.add(new Room("Meetingroom2", false, 15));
+        rooms.add(new Room("Employee office2", false, 16));
+        rooms.add(new Room("Canteen ....", true, 17));
+        rooms.add(new Room("Womens restroom1", false, 18));
+        rooms.add(new Room("Meetingroom1 bla bla", false, 19));
 
         for (Room room : rooms)
         {
