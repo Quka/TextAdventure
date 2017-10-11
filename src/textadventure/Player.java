@@ -1,18 +1,30 @@
 package textadventure;
 
 public class Player {
-    
+
     private String name;
-    private int health;
-    private Room inRoom;
-    
+    private int roundsLeft;
+    private Room currentRoom;
+
     public Player(String name, Room startingRoom) {
         this.name = name;
-        this.health = 100;
-        this.inRoom = startingRoom;
+        this.roundsLeft = 100;
+        this.currentRoom = startingRoom;
+    }
+
+    public Room getCurrentRoom() {
+        return currentRoom;
     }
     
-    public void walk(String direction) {
+    
+
+    public boolean walk(String direction) {
+        if (currentRoom.getRoom(direction) != null) {
+            currentRoom = currentRoom.getRoom(direction);
+            return true;
+        } else {
+            return false;
+        }
         // inRoom = getRoom(direction);
     }
 }

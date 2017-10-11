@@ -15,7 +15,7 @@ public class Room {
     public Room(String description, boolean winGame) {
         id = 0; //for loop på room arraylength
         this.description = description;//"blabla"; //random decription
-        winGame = false;
+        this.winGame = winGame;
     }
 
     public String description() {
@@ -54,8 +54,13 @@ public class Room {
     {
         this.west = west;
     }
+
+    public boolean isWinGame() {
+        return winGame;
+    }
     
     
+
 
     public Room getRoom(String direction) {
         Room returnRoom = null;
@@ -74,8 +79,12 @@ public class Room {
                 returnRoom = this.west;
                 break;
         }
-
+        
         return returnRoom;
+    }
+
+    public String getDescription() {
+        return description;
     }
 
     public boolean winGame() {
