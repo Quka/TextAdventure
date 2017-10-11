@@ -22,6 +22,21 @@ public class Game
         io.put("Hej " + name + ", velkommen til Firma & Fiskefilet\n");
 
         createRooms();
+        
+        Player p = new Player(name, rooms.get(0));
+        
+        boolean gameEnded = false;
+        
+        while(!gameEnded){
+        io.put(p.getCurrentRoom().getDescription());
+        io.put("Write direction");
+        p.walk(io.get());
+         if(p.getCurrentRoom().isWinGame()== true) gameEnded=true;
+        
+        
+        
+        }
+        io.put("Game ended");
     }
 
     public String startGame()
@@ -37,28 +52,26 @@ public class Game
     public void createRooms()
     {
 
-//        for (int i = 0; i < 20; i++) {
-//            rooms.add(new Room());
-        rooms.add(new Room("descriptiont bla bla", false));
-        rooms.add(new Room("descriptiont bla bla", false));
-        rooms.add(new Room("descriptiont bla bla", false));
-        rooms.add(new Room("descriptiont bla bla", false));
-        rooms.add(new Room("descriptiont bla bla", false));
-        rooms.add(new Room("descriptiont bla bla", false));
-        rooms.add(new Room("descriptiont bla bla", false));
-        rooms.add(new Room("descriptiont bla bla", false));
-        rooms.add(new Room("descriptiont bla bla", false));
-        rooms.add(new Room("descriptiont bla bla", false));
-        rooms.add(new Room("descriptiont bla bla", false));
-        rooms.add(new Room("descriptiont bla bla", false));
-        rooms.add(new Room("descriptiont bla bla", false));
-        rooms.add(new Room("descriptiont bla bla", false));
-        rooms.add(new Room("descriptiont bla bla", false));
-        rooms.add(new Room("descriptiont bla bla", false));
-        rooms.add(new Room("descriptiont bla bla", false));
-        rooms.add(new Room("descriptiont bla bla", false));
-        rooms.add(new Room("descriptiont bla bla", false));
-        rooms.add(new Room("descriptiont bla bla", false));
+        rooms.add(new Room("0", false));
+        rooms.add(new Room("1descriptiont bla bla", false));
+        rooms.add(new Room("2descriptiont bla bla", false));
+        rooms.add(new Room("3descriptiont bla bla", false));
+        rooms.add(new Room("4descriptiont bla bla", false));
+        rooms.add(new Room("5descriptiont bla bla", false));
+        rooms.add(new Room("6descriptiont bla bla", false));
+        rooms.add(new Room("7descriptiont bla bla", false));
+        rooms.add(new Room("8descriptiont bla bla", false));
+        rooms.add(new Room("9descriptiont bla bla", false));
+        rooms.add(new Room("10descriptiont bla bla", false));
+        rooms.add(new Room("11descriptiont bla bla", false));
+        rooms.add(new Room("12descriptiont bla bla", false));
+        rooms.add(new Room("13descriptiont bla bla", false));
+        rooms.add(new Room("14descriptiont bla bla", false));
+        rooms.add(new Room("15descriptiont bla bla", false));
+        rooms.add(new Room("16descriptiont bla bla", false));
+        rooms.add(new Room("17descriptiont bla bla", false));
+        rooms.add(new Room("18descriptiont bla bla", false));
+        rooms.add(new Room("19descriptiont bla bla", true));
 
         for (Room room : rooms)
         {
