@@ -1,9 +1,11 @@
 package textadventure;
 
+import textio.*;
+
 public class Room {
 
     private int id; //test for os selv indtil videre vi skal nok slette det Arlind <3
-
+    private TextIO io = new TextIO(new SysTextIO());
     private Room north;
     private Room east;
     private Room south;
@@ -66,25 +68,36 @@ public class Room {
         Room returnRoom = null;
         
         switch (direction) {
-            case "north":
+            case "n":
                 returnRoom = this.north;
                 break;
-            case "east":
+            case "e":
                 returnRoom = this.east;
                 break;
-            case "south":
+            case "s":
                 returnRoom = this.south;
                 break;
-            case "west":
+            case "w":
                 returnRoom = this.west;
                 break;
+            case "h":
+                helpMenu();
+                break;
+                
+            case "q":
+                System.out.println("Game ended");
+                System.exit(0);
+                break;
+                
         }
         
         return returnRoom;
     }
 
     public String getDescription() {
+        
         return description;
+        
     }
 
     public boolean winGame() {
@@ -94,5 +107,17 @@ public class Room {
     public String toString()
     {
         return "Game{" + description + '}';
+    }
+
+    private void helpMenu()
+    {
+        String str = "\nYou have the following possibilities: \n"
+                + "e to go east\n"
+                + "s to go south\n"
+                + "w to go west\n"
+                + "n to go north\n"
+                + "h for help\n"
+                + "q to quit\n";
+         io.put(str);
     }
 }

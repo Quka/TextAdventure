@@ -28,8 +28,8 @@ public class Game
         boolean gameEnded = false;
         
         while(!gameEnded){
-        io.put(p.getCurrentRoom().getDescription());
-        io.put("Write direction");
+        io.put(p.getCurrentRoom().getDescription() + "\n");
+        io.put("Write direction (e/s/w/n) or h for help");
         p.walk(io.get());
          if(p.getCurrentRoom().isWinGame()== true) gameEnded=true;
         
