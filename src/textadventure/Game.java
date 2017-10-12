@@ -7,6 +7,7 @@ public class Game {
 
     private TextIO io = new TextIO(new SysTextIO());
     private ArrayList<Room> rooms = new ArrayList<>();
+    private Player p;
 
     public Game() {
 
@@ -16,21 +17,21 @@ public class Game {
         io.put(startGame());
         io.put("Hvad hedder du, eventyrer?");
         String name = io.get();
-        io.put("Hej " + name + ", velkommen til Firma & Fiskefilet\n");
+        io.put("Hej " + name + ", velkommen til Firma & Fiskefilet\n"
+                + "-----------------------------------------\n");
 
         createRooms();
 
-        Player p = new Player(name, rooms.get(0));
+        p = new Player(name, rooms.get(0));
 
         boolean gameEnded = false;
 
         while (!gameEnded) {
+
             io.put(p.getCurrentRoom().getDescription() + "\n");
-            io.put("Skriv retning (e/s/w/n) eller h for hjælp");
-            boolean walkSuccess = p.walk(io.get());
-            if (!walkSuccess) {
-                System.out.println("Der er ingen dør i den retning. Prøv igen!");
-            }
+
+            command();
+            
             if (p.getCurrentRoom().isWinGame() == true) {
                 gameEnded = true;
             }
@@ -52,12 +53,57 @@ public class Game {
                 + "********************************************************\n";
     }
 
+    public void command() {
+        String command = io.get().toUpperCase();
+
+        switch (command) {
+            case "N":
+            case "E":
+            case "S":
+            case "W":
+                if (p.canWalk(command)) {
+                    p.walk(command);
+                } else {
+                    io.put("Der er ingen rum i den retning. Prøv igen!\n");
+                }
+                break;
+            case "H":
+                helpMenu();
+                break;
+            case "Q":
+                io.put("Game ended");
+                System.exit(0);
+                break;
+            default:
+                io.put("Det var ikke en gyldig kommando! Prøv igen.\n");
+                break;
+        }
+    }
+
+    private void helpMenu() {
+        String str = "\nDu har følgende muligheder: \n"
+                + "E - for at gå mod øst\n"
+                + "S - for at gå mod syd\n"
+                + "W - for at gå mod vest\n"
+                + "N - for at gå mod nord\n"
+                + "H - for hjælp\n"
+                + "Q - for at afslutte spillet\n";
+        io.put(str);
+    }
+
     public void createRooms() {
 
-        rooms.add(new Room("Du sidder på dit kontor. Du kigger på uret og opdager, at du er sent på den. WTF! FISKEDAG!! Bare der er en fiskefilet tilbage, når du når kantinen", false, 0));
-        rooms.add(new Room("Du bliver kort blændet af en kontorlampe, som peger lige mod døråbningen. Du "
-                + "ser en gammel dame. SHHH!! Det må være hende de omtaler som \"blinde, snaksaglige, pensionsparate Ruth\". Forundret over "
-                + "hvorfor en blind har lys tændt, (((lister du videre for at undgå at hun hører dig)))", false, 1));
+        rooms.add(new Room(
+                "Du sidder på dit kontor. Du kigger på uret og opdager,\n" +
+                "at du er sent på den. WTF! FISKEDAG! Bare der er\n" +
+                "fiskefilet tilbage, når du når kantinen", false, 0));
+        
+        rooms.add(new Room(
+                "Du bliver kort blændet af en kontorlampe, som peger\n" +
+                "lige mod døråbningen. Du ser en gammel dame. SHHH!!\n" +
+                "Det må være hende de omtaler som \"blinde, snaksaglige,\n"+
+                "pensionsparate Ruth\". Forundret over " +
+                "hvorfor en blind har lys tændt, (((lister du videre for at undgå at hun hører dig)))", false, 1));
         rooms.add(new Room("Døren knirker som du åbner den. Et kopirum! Det burde du have set komme. Især fordi det var en glasdør.", false, 2));
         rooms.add(new Room("Ups! Dametoilettet. Der hænger en klam stank i luften. Det må være Ruth, som har været i gang. (((Boolean om der er nogen derude)))", false, 3));
         rooms.add(new Room("Det var ikke kantinen det her, men du finder tilgengæld kiks og kaffe til at lette sulten lidt (((+ runder)))", false, 4));
@@ -78,10 +124,6 @@ public class Game {
                 + "afdeling. Da du når frem til fadet er der kun 4 (((dependant on rounds left))) fiskefileter tilbage. Du snupper alle 4!", true, 17));
         rooms.add(new Room("Lisette står og pudrer næse. Hun opdager dig og langer dig en syngende lussing (((miste runde)))", false, 18));
         rooms.add(new Room("Projektgruppen sidder i mødelokalet. Vil du forsøge at forsinke dem i at nå fiskefileterne i kantinen? (((Muligheder actions))", false, 19));
-
-        for (Room room : rooms) {
-            System.out.println(room);
-        }
 
         rooms.get(0).setNorth(rooms.get(1));
 

@@ -17,16 +17,11 @@ public class Player {
         return currentRoom;
     }
     
+    public void walk(String direction) {
+        currentRoom = currentRoom.getRoom(direction);
+    }
     
-
-    public boolean walk(String direction) {
-        if (currentRoom.getRoom(direction) != null) {
-            currentRoom = currentRoom.getRoom(direction);
-            return true;
-        } else {
-            return false;
-        }
-    
-        // inRoom = getRoom(direction);
+    public boolean canWalk(String direction) {
+        return currentRoom.getRoom(direction) != null;
     }
 }
