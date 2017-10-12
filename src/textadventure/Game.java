@@ -3,48 +3,44 @@ package textadventure;
 import java.util.ArrayList;
 import textio.*;
 
-public class Game
-{
+public class Game {
 
     private TextIO io = new TextIO(new SysTextIO());
     private ArrayList<Room> rooms = new ArrayList<>();
 
-    public Game()
-    {
+    public Game() {
 
     }
 
-    public void play()
-    {
+    public void play() {
         io.put(startGame());
         io.put("Hvad hedder du, eventyrer?");
         String name = io.get();
         io.put("Hej " + name + ", velkommen til Firma & Fiskefilet\n");
 
         createRooms();
-        
+
         Player p = new Player(name, rooms.get(0));
-        
+
         boolean gameEnded = false;
-        
-        while(!gameEnded){
-        io.put(p.getCurrentRoom().getDescription() + "\n");
-        io.put("Skriv retning (e/s/w/n) eller h for hjælp");
-        boolean walkSuccess = p.walk(io.get());
-        if(!walkSuccess){
-            System.out.println("Der er ingen dør i den retning. Prøv igen!");
-        }
-         if(p.getCurrentRoom().isWinGame()== true) gameEnded=true;
-        
-        
-        
+
+        while (!gameEnded) {
+            io.put(p.getCurrentRoom().getDescription() + "\n");
+            io.put("Skriv retning (e/s/w/n) eller h for hjælp");
+            boolean walkSuccess = p.walk(io.get());
+            if (!walkSuccess) {
+                System.out.println("Der er ingen dør i den retning. Prøv igen!");
+            }
+            if (p.getCurrentRoom().isWinGame() == true) {
+                gameEnded = true;
+            }
+
         }
         io.put("Game ended");
     }
 
-    public String startGame()
-    {
-        return    "********************************************************\n"
+    public String startGame() {
+        return "********************************************************\n"
                 + "***************    FIRMA & FISKEFILET    ***************\n"
                 + "********************************************************\n\n"
                 + "********************************************************\n"
@@ -56,8 +52,7 @@ public class Game
                 + "********************************************************\n";
     }
 
-    public void createRooms()
-    {
+    public void createRooms() {
 
         rooms.add(new Room("Du sidder på dit kontor. Du kigger på uret og opdager, at du er sent på den. WTF! FISKEDAG!! Bare der er en fiskefilet tilbage, når du når kantinen", false, 0));
         rooms.add(new Room("Du bliver kort blændet af en kontorlampe, som peger lige mod døråbningen. Du "
@@ -84,8 +79,7 @@ public class Game
         rooms.add(new Room("Lisette står og pudrer næse. Hun opdager dig og langer dig en syngende lussing (((miste runde)))", false, 18));
         rooms.add(new Room("Projektgruppen sidder i mødelokalet. Vil du forsøge at forsinke dem i at nå fiskefileterne i kantinen? (((Muligheder actions))", false, 19));
 
-        for (Room room : rooms)
-        {
+        for (Room room : rooms) {
             System.out.println(room);
         }
 
