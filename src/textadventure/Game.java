@@ -29,8 +29,11 @@ public class Game
         
         while(!gameEnded){
         io.put(p.getCurrentRoom().getDescription() + "\n");
-        io.put("Write direction (e/s/w/n) or h for help");
-        p.walk(io.get());
+        io.put("Skriv retning (e/s/w/n) eller h for hjælp");
+        boolean walkSuccess = p.walk(io.get());
+        if(!walkSuccess){
+            System.out.println("Der er ingen dør i den retning. Prøv igen!");
+        }
          if(p.getCurrentRoom().isWinGame()== true) gameEnded=true;
         
         
@@ -52,24 +55,28 @@ public class Game
     public void createRooms()
     {
 
-        rooms.add(new Room("Your office, ......", false, 0));
-        rooms.add(new Room("Employee office1", false, 1));
-        rooms.add(new Room("Copy room1", false, 2));
-        rooms.add(new Room("Womens restroom2", false, 3));
+        rooms.add(new Room("Du sidder på dit kontor. Du kigger på uret og opdager, at du er sent på den. WTF! FISKEDAG!! Bare der er en fiskefilet tilbage, når du når kantinen", false, 0));
+        rooms.add(new Room("Du bliver kort blændet af en kontorlampe, som peger lige mod døråbningen. Du "
+                + "ser en gammel dame. SHHH!! Det må være hende de omtaler som \"blinde, snaksaglige, pensionsparate Ruth\". Forundret over "
+                + "hvorfor en blind har lys tændt, (((lister du videre for at undgå at hun hører dig)))", false, 1));
+        rooms.add(new Room("Døren knirker som du åbner den. Et kopirum! Det burde du have set komme. Især fordi det var en glasdør.", false, 2));
+        rooms.add(new Room("Ups! Dametoilettet. Der hænger en klam stank i luften. Det må være Ruth, som har været i gang. (((Boolean om der er nogen derude)))", false, 3));
         rooms.add(new Room("Employee office4", false, 4));
-        rooms.add(new Room("Meeting3", false, 5));
+        rooms.add(new Room("Du træder ind i et lokale, hvor et vigtigt møde med en potentiel kunde er i gang. Du bliver nødt til at lade "
+                + "som om, at du er en sekretær", false, 5));
         rooms.add(new Room("Employee office6", false, 6));
         rooms.add(new Room("Employee office7", false, 7));
-        rooms.add(new Room("Copy room2", false, 8));
-        rooms.add(new Room("Executive office", false, 9));
+        rooms.add(new Room("Kopimaskinen summer stadig. Den er åbenbart lige blevet færdig. Du går nysgerrigt over og kigger i de udskrevne papirer. Det er chefens oplæg til spareforslag :o Du er nødt til at se om dit navn står på listen. Det koster en runde ekstra", false, 8));
+        rooms.add(new Room("Du vader ind på chefens kontor. På hans skrivebord sidder sekretæren Line. Chefen ser, at du opdager dem flirte. (((bliver han sur, flov ect)))", false, 9));
         rooms.add(new Room("Employee office8", false, 10));
-        rooms.add(new Room("Mens restroom2", false, 11));
+        rooms.add(new Room("Pedersen er på vej ud fra toilettet. Han vasker ikke fingre! Slut med at give ham hånden.", false, 11));
         rooms.add(new Room("Employee office3", false, 12));
-        rooms.add(new Room("Mens restroom1 ", false, 13));
-        rooms.add(new Room("Janitor room", false, 14));
-        rooms.add(new Room("Meetingroom2", false, 15));
+        rooms.add(new Room("Du kommer ind på herretoilettet. Du skal simpelthen tisse så meget, at fiskefileterne må vente lidt. Du åbner toiletdøren, men ser at Ronnie har glemt at låse døren! Du mister en runde", false, 13));
+        rooms.add(new Room("Viceværten sidder og swiper på Tinder. Du tænker \"er han ikke gift med hende Alice fra regnskabsafdelingen?\"(((hans reaktion))) ", false, 14));
+        rooms.add(new Room("Mødelokalet er tomt, men der står kopper og service fra sidste møde. Sikke et rod!(((boolean med oprydning. der kommer en ind, skal hun have hjælp eller ej)))", false, 15));
         rooms.add(new Room("Employee office2", false, 16));
-        rooms.add(new Room("Canteen ....", true, 17));
+        rooms.add(new Room("OMG! Hvad er det syn?! KANTINEN!! Du klarede det! Du skynder dig op i køen lige foran ham den arrogante fra din "
+                + "afdeling. Da du når frem til fadet er der kun 4 (((dependant on rounds left))) fiskefileter tilbage. Du snupper alle 4!", true, 17));
         rooms.add(new Room("Womens restroom1", false, 18));
         rooms.add(new Room("Meetingroom1 bla bla", false, 19));
 
