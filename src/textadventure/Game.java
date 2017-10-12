@@ -16,7 +16,7 @@ public class Game {
         io.put(startGame());
         io.put("Hvad hedder du, eventyrer?");
         String name = io.get();
-        io.put("Hej " + name + ", velkommen til Firma & Fiskefilet. Tryk h for hjælp\n");
+        io.put("Hej " + name + ", velkommen til Firma & Fiskefilet.\n\nDu kan gennem hele spillet trykke n for nord, e for øst, s for syd, w for vest eller h for hjælp \n\n");
 
         createRooms();
 
@@ -25,7 +25,7 @@ public class Game {
         boolean gameEnded = false;
 
         while (!gameEnded) {
-            io.put(p.getCurrentRoom().getDescription() + "\n");
+            io.put(p.getCurrentRoom().getDescription());
         //    io.put("Skriv retning (e/s/w/n) eller h for hjælp");
             boolean walkSuccess = p.walk(io.get());
             if (!walkSuccess) {
