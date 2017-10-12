@@ -14,7 +14,7 @@ public class Room {
     private boolean winGame;
     private String description;
 
-    public Room(String description, boolean winGame) {
+    public Room(String description, boolean winGame, int id) {
         id = 0; //for loop på room arraylength
         this.description = description;//"blabla"; //random decription
         this.winGame = winGame;

@@ -10,6 +10,7 @@ public class Player {
         this.name = name;
         this.roundsLeft = 100;
         this.currentRoom = startingRoom;
+        
     }
 
     public Room getCurrentRoom() {
@@ -25,6 +26,7 @@ public class Player {
         } else {
             return false;
         }
+    
         // inRoom = getRoom(direction);
     }
 }
