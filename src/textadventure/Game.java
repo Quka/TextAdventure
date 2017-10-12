@@ -78,7 +78,7 @@ public class Game
         rooms.add(new Room("Du kommer ind på herretoilettet. Du skal simpelthen tisse så meget, at fiskefileterne må vente lidt. Du åbner toiletdøren, men ser at Ronnie har glemt at låse døren! Du mister en runde", false, 13));
         rooms.add(new Room("Viceværten sidder og swiper på Tinder. Du tænker \"er han ikke gift med hende Alice fra regnskabsafdelingen?\"(((hans reaktion))) ", false, 14));
         rooms.add(new Room("Mødelokalet er tomt, men der står kopper og service fra sidste møde. Sikke et rod!(((boolean med oprydning. der kommer en ind, skal hun have hjælp eller ej)))", false, 15));
-        rooms.add(new Room("Employee office2", false, 16));
+        rooms.add(new Room("Tobias sidder med sit seneste blad om 3d-gaming, men du ved at han burde lave oplæg om et nyt TAG-koncept", false, 16));
         rooms.add(new Room("OMG! Hvad er det syn?! KANTINEN!! Du klarede det! Du skynder dig op i køen lige foran ham den arrogante fra din "
                 + "afdeling. Da du når frem til fadet er der kun 4 (((dependant on rounds left))) fiskefileter tilbage. Du snupper alle 4!", true, 17));
         rooms.add(new Room("Lisette står og pudrer næse. Hun opdager dig og langer dig en syngende lussing (((miste runde)))", false, 18));
