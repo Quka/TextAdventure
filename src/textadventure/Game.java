@@ -16,7 +16,7 @@ public class Game {
         io.put(startGame());
         io.put("Hvad hedder du, eventyrer?");
         String name = io.get();
-        io.put("Hej " + name + ", velkommen til Firma & Fiskefilet\n");
+        io.put("Hej " + name + ", velkommen til Firma & Fiskefilet. Tryk h for hjælp\n");
 
         createRooms();
 
@@ -26,7 +26,7 @@ public class Game {
 
         while (!gameEnded) {
             io.put(p.getCurrentRoom().getDescription() + "\n");
-            io.put("Skriv retning (e/s/w/n) eller h for hjælp");
+        //    io.put("Skriv retning (e/s/w/n) eller h for hjælp");
             boolean walkSuccess = p.walk(io.get());
             if (!walkSuccess) {
                 System.out.println("Der er ingen dør i den retning. Prøv igen!");
@@ -79,9 +79,9 @@ public class Game {
         rooms.add(new Room("Lisette står og pudrer næse. Hun opdager dig og langer dig en syngende lussing (((miste runde)))", false, 18));
         rooms.add(new Room("Projektgruppen sidder i mødelokalet. Vil du forsøge at forsinke dem i at nå fiskefileterne i kantinen? (((Muligheder actions))", false, 19));
 
-        for (Room room : rooms) {
-            System.out.println(room);
-        }
+//        for (Room room : rooms) {
+//            System.out.println(room);
+//        }
 
         rooms.get(0).setNorth(rooms.get(1));
 
