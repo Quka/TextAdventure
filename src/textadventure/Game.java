@@ -17,7 +17,7 @@ public class Game
     public void play()
     {
         io.put(startGame());
-        io.put("Indtast navn:");
+        io.put("Hvad hedder du, eventyrer?");
         String name = io.get();
         io.put("Hej " + name + ", velkommen til Firma & Fiskefilet\n");
 
@@ -44,12 +44,16 @@ public class Game
 
     public String startGame()
     {
-        return "****************************************************************\n"
-                + "** Det er lige blevet frokost, og det er fiskedag.\n"
-                + "** Du skal finde vej til kantinen inden alle fiskefileterne er udsolgt.\n"
-                + "** Alt det andet fisk lugter, derfor er det vigtigt du får fiskefilet\n"
-                + "** til frokost i dag\n"
-                + "****************************************************************\n";
+        return    "********************************************************\n"
+                + "***************    FIRMA & FISKEFILET    ***************\n"
+                + "********************************************************\n\n"
+                + "********************************************************\n"
+                + "** Det er lige blevet frokost, og det er fiskedag.    **\n"
+                + "** Du skal finde vej til kantinen inden alle fiske-   **\n"
+                + "** fileterne er udsolgt. Alt det andet fisk lugter,   **\n"
+                + "** og smager dårligt. Derfor er det vigtigt at du gør **\n"
+                + "** dit bedste for at få fiskefilet til frokost i dag  **\n"
+                + "********************************************************\n";
     }
 
     public void createRooms()
