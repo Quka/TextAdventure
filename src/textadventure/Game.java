@@ -61,24 +61,24 @@ public class Game
                 + "hvorfor en blind har lys tændt, (((lister du videre for at undgå at hun hører dig)))", false, 1));
         rooms.add(new Room("Døren knirker som du åbner den. Et kopirum! Det burde du have set komme. Især fordi det var en glasdør.", false, 2));
         rooms.add(new Room("Ups! Dametoilettet. Der hænger en klam stank i luften. Det må være Ruth, som har været i gang. (((Boolean om der er nogen derude)))", false, 3));
-        rooms.add(new Room("Employee office4", false, 4));
+        rooms.add(new Room("Det var ikke kantinen det her, men du finder tilgengæld kiks og kaffe til at lette sulten lidt (((+ runder)))", false, 4));
         rooms.add(new Room("Du træder ind i et lokale, hvor et vigtigt møde med en potentiel kunde er i gang. Du bliver nødt til at lade "
                 + "som om, at du er en sekretær", false, 5));
-        rooms.add(new Room("Employee office6", false, 6));
-        rooms.add(new Room("Employee office7", false, 7));
+        rooms.add(new Room("Rummet er tomt, men Phillipa har glemt sin håndtaske. (((Du bliver nysgerrig eller !)))", false, 6));
+        rooms.add(new Room("Du kommer til at vade ind i IT-lokalet, hvor alle nørderne sidder. De snakker ikke om andet end Rick & Morty og hvordan Heroes 3 var det bedste i serien.(((miste runde, energi)))", false, 7));
         rooms.add(new Room("Kopimaskinen summer stadig. Den er åbenbart lige blevet færdig. Du går nysgerrigt over og kigger i de udskrevne papirer. Det er chefens oplæg til spareforslag :o Du er nødt til at se om dit navn står på listen. Det koster en runde ekstra", false, 8));
         rooms.add(new Room("Du vader ind på chefens kontor. På hans skrivebord sidder sekretæren Line. Chefen ser, at du opdager dem flirte. (((bliver han sur, flov ect)))", false, 9));
-        rooms.add(new Room("Employee office8", false, 10));
+        rooms.add(new Room("Tine er ved at skrive en indkøbsseddel, da hun skal have gæster. Hun undskylder sig dog med, at hun skal bruge det til et IT-program", false, 10));
         rooms.add(new Room("Pedersen er på vej ud fra toilettet. Han vasker ikke fingre! Slut med at give ham hånden.", false, 11));
-        rooms.add(new Room("Employee office3", false, 12));
+        rooms.add(new Room("Du kommer ind i tekøkkenet, hvor du kan se Thomas har efterladt sin Red Bull. Den napper du selvfølgelig (((runde)))", false, 12));
         rooms.add(new Room("Du kommer ind på herretoilettet. Du skal simpelthen tisse så meget, at fiskefileterne må vente lidt. Du åbner toiletdøren, men ser at Ronnie har glemt at låse døren! Du mister en runde", false, 13));
         rooms.add(new Room("Viceværten sidder og swiper på Tinder. Du tænker \"er han ikke gift med hende Alice fra regnskabsafdelingen?\"(((hans reaktion))) ", false, 14));
         rooms.add(new Room("Mødelokalet er tomt, men der står kopper og service fra sidste møde. Sikke et rod!(((boolean med oprydning. der kommer en ind, skal hun have hjælp eller ej)))", false, 15));
         rooms.add(new Room("Employee office2", false, 16));
         rooms.add(new Room("OMG! Hvad er det syn?! KANTINEN!! Du klarede det! Du skynder dig op i køen lige foran ham den arrogante fra din "
                 + "afdeling. Da du når frem til fadet er der kun 4 (((dependant on rounds left))) fiskefileter tilbage. Du snupper alle 4!", true, 17));
-        rooms.add(new Room("Womens restroom1", false, 18));
-        rooms.add(new Room("Meetingroom1 bla bla", false, 19));
+        rooms.add(new Room("Lisette står og pudrer næse. Hun opdager dig og langer dig en syngende lussing (((miste runde)))", false, 18));
+        rooms.add(new Room("Projektgruppen sidder i mødelokalet. Vil du forsøge at forsinke dem i at nå fiskefileterne i kantinen? (((Muligheder actions))", false, 19));
 
         for (Room room : rooms)
         {
