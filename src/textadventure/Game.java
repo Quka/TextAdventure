@@ -33,12 +33,16 @@ public class Game
         p = new Player(name, rooms.get(0));
         boolean gameEnded = false;
 
+        io.put(p.getCurrentRoom().getDescription() + "\n");
+        
         while (!gameEnded)
         {
-            io.put(p.getCurrentRoom().getDescription() + "\n");
+           // io.put(p.getCurrentRoom().getDescription() + "\n");
 
             // Get a command from user
+            
             command();
+            
 
             if (p.getCurrentRoom().isWinGame() == true)
             {
@@ -111,6 +115,7 @@ public class Game
                 if (p.canWalk(command))
                 {
                     p.walk(command);
+                    io.put(p.getCurrentRoom().getDescription());
                 } else
                 {
                     io.put("Der er ingen rum i den retning. Prøv igen!\n");
@@ -266,7 +271,8 @@ public class Game
         addSpecialRoom(rooms, specialrooms);
         addSpecialRoom(rooms, specialrooms);
         addMeetingRoom(rooms, meetingrooms);
-
+        
+        //Setting possible ways to access rooms
         rooms.get(0).setNorth(rooms.get(1));
 
         rooms.get(1).setEast(rooms.get(2));
