@@ -4,7 +4,7 @@ import textio.*;
 
 public class Room {
 
-    private int id; //test for os selv indtil videre vi skal nok slette det Arlind <3
+    private int id; // Not necessary for the code to function
     private TextIO io = new TextIO(new SysTextIO());
     private Room north;
     private Room east;
@@ -15,8 +15,8 @@ public class Room {
     private String description;
 
     public Room(String description, boolean winGame, int id) {
-        id = 0; //for loop på room arraylength
-        this.description = description;//"blabla"; //random decription
+        this.id = id;
+        this.description = description;
         this.winGame = winGame;
     }
 
@@ -63,10 +63,6 @@ public class Room {
 
     public String getDescription() {
         return description;
-    }
-
-    public boolean winGame() {
-        return id == 19; //last room in array, kantine
     }
 
     @Override
