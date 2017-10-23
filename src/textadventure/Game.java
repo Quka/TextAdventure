@@ -23,9 +23,10 @@ public class Game
     public void play()
     {
         io.put(startGame());
-        io.put("Hvad hedder du, eventyrer?");
+        io.put("Hvad hedder du, arbejdstager?");
         String name = io.get();
         io.put("Hej " + name + ", velkommen til Firma & Fiskefilet\n"
+                + "Husk at du altid kan skrive h for hjælp\n"
                 + "-----------------------------------------\n");
 
         createRooms();
@@ -46,11 +47,11 @@ public class Game
 
             if (p.getCurrentRoom().isWinGame() == true)
             {
-                io.put(p.getCurrentRoom().getDescription());
+                //io.put(p.getCurrentRoom().getDescription());
                 gameEnded = true;
             }
         }
-        io.put("Game ended");
+        io.put("Spillet er slut! ");
     }
 
     public void addOfficeRoom(ArrayList<Room> rooms, ArrayList<Room> officerooms)
@@ -87,7 +88,8 @@ public class Game
         rooms.add(restrooms.get(removeIndex));
         restrooms.remove(removeIndex);
     }
-
+    
+    //Text shown when starting the game
     public String startGame()
     {
         return "********************************************************\n"
@@ -96,8 +98,8 @@ public class Game
                 + "********************************************************\n"
                 + "** Det er lige blevet frokost, og det er fiskedag.    **\n"
                 + "** Du skal finde vej til kantinen inden alle fiske-   **\n"
-                + "** fileterne er udsolgt. Alt det andet fisk lugter,   **\n"
-                + "** og smager dårligt. Derfor er det vigtigt at du gør **\n"
+                + "** fileterne er udsolgt. Alt det andet fisk lugter og **\n"
+                + "** smager dårligt. Derfor er det vigtigt, at du gør   **\n"
                 + "** dit bedste for at få fiskefilet til frokost i dag  **\n"
                 + "********************************************************\n";
     }
@@ -118,22 +120,24 @@ public class Game
                     io.put(p.getCurrentRoom().getDescription());
                 } else
                 {
-                    io.put("Der er ingen rum i den retning. Prøv igen!\n");
+                    io.put("Der er ingen dør i den retning. Prøv igen!\n");
                 }
                 break;
             case "H":
                 helpMenu();
                 break;
             case "Q":
-                io.put("Game ended");
+                io.put("Du har afsluttet spillet");
                 System.exit(0);
                 break;
             default:
-                io.put("Det var ikke en gyldig kommando! Prøv igen.\n");
+                io.put("Det er ikke en gyldig kommando! Du kan altid"
+                        + " skrive h for hjælp.\n");
                 break;
         }
     }
-
+    
+    // Menu you see when pressing h 
     private void helpMenu()
     {
         String str = "\nDu har følgende muligheder: \n"
@@ -151,8 +155,8 @@ public class Game
         //Adding starting position, always rooms(index0)
         rooms.add(new Room(
                 "Du sidder på dit kontor. Du kigger på uret og opdager,\n"
-                + "at du er sent på den. WTF! FISKEDAG! Bare der er\n"
-                + "fiskefilet tilbage, når du når kantinen", false, 0));
+                + "at du er sent på den. WTF! Bare der er fiskefilet\n"
+                + "tilbage, når du når kantinen!", false, 0));
 
         //Adding offices to <>officerooms, randomly placed later        
         officerooms.add(new Room(
@@ -160,31 +164,31 @@ public class Game
                 + "lige mod døråbningen. Du ser en gammel dame. SHHH!!\n"
                 + "Det må være hende de omtaler som \"blinde, snaksaglige,\n"
                 + "pensionsparate Ruth\". Forundret over "
-                + "hvorfor en blind har lys tændt, (((lister du videre for at undgå at hun hører dig)))", false, 1));
+                + "hvorfor en blind har lys tændt.", false, 1)); //lister du videre for at undgå at hun hører dig
 
         officerooms.add(new Room(
-                "Rummet er tomt, men Phillipa har glemt sin håndtaske. (((Du bliver nysgerrig eller !)))", false, 6));
+                "Der er ingen i rummet, men Phillipa har glemt sin håndtaske.", false, 6)); //nysgerrig eller !
 
         officerooms.add(new Room(
                 "Du kommer til at vade ind i IT-lokalet, hvor alle nørderne sidder.\n"
                 + "De snakker ikke om andet end Rick & Morty og hvordan Heroes 3 var\n"
-                + "det bedste i serien.(((miste runde, energi)))", false, 7));
+                + "det bedste i serien.", false, 7)); //miste runde
 
         officerooms.add(new Room(
                 "Det var ikke kantinen det her, men du finder tilgengæld\n"
-                + "kiks og kaffe til at lette sulten lidt (((+ runder)))", false, 4));
+                + "kiks og kaffe til at lette sulten lidt.", false, 4)); //+ runde
 
         officerooms.add(new Room(
                 "Tine er ved at skrive en indkøbsseddel, da hun skal have gæster.\n"
-                + "Hun undskylder sig dog med, at hun skal bruge det til et IT-program", false, 10));
+                + "Hun undskylder sig dog med, at hun skal bruge det til et IT-program.", false, 10));
 
         officerooms.add(new Room(
                 "Du kommer ind i tekøkkenet, hvor du kan se Thomas har efterladt\n"
-                + "sin Red Bull. Den napper du selvfølgelig (((runde)))", false, 12));
+                + "sin Red Bull. Den napper du selvfølgelig!", false, 12)); // + runde
 
         officerooms.add(new Room(
                 "Tobias sidder med sit seneste blad om 3d-gaming, men du ved at han burde\n"
-                + "lave oplæg om et nyt TAG-koncept", false, 16));
+                + "lave oplæg om et nyt TAG-koncept.", false, 16));
         
          //Adding copyrooms to <>copyrooms, randomly placed later 
 
@@ -196,13 +200,13 @@ public class Game
                 "Kopimaskinen summer stadig. Den er åbenbart lige blevet færdig.\n"
                 + "Du går nysgerrigt over og kigger i de udskrevne papirer. Det er\n"
                 + "chefens oplæg til spareforslag :o Du er nødt til at se om dit\n"
-                + "navn står på listen. Det koster en runde ekstra", false, 8));
+                + "navn står på listen. Det koster en runde ekstra.", false, 8));
         
          //Adding restrooms to <>restrooms, randomly placed later 
 
         restrooms.add(new Room(
                 "Ups! Dametoilettet. Der hænger en klam stank i luften.\n"
-                + "Det må være Ruth, som har været i gang. (((Boolean om der er nogen derude)))", false, 3));
+                + "Det må være Ruth, som har været i gang.", false, 3)); //nogen derude?
 
         restrooms.add(new Room(
                 "Pedersen er på vej ud fra toilettet. Han vasker ikke fingre!\n"
@@ -211,39 +215,39 @@ public class Game
         restrooms.add(new Room(
                 "Du kommer ind på herretoilettet. Du skal simpelthen tisse så meget,\n"
                 + "at fiskefileterne må vente lidt. Du åbner toiletdøren, men ser at Ronnie\n"
-                + "har glemt at låse døren! Du mister en runde", false, 13));
+                + "har glemt at låse døren! Du mister en runde.", false, 13));
 
         restrooms.add(new Room(
-                "Lisette står og pudrer næse. Hun opdager dig og langer dig en syngende lussing (((miste runde)))", false, 18));
+                "Lisette står og pudrer næse. Hun opdager dig og langer dig en syngende lussing.", false, 18)); //miste runde
         
         //Adding meetingrooms to<>meetingrooms, randomly placed later
 
         meetingrooms.add(new Room(
                 "Du træder ind i et lokale, hvor et vigtigt møde med en potentiel\n"
-                + "kunde er i gang. Du bliver nødt til at lade som om, at du er en sekretær", false, 5));
+                + "kunde er i gang. Du bliver nødt til at lade som om, at du er en sekretær.", false, 5));
 
         meetingrooms.add(new Room(
                 "Mødelokalet er tomt, men der står kopper og service fra sidste møde.\n"
-                + "Sikke et rod!(((boolean med oprydning. der kommer en ind, skal hun have hjælp eller ej)))", false, 15));
+                + "Sikke et rod!", false, 15)); //der kommer en ind, skal hun have hjælp eller ej
 
         meetingrooms.add(new Room(
                 "Projektgruppen sidder i mødelokalet. Vil du forsøge at forsinke dem i at\n"
-                + "nå fiskefileterne i kantinen? (((Muligheder actions))", false, 19));
+                + "nå fiskefileterne i kantinen?", false, 19)); //muligheder
         
         //Adding specialrooms to<>specialrooms, randomly placed later
 
         specialrooms.add(new Room(
                 "Du vader ind på chefens kontor. På hans skrivebord sidder sekretæren\n"
-                + "Line. Chefen ser, at du opdager dem flirte. (((bliver han sur, flov ect)))", false, 9));
+                + "Line. Chefen ser, at du opdager dem flirte.", false, 9)); //bliver sur, flov ect
 
         specialrooms.add(new Room(
                 "Viceværten sidder og swiper på Tinder. Du tænker \"er han ikke gift med\n"
-                + "hende Alice fra regnskabsafdelingen?\"(((hans reaktion))) ", false, 14));
+                + "hende Alice fra regnskabsafdelingen?\"", false, 14)); //hans reaktion
 
         specialrooms.add(new Room(
                 "OMG! Hvad er det syn?! KANTINEN!! Du klarede det! Du skynder dig op i køen\n"
                 + "lige foran ham den arrogante fra din afdeling. Da du når frem til fadet\n"
-                + "er der kun 4 (((dependant on rounds left))) fiskefileter tilbage. Du snupper alle 4!", true, 17));
+                + "er der kun "+ 4 +" fiskefileter tilbage. Du snupper alle "+ 4 +"!\n", true, 17)); // x antal fiskefiletter alt efter runder
         
         //Adding rooms(Inde1-5)
         addOfficeRoom(rooms, officerooms);
@@ -275,6 +279,7 @@ public class Game
         //Setting possible ways to access rooms
         rooms.get(0).setNorth(rooms.get(1));
 
+        rooms.get(1).setSouth(rooms.get(0));
         rooms.get(1).setEast(rooms.get(2));
         rooms.get(1).setWest(rooms.get(4));
 
@@ -288,6 +293,7 @@ public class Game
         rooms.get(4).setNorth(rooms.get(8));
         rooms.get(4).setEast(rooms.get(1));
 
+        rooms.get(5).setEast(rooms.get(4));
         rooms.get(5).setNorth(rooms.get(7));
         rooms.get(5).setSouth(rooms.get(6));
 
@@ -319,6 +325,7 @@ public class Game
         rooms.get(14).setNorth(rooms.get(18));
         rooms.get(14).setEast(rooms.get(15));
 
+        rooms.get(15).setSouth(rooms.get(9));
         rooms.get(15).setWest(rooms.get(14));
         rooms.get(15).setNorth(rooms.get(19));
         rooms.get(15).setEast(rooms.get(16));
