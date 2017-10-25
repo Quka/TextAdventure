@@ -3,70 +3,63 @@ package textadventure;
 import java.util.ArrayList;
 
 /**
- * Class used to create rooms and maze to tell which rooms can access
- * which other rooms
- * 
+ * Class used to create rooms and maze to tell which rooms can access which
+ * other rooms
+ *
  * @author thomasfritzboger
  */
-public class Maze
-{
+public class Maze {
+
     private ArrayList<Room> rooms = new ArrayList<>();
     private ArrayList<Room> officeRooms = new ArrayList<>();
     private ArrayList<Room> specialRooms = new ArrayList<>();
     private ArrayList<Room> copyRooms = new ArrayList<>();
     private ArrayList<Room> meetingRooms = new ArrayList<>();
     private ArrayList<Room> restRooms = new ArrayList<>();
-    
-    
-    public Maze()
-    {
-        
+
+    public Maze() {
+
     }
-    
-    private void addOfficeRoom()
-    {
+
+    private void addOfficeRoom() {
         int removeIndex = (int) (Math.random() * officeRooms.size());
         rooms.add(officeRooms.get(removeIndex));
         officeRooms.remove(removeIndex);
     }
 
-    private void addSpecialRoom(ArrayList<Room> rooms, ArrayList<Room> specialRooms)
-    {
+    private void addSpecialRoom(ArrayList<Room> rooms, ArrayList<Room> specialRooms) {
         int removeIndex = ((int) (Math.random() * specialRooms.size()));
         rooms.add(specialRooms.get(removeIndex));
         specialRooms.remove(removeIndex);
     }
 
-    private void addCopyRoom(ArrayList<Room> rooms, ArrayList<Room> copyRooms)
-    {
+    private void addCopyRoom(ArrayList<Room> rooms, ArrayList<Room> copyRooms) {
         int removeIndex = ((int) (Math.random() * copyRooms.size()));
         rooms.add(copyRooms.get(removeIndex));
         copyRooms.remove(removeIndex);
     }
 
-    private void addMeetingRoom(ArrayList<Room> rooms, ArrayList<Room> meetingRooms)
-    {
+    private void addMeetingRoom(ArrayList<Room> rooms, ArrayList<Room> meetingRooms) {
         int removeIndex = ((int) (Math.random() * meetingRooms.size()));
         rooms.add(meetingRooms.get(removeIndex));
         meetingRooms.remove(removeIndex);
     }
 
-    private void addRestRoom(ArrayList<Room> rooms, ArrayList<Room> restRooms)
-    {
+    private void addRestRoom(ArrayList<Room> rooms, ArrayList<Room> restRooms) {
         int removeIndex = ((int) (Math.random() * restRooms.size()));
         rooms.add(restRooms.get(removeIndex));
         restRooms.remove(removeIndex);
     }
-/**
- * Creates both rooms with parameters and maze by setting which rooms
- * can access which other rooms
- * 
- * @return ArrayList of rooms
- */
-    
+
+    /**
+     * Creates both rooms with parameters and maze by setting which rooms can
+     * access which other rooms
+     *
+     * @return ArrayList of rooms
+     */
+
     //either rename or divide into 2 methods because it also creates the maze? 
-    public ArrayList<Room> createRooms()
-    {
+    public ArrayList<Room> createRooms() {
         //Adding starting position, always rooms(index0)
         rooms.add(new Room(
                 "Du sidder på dit kontor. Du kigger på uret og opdager,\n"
@@ -104,9 +97,8 @@ public class Maze
         officeRooms.add(new Room(
                 "Tobias sidder med sit seneste blad om 3d-gaming, men du ved at han burde\n"
                 + "lave oplæg om et nyt TAG-koncept", false, 16));
-        
-         //Adding copyrooms to <>copyrooms, randomly placed later 
 
+        //Adding copyrooms to <>copyrooms, randomly placed later 
         copyRooms.add(new Room(
                 "Døren knirker som du åbner den. Et kopirum! Det burde\n "
                 + "du have set komme. Især fordi det var en glasdør.", false, 2));
@@ -116,9 +108,8 @@ public class Maze
                 + "Du går nysgerrigt over og kigger i de udskrevne papirer. Det er\n"
                 + "chefens oplæg til spareforslag 😮 Du er nødt til at se om dit\n"
                 + "navn står på listen. Det koster en runde ekstra", false, 8));
-        
-         //Adding restrooms to <>restrooms, randomly placed later 
 
+        //Adding restrooms to <>restrooms, randomly placed later 
         restRooms.add(new Room(
                 "Ups! Dametoilettet. Der hænger en klam stank i luften.\n"
                 + "Det må være Ruth, som har været i gang. (((Boolean om der er nogen derude)))", false, 3));
@@ -134,9 +125,8 @@ public class Maze
 
         restRooms.add(new Room(
                 "Lisette står og pudrer næse. Hun opdager dig og langer dig en syngende lussing (((miste runde)))", false, 18));
-        
-        //Adding meetingrooms to<>meetingrooms, randomly placed later
 
+        //Adding meetingrooms to<>meetingrooms, randomly placed later
         meetingRooms.add(new Room(
                 "Du træder ind i et lokale, hvor et vigtigt møde med en potentiel\n"
                 + "kunde er i gang. Du bliver nødt til at lade som om, at du er en sekretær", false, 5));
@@ -148,9 +138,8 @@ public class Maze
         meetingRooms.add(new Room(
                 "Projektgruppen sidder i mødelokalet. Vil du forsøge at forsinke dem i at\n"
                 + "nå fiskefileterne i kantinen? (((Muligheder actions))", false, 19));
-        
-        //Adding specialrooms to<>specialrooms, randomly placed later
 
+        //Adding specialrooms to<>specialrooms, randomly placed later
         specialRooms.add(new Room(
                 "Du vader ind på chefens kontor. På hans skrivebord sidder sekretæren\n"
                 + "Line. Chefen ser, at du opdager dem flirte. (((bliver han sur, flov ect)))", false, 9));
@@ -163,7 +152,7 @@ public class Maze
                 "OMG! Hvad er det syn?! KANTINEN!! Du klarede det! Du skynder dig op i køen\n"
                 + "lige foran ham den arrogante fra din afdeling. Da du når frem til fadet\n"
                 + "er der kun 4 (((dependant on rounds left))) fiskefileter tilbage. Du snupper alle 4!", true, 17));
-        
+
         //Adding rooms(Inde1-5)
         addOfficeRoom();
         addRestRoom(rooms, restRooms);
@@ -190,9 +179,7 @@ public class Maze
         addSpecialRoom(rooms, specialRooms);
         addSpecialRoom(rooms, specialRooms);
         addMeetingRoom(rooms, meetingRooms);
-        
-    
-        
+
         //Setting possible ways to access rooms
         rooms.get(0).setNorth(rooms.get(1));
 
@@ -255,7 +242,7 @@ public class Maze
         rooms.get(18).setSouth(rooms.get(14));
 
         rooms.get(19).setSouth(rooms.get(13));
-        
+
         return rooms;
     }
 }
