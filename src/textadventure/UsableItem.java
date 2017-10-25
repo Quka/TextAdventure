@@ -9,13 +9,15 @@ package textadventure;
 /**
  * @author Arlind U. <arlind.u at cph-au53@cphbusiness.dk>
  */
-public class ConsumableItem extends Item {
+public class UsableItem extends Item {
     
-    public ConsumableItem(String name, String description, int roundsLeftModifier) {
+    private Monster usableOn;
+    
+    public UsableItem(String name, String description, int roundsLeftModifier) {
         super(name, description, roundsLeftModifier);
     }
     
-    public void changeRoundsLeft(Player p) {
-        p.changeRounds(roundsLeftModifier);
+    public boolean isUsable() {
+        
     }
 }

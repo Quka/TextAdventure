@@ -10,12 +10,14 @@ package textadventure;
  */
 abstract public class Item {
 
-    private String name;
-    private String description;
+    protected String name;
+    protected String description;
+    protected int roundsLeftModifier;
     
-    public Item (String name, String description) {
+    public Item (String name, String description, int roundsLeftModifier) {
         this.name = name;
         this.description = description;
+        this.roundsLeftModifier = roundsLeftModifier;
     }
 
 }
