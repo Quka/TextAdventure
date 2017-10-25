@@ -1,12 +1,11 @@
 package textadventure;
 
 interface MainCharacter {
- 
-    
-Room getCurrentRoom();
 
-void walk(String direction);
+    public Room getCurrentRoom();
 
-boolean canWalk(String direction);
+    public void walk(String direction);
+
+    public boolean canWalk(String direction);
 
 }

@@ -12,12 +12,10 @@ package textadventure;
 public class Monster implements MainCharacter {
 
     private String name;
-    private int roundsLeft;
     private Room currentRoom;
 
     public Monster(String name, Room startingRoom) {
         this.name = name;
-        this.roundsLeft = 100;
         this.currentRoom = startingRoom;
     }
 

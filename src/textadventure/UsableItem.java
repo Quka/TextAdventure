@@ -18,6 +18,7 @@ public class UsableItem extends Item {
     }
     
     public boolean isUsable() {
-        
+        // not done
+        return false;
     }
 }
