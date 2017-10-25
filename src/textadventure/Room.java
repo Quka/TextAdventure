@@ -6,7 +6,7 @@ import textio.*;
 /**
  * Room represents an area of the maze
  * 
- * @author Ionsight
+ * @author Group 7
  */
 public class Room {
 
