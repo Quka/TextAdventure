@@ -1,6 +1,6 @@
 package textadventure;
 
-public class Player {
+public class Player implements MainCharacter {
 
     private String name;
     private int roundsLeft;
