@@ -32,11 +32,30 @@ public class Monster implements MainCharacter {
     public void walk(String direction) {
         currentRoom = currentRoom.getRoom(direction);
     }
-    
+
     public void moveMonster() {
-        ArrayList<Room> availableRooms = new ArrayList<>();
-        // random fra 1 - 4
-        
-        walk("direction");
+        boolean cont = true;
+        ArrayList<String> availableDirections = new ArrayList<>();
+        availableDirections.add("N");
+        availableDirections.add("E");
+        availableDirections.add("S");
+        availableDirections.add("W");
+
+        do {
+            int rand = (int) (Math.random() * availableDirections.size());
+            String direction = availableDirections.get(rand);
+
+            System.out.println(direction);
+            System.out.println(availableDirections);
+
+            // try and walk
+            if (currentRoom.getRoom(direction) != null) {
+                this.walk(direction);
+                cont = false;
+            } else {
+                // remove direction
+                availableDirections.remove(rand);
+            }
+        } while (cont);
     }
 }

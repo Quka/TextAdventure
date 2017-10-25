@@ -24,14 +24,14 @@ public class Game {
         io.put("Hej " + name + ", velkommen til Firma & Fiskefilet\n"
                 + "Husk at du altid kan skrive h for hjælp\n"
                 + "-----------------------------------------\n");
-        
+
         // Setup rooms for the maze
         m = new Maze();
         ArrayList<Room> rooms = m.createRooms();
-        
+
         // Initialize characters
         p = new Player(name, rooms.get(0));
-        monster = new Monster("Chefen", rooms.get(11));
+        monster = new Monster("Chefen", rooms.get(12));
 
         io.put(p.getCurrentRoom().getDescription() + "\n");
         boolean gameEnded = false;
@@ -40,8 +40,10 @@ public class Game {
             // Get a command from user
             command();
             
-            // Move monster
-            
+            if(p.getCurrentRoom().equals(monster.getCurrentRoom())) {
+                // # Brug item her / mist liv
+                System.out.println("Monster og spiller i samme rum");
+            }
 
             if (p.getCurrentRoom().isWinGame() == true) {
                 //io.put(p.getCurrentRoom().getDescription());
@@ -85,6 +87,9 @@ public class Game {
                     p.changeRounds(-3);
                     io.clear();
                     io.put(p.getCurrentRoom().getDescription());
+
+                    // Move monster, only if user also moves (issues move command)
+                    monster.moveMonster();
                 } else {
                     io.put("Der er ingen dør i den retning. Prøv igen!\n");
                     p.changeRounds(-1);
