@@ -4,21 +4,21 @@
  * and open the template in the editor.
  */
 
-package textadventure;
+package textadventure.Item;
+
+import textadventure.Item.Item;
+import textadventure.Characters.Player;
 
 /**
  * @author Arlind U. <arlind.u at cph-au53@cphbusiness.dk>
  */
-public class UsableItem extends Item {
+public class ConsumableItem extends Item {
     
-    private Monster usableOn;
-    
-    public UsableItem(String name, String description, int roundsLeftModifier) {
+    public ConsumableItem(String name, String description, int roundsLeftModifier) {
         super(name, description, roundsLeftModifier);
     }
     
-    public boolean isUsable() {
-        // not done
-        return false;
+    public void changeRoundsLeft(Player p) {
+        p.changeRounds(roundsLeftModifier);
     }
 }

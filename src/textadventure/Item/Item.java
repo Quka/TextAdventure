@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package textadventure;
+package textadventure.Item;
 
 /**
  * @author Arlind U. <arlind.u at cph-au53@cphbusiness.dk>

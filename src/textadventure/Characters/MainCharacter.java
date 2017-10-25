@@ -1,4 +1,6 @@
-package textadventure;
+package textadventure.Characters;
+
+import textadventure.Room;
 
 interface MainCharacter {
 

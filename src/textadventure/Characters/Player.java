@@ -1,4 +1,8 @@
-package textadventure;
+package textadventure.Characters;
+
+import textadventure.Characters.MainCharacter;
+import textadventure.Inventory;
+import textadventure.Room;
 
 public class Player implements MainCharacter {
 

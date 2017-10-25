@@ -1,5 +1,7 @@
 package textadventure;
 
+import textadventure.Characters.Monster;
+import textadventure.Characters.Player;
 import java.util.ArrayList;
 import textio.*;
 

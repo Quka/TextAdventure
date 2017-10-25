@@ -5,6 +5,7 @@
  */
 package textadventure;
 
+import textadventure.Item.ConsumableItem;
 import java.util.ArrayList;
 
 /**

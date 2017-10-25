@@ -6,6 +6,7 @@
 
 package textadventure;
 
+import textadventure.Item.Item;
 import java.util.ArrayList;
 
 /**

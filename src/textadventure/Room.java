@@ -1,5 +1,6 @@
 package textadventure;
 
+import textadventure.Item.Item;
 import textio.*;
 
 public class Room {
