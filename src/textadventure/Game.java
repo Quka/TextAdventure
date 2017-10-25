@@ -7,7 +7,7 @@ import textio.*;
 
 /**
  * Game class is responsible for the game
- * 
+ *
  * @author Group 7
  */
 public class Game {
@@ -16,17 +16,20 @@ public class Game {
     private Player p;
     private Monster monster;
     private Maze m;
-/**
- * Contructs a new Game
- * 
- */
+
+    /**
+     * Contructs a new Game
+     *
+     */
     public Game() {
 
     }
-/**
- * GameController. Is responsible for calling methods and starting and ending the game 
- *
- */
+
+    /**
+     * GameController. Is responsible for calling methods and starting and
+     * ending the game
+     *
+     */
     public void play() {
         io.put(startGame());
         io.put("Hvad hedder du, arbejdstager?");
@@ -50,8 +53,8 @@ public class Game {
 
             // Get a command from user
             command();
-            
-            if(p.getCurrentRoom().equals(monster.getCurrentRoom())) {
+
+            if (p.getCurrentRoom().equals(monster.getCurrentRoom())) {
                 // # Brug item her / mist liv
                 System.out.println("Monster og spiller i samme rum");
             }
@@ -71,11 +74,11 @@ public class Game {
         io.put("Spillet er slut! ");
     }
 
-   /**
-    * Text (String) shown when starting game
-    * 
-    * @return 
-    */
+    /**
+     * Text (String) shown when starting game
+     *
+     * @return
+     */
     public String startGame() {
         return "********************************************************\n"
                 + "***************    FIRMA & FISKEFILET    ***************\n"
@@ -91,7 +94,7 @@ public class Game {
 
     /**
      * Takes commands from user and reacts accordingly
-     * 
+     *
      */
     public void command() {
         String command = io.get().toUpperCase();
@@ -134,8 +137,8 @@ public class Game {
     }
 
     /**
-     * Menu showing the player which actions they can peform. 
-     * Is shown when user is entering "h"
+     * Menu showing the player which actions they can peform. Is shown when user
+     * is entering "h"
      */
     private void helpMenu() {
         String str = "\nDu har følgende muligheder: \n"
