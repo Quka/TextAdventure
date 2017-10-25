@@ -10,14 +10,16 @@ public class Room {
     private Room east;
     private Room south;
     private Room west;
+    private Item item;
 
     private boolean winGame;
     private String description;
 
-    public Room(String description, boolean winGame, int id) {
+    public Room(String description, boolean winGame, Item item) {
         this.id = id;
         this.description = description;
         this.winGame = winGame;
+        this.item=item;
     }
 
     public void setNorth(Room north) {
