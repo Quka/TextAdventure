@@ -5,7 +5,7 @@ import textio.*;
 
 /**
  * Room represents an area of the maze
- * 
+ *
  * @author Group 7
  */
 public class Room {
@@ -23,59 +23,59 @@ public class Room {
 
     /**
      * Contructs and initializes a room
-     * 
+     *
      * @param description
      * @param winGame
-     * @param item 
+     * @param item
      */
     public Room(String description, boolean winGame, Item item) {
         this.id = id;
         this.description = description;
         this.winGame = winGame;
-        this.item=item;
+        this.item = item;
     }
+
     /**
-    * Sets the room to the north of room
-    * 
-    * @param north 
-    */
+     * Sets the room to the north of room
+     *
+     * @param north
+     */
     public void setNorth(Room north) {
         this.north = north;
     }
-    
+
     /**
      * Sets the room to the east of room
-     * @param east 
+     *
+     * @param east
      */
-
     public void setEast(Room east) {
         this.east = east;
     }
-    
+
     /**
      * Sets the room to the south of room
-     * 
-     * @param south 
+     *
+     * @param south
      */
-
     public void setSouth(Room south) {
         this.south = south;
     }
-    
+
     /**
      * Sets the room to the west of room
-     * 
-     * @param west 
+     *
+     * @param west
      */
-
     public void setWest(Room west) {
         this.west = west;
     }
-/**
- * Check to see if game is won
- * 
- * @return boolean
- */
+
+    /**
+     * Checks to see if game is won
+     *
+     * @return boolean
+     */
     public boolean isWinGame() {
         return winGame;
     }
@@ -100,10 +100,12 @@ public class Room {
 
         return returnRoom;
     }
-/**
- * Shows room description
- * @return 
- */
+
+    /**
+     * Shows room description
+     *
+     * @return
+     */
     public String getDescription() {
         return description;
     }
@@ -113,5 +115,4 @@ public class Room {
         return "Game{" + description + '}';
     }
 
-    
 }
