@@ -23,4 +23,18 @@ public class Player implements MainCharacter {
     public boolean canWalk(String direction) {
         return currentRoom.getRoom(direction) != null;
     }
+    
+    public void addRounds(int bonus){
+        this.roundsLeft = roundsLeft + bonus;
+    }
+    
+    public void removeRounds(int penalty){
+            this.roundsLeft = roundsLeft - penalty;
+    }
+
+    public int getRoundsLeft() {
+        return roundsLeft;
+    }
+    
+   
 }

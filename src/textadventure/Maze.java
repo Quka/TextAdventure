@@ -195,6 +195,7 @@ public class Maze
 
         rooms.get(1).setEast(rooms.get(2));
         rooms.get(1).setWest(rooms.get(4));
+        rooms.get(1).setSouth(rooms.get(0));
 
         rooms.get(2).setWest(rooms.get(1));
         rooms.get(2).setNorth(rooms.get(10));
@@ -208,6 +209,7 @@ public class Maze
 
         rooms.get(5).setNorth(rooms.get(7));
         rooms.get(5).setSouth(rooms.get(6));
+        rooms.get(5).setEast(rooms.get(4));
 
         rooms.get(6).setNorth(rooms.get(5));
 
@@ -240,6 +242,7 @@ public class Maze
         rooms.get(15).setWest(rooms.get(14));
         rooms.get(15).setNorth(rooms.get(19));
         rooms.get(15).setEast(rooms.get(16));
+        rooms.get(15).setSouth(rooms.get(9));
 
         rooms.get(16).setWest(rooms.get(15));
         rooms.get(16).setEast(rooms.get(17));
