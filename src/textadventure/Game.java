@@ -17,6 +17,7 @@ public class Game {
         io.put(startGame());
         io.put("Hvad hedder du, arbejdstager?");
         String name = io.get();
+        io.clear();
         io.put("Hej " + name + ", velkommen til Firma & Fiskefilet\n"
                 + "Husk at du altid kan skrive h for hjælp\n"
                 + "-----------------------------------------\n");
@@ -41,10 +42,12 @@ public class Game {
             }
             if (p.getRoundsLeft() < 1) {
                 gameEnded = true;
+                io.clear();
                 io.put("\nDu var for langsom. Alle fiskefiletterne er væk.\n"
                         + "Du må hjem og se om mor har fiskefiletter i fryseren :(\n");
             }
         }
+        io.clear();
         io.put("Spillet er slut! ");
     }
 
@@ -72,11 +75,12 @@ public class Game {
             case "W":
                 if (p.canWalk(command)) {
                     p.walk(command);
-                    p.removeRounds(3);
+                    p.changeRounds(-3);
+                    io.clear();
                     io.put(p.getCurrentRoom().getDescription());
                 } else {
                     io.put("Der er ingen dør i den retning. Prøv igen!\n");
-                    p.removeRounds(1);
+                    p.changeRounds(-1);
                 }
                 break;
             case "H":
@@ -89,9 +93,11 @@ public class Game {
             case "T":
                 io.put("" + p.getRoundsLeft());
                 break;
+            case "PICK UP":
+                break;
             default:
-                io.put("Det er ikke en gyldig kommando! Du kan altid"
-                        + " skrive h for hjælp.\n");
+                io.put("Det er ikke en gyldig kommando!\n"
+                        + "Du kan altid skrive h for hjælp.\n");
                 break;
         }
     }
@@ -106,6 +112,7 @@ public class Game {
                 + "H - for hjælp\n"
                 + "T - for at se resterende runder"
                 + "Q - for at afslutte spillet\n";
+        io.clear();
         io.put(str);
     }
 }
