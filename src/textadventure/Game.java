@@ -31,7 +31,6 @@ public class Game {
         io.put(p.getCurrentRoom().getDescription() + "\n");
 
         while (!gameEnded) {
-            // io.put(p.getCurrentRoom().getDescription() + "\n");
 
             // Get a command from user
             command();
@@ -39,6 +38,11 @@ public class Game {
             if (p.getCurrentRoom().isWinGame() == true) {
                 //io.put(p.getCurrentRoom().getDescription());
                 gameEnded = true;
+            }
+            if (p.getRoundsLeft() < 1) {
+                gameEnded = true;
+                io.put("\nDu var for langsom. Alle fiskefiletterne er væk.\n"
+                        + "Du må hjem og se om mor har fiskefiletter i fryseren :(\n");
             }
         }
         io.put("Spillet er slut! ");
@@ -100,6 +104,7 @@ public class Game {
                 + "W - for at gå mod vest\n"
                 + "N - for at gå mod nord\n"
                 + "H - for hjælp\n"
+                + "T - for at se resterende runder"
                 + "Q - for at afslutte spillet\n";
         io.put(str);
     }

@@ -8,7 +8,7 @@ public class Player implements MainCharacter {
 
     public Player(String name, Room startingRoom) {
         this.name = name;
-        this.roundsLeft = 100;
+        this.roundsLeft = 10;
         this.currentRoom = startingRoom;
     }
 
