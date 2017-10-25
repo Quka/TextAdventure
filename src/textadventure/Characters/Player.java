@@ -4,6 +4,11 @@ import textadventure.Characters.MainCharacter;
 import textadventure.Inventory;
 import textadventure.Room;
 
+/**
+ * Player represents the human player. 
+ * 
+ * @author Ionsight
+ */
 public class Player implements MainCharacter {
 
     private String name;
