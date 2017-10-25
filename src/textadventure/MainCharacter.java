@@ -6,6 +6,4 @@ interface MainCharacter {
 
     public void walk(String direction);
 
-    public boolean canWalk(String direction);
-
 }

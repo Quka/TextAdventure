@@ -5,6 +5,8 @@
  */
 package textadventure;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Ionsight
@@ -19,15 +21,20 @@ public class Monster implements MainCharacter {
         this.currentRoom = startingRoom;
     }
 
+    @Override
     public Room getCurrentRoom() {
         return currentRoom;
     }
 
+    @Override
     public void walk(String direction) {
         currentRoom = currentRoom.getRoom(direction);
     }
-
-    public boolean canWalk(String direction) {
-        return currentRoom.getRoom(direction) != null;
+    
+    public void moveMonster() {
+        ArrayList<Room> availableRooms = new ArrayList<>();
+        // random fra 1 - 4
+        
+        walk("direction");
     }
 }

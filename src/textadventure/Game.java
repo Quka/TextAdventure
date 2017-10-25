@@ -7,6 +7,7 @@ public class Game {
 
     private TextIO io = new TextIO(new SysTextIO());
     private Player p;
+    private Monster monster;
     private Maze m;
 
     public Game() {
@@ -21,20 +22,24 @@ public class Game {
         io.put("Hej " + name + ", velkommen til Firma & Fiskefilet\n"
                 + "Husk at du altid kan skrive h for hjælp\n"
                 + "-----------------------------------------\n");
-
-//        createRooms();
+        
+        // Setup rooms for the maze
         m = new Maze();
-
         ArrayList<Room> rooms = m.createRooms();
+        
+        // Initialize characters
         p = new Player(name, rooms.get(0));
-        boolean gameEnded = false;
+        monster = new Monster("Chefen", rooms.get(11));
 
         io.put(p.getCurrentRoom().getDescription() + "\n");
-
+        boolean gameEnded = false;
         while (!gameEnded) {
 
             // Get a command from user
             command();
+            
+            // Move monster
+            
 
             if (p.getCurrentRoom().isWinGame() == true) {
                 //io.put(p.getCurrentRoom().getDescription());
@@ -110,7 +115,7 @@ public class Game {
                 + "W - for at gå mod vest\n"
                 + "N - for at gå mod nord\n"
                 + "H - for hjælp\n"
-                + "T - for at se resterende runder"
+                + "T - for at se resterende runder\n"
                 + "Q - for at afslutte spillet\n";
         io.clear();
         io.put(str);
