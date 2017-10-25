@@ -5,17 +5,28 @@ import textadventure.Characters.Player;
 import java.util.ArrayList;
 import textio.*;
 
+/**
+ * Game class is responsible for the game
+ * 
+ * @author Group 7
+ */
 public class Game {
 
     private TextIO io = new TextIO(new SysTextIO());
     private Player p;
     private Monster monster;
     private Maze m;
-
+/**
+ * Contructs a new Game
+ * 
+ */
     public Game() {
 
     }
-
+/**
+ * GameController. Is responsible for calling methods and starting and ending the game 
+ *
+ */
     public void play() {
         io.put(startGame());
         io.put("Hvad hedder du, arbejdstager?");
@@ -60,7 +71,11 @@ public class Game {
         io.put("Spillet er slut! ");
     }
 
-    //Text shown when starting the game
+   /**
+    * Text (String) shown when starting game
+    * 
+    * @return 
+    */
     public String startGame() {
         return "********************************************************\n"
                 + "***************    FIRMA & FISKEFILET    ***************\n"
@@ -74,6 +89,10 @@ public class Game {
                 + "********************************************************\n";
     }
 
+    /**
+     * Takes commands from user and reacts accordingly
+     * 
+     */
     public void command() {
         String command = io.get().toUpperCase();
 
@@ -114,7 +133,10 @@ public class Game {
         }
     }
 
-    // Menu you see when pressing h 
+    /**
+     * Menu showing the player which actions they can peform. 
+     * Is shown when user is entering "h"
+     */
     private void helpMenu() {
         String str = "\nDu har følgende muligheder: \n"
                 + "E - for at gå mod øst\n"
