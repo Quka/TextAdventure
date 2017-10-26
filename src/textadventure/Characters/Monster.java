@@ -10,7 +10,8 @@ import java.util.ArrayList;
 import textadventure.Room;
 
 /**
- *
+ * "Boss" walking around in the maze
+ * 
  * @author Ionsight
  */
 public class Monster implements MainCharacter {
@@ -18,6 +19,12 @@ public class Monster implements MainCharacter {
     private String name;
     private Room currentRoom;
 
+    /**
+     * Contructs a monster and places it in the maze
+     * 
+     * @param name
+     * @param startingRoom 
+     */
     public Monster(String name, Room startingRoom) {
         this.name = name;
         this.currentRoom = startingRoom;
@@ -33,6 +40,10 @@ public class Monster implements MainCharacter {
         currentRoom = currentRoom.getRoom(direction);
     }
 
+    /**
+     * Checks 
+     * 
+     */
     public void moveMonster() {
         boolean cont = true;
         ArrayList<String> availableDirections = new ArrayList<>();
