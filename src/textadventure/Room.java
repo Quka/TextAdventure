@@ -101,6 +101,19 @@ public class Room {
         return returnRoom;
     }
 
+    public void removeItem(){
+       this.item=null;
+    }
+    
+    public void addItemToRoom(){
+        this.item = item;
+    }
+
+    public Item getItem()
+    {
+        return item;
+    }
+    
     /**
      * Shows room description
      *

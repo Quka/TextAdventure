@@ -64,7 +64,7 @@ public class Maze {
         rooms.add(new Room(
                 "Du sidder på dit kontor. Du kigger på uret og opdager,\n"
                 + "at du er sent på den. WTF! FISKEDAG! Bare der er\n"
-                + "fiskefilet tilbage, når du når kantinen", false, 0));
+                + "fiskefilet tilbage, når du når kantinen", false, null));
 
         //Adding offices to <>officerooms, randomly placed later        
         officeRooms.add(new Room(

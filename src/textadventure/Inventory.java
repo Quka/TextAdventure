@@ -14,23 +14,36 @@ import java.util.ArrayList;
 public class Inventory
 {
 
-    private ArrayList<Item> items = new ArrayList<>();
+    private ArrayList<Item> items;
     private int capacity;
 
     public Inventory()
     {
+        items = new ArrayList<>();
         capacity = 10;
+        
     }
 
     // add to inventory
-    private void addToInventory(Item item)
+   public void addToInventory(Item item)
     {
         items.add(item);
           
     }
+   
+   public int getInventorySize(){
+       return items.size();
+   }
+
+    public int getCapacity()
+    {
+        return capacity;
+    }
+   
+   
 
     // show inventory
-    private void showInventory()
+    public void showInventory()
     {
 
         for (Item item : items)
@@ -40,7 +53,7 @@ public class Inventory
     }
 
     // remove item from inventory
-    private void removeItemFromInventory(Item item)
+    public void removeItemFromInventory(Item item)
     {
         items.remove(item);
 

@@ -1,8 +1,11 @@
 package textadventure.Characters;
 
-import textadventure.Characters.MainCharacter;
+import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 import textadventure.Inventory;
+import textadventure.Item.Item;
 import textadventure.Room;
+import textio.SysTextIO;
+import textio.TextIO;
 
 /**
  * Player represents the human player. 
@@ -15,6 +18,7 @@ public class Player implements MainCharacter {
     private int roundsLeft;
     private Room currentRoom;
     private Inventory inventory;
+    private TextIO io = new TextIO(new SysTextIO());
 
     /**
      * Creates and initilizes a human player with "health" and inventory
@@ -74,6 +78,41 @@ public class Player implements MainCharacter {
      */
     public int getRoundsLeft() {
         return roundsLeft;
+    }
+    
+   
+    public void addItemToInventory(Item item, Room room){
+        if (inventory.getInventorySize()>=inventory.getCapacity())
+        {
+            io.put("Du har ikke plads til flere ting på dig");
+        }
+        else  {
+            inventory.addToInventory(item);
+            room.removeItem();
+        }
+        
+        
+    }
+    
+    public void useItem(Item item, int rounds){
+        inventory.removeItemFromInventory(item);
+        rounds += item.getRoundsModifier();
+        
+    }
+    
+    public void consumeItem(Item item, int rounds){
+        inventory.removeItemFromInventory(item);
+        rounds += item.getRoundsModifier();
+        
+    }
+    public void dropItem(Item item, Room room){
+        if (room.getItem() !=null){
+            io.put("Du må ikke ligge flere ting her");
+        }
+        else {
+            inventory.removeItemFromInventory(item);
+            room.addItemToRoom();
+        }
     }
 
 }
