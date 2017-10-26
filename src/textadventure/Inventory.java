@@ -41,15 +41,16 @@ public class Inventory
     }
    
    
-
     // show inventory
-    public void showInventory()
+    public String[] showInventory()
     {
 
-        for (Item item : items)
+        String[] res = new String[items.size()];
+        for (int i = 0; i < res.length; i++)
         {
-            System.out.println(item); // invokes Item.toString()
+            res[i] = items.get(i).toString();
         }
+        return res;
     }
 
     // remove item from inventory
