@@ -11,58 +11,49 @@ import java.util.ArrayList;
 /**
  * @author Arlind U. <arlind.u at cph-au53@cphbusiness.dk>
  */
-public class Inventory
-{
+public class Inventory {
 
     private ArrayList<Item> items;
     private int capacity;
 
-    public Inventory()
-    {
+    public Inventory() {
         items = new ArrayList<>();
         capacity = 10;
-        
+
     }
 
     // add to inventory
-   public void addToInventory(Item item)
-    {
+    public void addToInventory(Item item) {
         items.add(item);
-          
-    }
-   
-   public int getInventorySize(){
-       return items.size();
-   }
 
-    public int getCapacity()
-    {
+    }
+
+    public int getInventorySize() {
+        return items.size();
+    }
+
+    public int getCapacity() {
         return capacity;
     }
-   
-   
+
     // show inventory
-    public String[] showInventory()
-    {
+    public String[] showInventory() {
 
         String[] res = new String[items.size()];
-        for (int i = 0; i < res.length; i++)
-        {
+        for (int i = 0; i < res.length; i++) {
             res[i] = items.get(i).toString();
         }
         return res;
     }
 
     // remove item from inventory
-    public void removeItemFromInventory(Item item)
-    {
+    public void removeItemFromInventory(Item item) {
         items.remove(item);
 
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return items.toString();
     }
 

@@ -72,86 +72,86 @@ public class Maze {
                 + "lige mod døråbningen. Du ser en gammel dame. SHHH!!\n"
                 + "Det må være hende de omtaler som \"blinde, snaksaglige,\n"
                 + "pensionsparate Ruth\". Forundret over "
-                + "hvorfor en blind har lys tændt, (((lister du videre for at undgå at hun hører dig)))", false, 1));
+                + "hvorfor en blind har lys tændt, (((lister du videre for at undgå at hun hører dig)))", false, null));
 
         officeRooms.add(new Room(
-                "Rummet er tomt, men Phillipa har glemt sin håndtaske. (((Du bliver nysgerrig eller !)))", false, 6));
+                "Rummet er tomt, men Phillipa har glemt sin håndtaske. (((Du bliver nysgerrig eller !)))", false, null));
 
         officeRooms.add(new Room(
                 "Du kommer til at vade ind i IT-lokalet, hvor alle nørderne sidder.\n"
                 + "De snakker ikke om andet end Rick & Morty og hvordan Heroes 3 var\n"
-                + "det bedste i serien.(((miste runde, energi)))", false, 7));
+                + "det bedste i serien.(((miste runde, energi)))", false, null));
 
         officeRooms.add(new Room(
                 "Det var ikke kantinen det her, men du finder tilgengæld\n"
-                + "kiks og kaffe til at lette sulten lidt (((+ runder)))", false, 4));
+                + "kiks og kaffe til at lette sulten lidt (((+ runder)))", false, null));
 
         officeRooms.add(new Room(
                 "Tine er ved at skrive en indkøbsseddel, da hun skal have gæster.\n"
-                + "Hun undskylder sig dog med, at hun skal bruge det til et IT-program", false, 10));
+                + "Hun undskylder sig dog med, at hun skal bruge det til et IT-program", false, null));
 
         officeRooms.add(new Room(
                 "Du kommer ind i tekøkkenet, hvor du kan se Thomas har efterladt\n"
-                + "sin Red Bull. Den napper du selvfølgelig (((runde)))", false, 12));
+                + "sin Red Bull. Den napper du selvfølgelig (((runde)))", false, null));
 
         officeRooms.add(new Room(
                 "Tobias sidder med sit seneste blad om 3d-gaming, men du ved at han burde\n"
-                + "lave oplæg om et nyt TAG-koncept", false, 16));
+                + "lave oplæg om et nyt TAG-koncept", false, null));
 
         //Adding copyrooms to <>copyrooms, randomly placed later 
         copyRooms.add(new Room(
                 "Døren knirker som du åbner den. Et kopirum! Det burde\n "
-                + "du have set komme. Især fordi det var en glasdør.", false, 2));
+                + "du have set komme. Især fordi det var en glasdør.", false, null));
 
         copyRooms.add(new Room(
                 "Kopimaskinen summer stadig. Den er åbenbart lige blevet færdig.\n"
                 + "Du går nysgerrigt over og kigger i de udskrevne papirer. Det er\n"
                 + "chefens oplæg til spareforslag 😮 Du er nødt til at se om dit\n"
-                + "navn står på listen. Det koster en runde ekstra", false, 8));
+                + "navn står på listen. Det koster en runde ekstra", false, null));
 
         //Adding restrooms to <>restrooms, randomly placed later 
         restRooms.add(new Room(
                 "Ups! Dametoilettet. Der hænger en klam stank i luften.\n"
-                + "Det må være Ruth, som har været i gang. (((Boolean om der er nogen derude)))", false, 3));
+                + "Det må være Ruth, som har været i gang. (((Boolean om der er nogen derude)))", false, null));
 
         restRooms.add(new Room(
                 "Pedersen er på vej ud fra toilettet. Han vasker ikke fingre!\n"
-                + "Slut med at give ham hånden.", false, 11));
+                + "Slut med at give ham hånden.", false, null));
 
         restRooms.add(new Room(
                 "Du kommer ind på herretoilettet. Du skal simpelthen tisse så meget,\n"
                 + "at fiskefileterne må vente lidt. Du åbner toiletdøren, men ser at Ronnie\n"
-                + "har glemt at låse døren! Du mister en runde", false, 13));
+                + "har glemt at låse døren! Du mister en runde", false, null));
 
         restRooms.add(new Room(
-                "Lisette står og pudrer næse. Hun opdager dig og langer dig en syngende lussing (((miste runde)))", false, 18));
+                "Lisette står og pudrer næse. Hun opdager dig og langer dig en syngende lussing (((miste runde)))", false, null));
 
         //Adding meetingrooms to<>meetingrooms, randomly placed later
         meetingRooms.add(new Room(
                 "Du træder ind i et lokale, hvor et vigtigt møde med en potentiel\n"
-                + "kunde er i gang. Du bliver nødt til at lade som om, at du er en sekretær", false, 5));
+                + "kunde er i gang. Du bliver nødt til at lade som om, at du er en sekretær", false, null));
 
         meetingRooms.add(new Room(
                 "Mødelokalet er tomt, men der står kopper og service fra sidste møde.\n"
-                + "Sikke et rod!(((boolean med oprydning. der kommer en ind, skal hun have hjælp eller ej)))", false, 15));
+                + "Sikke et rod!(((boolean med oprydning. der kommer en ind, skal hun have hjælp eller ej)))", false, null));
 
         meetingRooms.add(new Room(
                 "Projektgruppen sidder i mødelokalet. Vil du forsøge at forsinke dem i at\n"
-                + "nå fiskefileterne i kantinen? (((Muligheder actions))", false, 19));
+                + "nå fiskefileterne i kantinen? (((Muligheder actions))", false, null));
 
         //Adding specialrooms to<>specialrooms, randomly placed later
         specialRooms.add(new Room(
                 "Du vader ind på chefens kontor. På hans skrivebord sidder sekretæren\n"
-                + "Line. Chefen ser, at du opdager dem flirte. (((bliver han sur, flov ect)))", false, 9));
+                + "Line. Chefen ser, at du opdager dem flirte. (((bliver han sur, flov ect)))", false, null));
 
         specialRooms.add(new Room(
                 "Viceværten sidder og swiper på Tinder. Du tænker \"er han ikke gift med\n"
-                + "hende Alice fra regnskabsafdelingen?\"(((hans reaktion))) ", false, 14));
+                + "hende Alice fra regnskabsafdelingen?\"(((hans reaktion))) ", false, null));
 
         specialRooms.add(new Room(
                 "OMG! Hvad er det syn?! KANTINEN!! Du klarede det! Du skynder dig op i køen\n"
                 + "lige foran ham den arrogante fra din afdeling. Da du når frem til fadet\n"
-                + "er der kun 4 (((dependant on rounds left))) fiskefileter tilbage. Du snupper alle 4!", true, 17));
+                + "er der kun 4 (((dependant on rounds left))) fiskefileter tilbage. Du snupper alle 4!", true, null));
 
         //Adding rooms(Inde1-5)
         addOfficeRoom();

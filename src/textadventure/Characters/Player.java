@@ -8,8 +8,8 @@ import textio.SysTextIO;
 import textio.TextIO;
 
 /**
- * Player represents the human player. 
- * 
+ * Player represents the human player.
+ *
  * @author Ionsight
  */
 public class Player implements MainCharacter {
@@ -79,37 +79,33 @@ public class Player implements MainCharacter {
     public int getRoundsLeft() {
         return roundsLeft;
     }
-    
-   
-    public void addItemToInventory(Item item, Room room){
-        if (inventory.getInventorySize()>=inventory.getCapacity())
-        {
+
+    public void addItemToInventory(Item item, Room room) {
+        if (inventory.getInventorySize() >= inventory.getCapacity()) {
             io.put("Du har ikke plads til flere ting på dig");
-        }
-        else  {
+        } else {
             inventory.addToInventory(item);
             room.removeItem();
         }
-        
-        
+
     }
-    
-    public void useItem(Item item, int rounds){
+
+    public void useItem(Item item, int rounds) {
         inventory.removeItemFromInventory(item);
         rounds += item.getRoundsModifier();
-        
+
     }
-    
-    public void consumeItem(Item item, int rounds){
+
+    public void consumeItem(Item item, int rounds) {
         inventory.removeItemFromInventory(item);
         rounds += item.getRoundsModifier();
-        
+
     }
-    public void dropItem(Item item, Room room){
-        if (room.getItem() !=null){
+
+    public void dropItem(Item item, Room room) {
+        if (room.getItem() != null) {
             io.put("Du må ikke ligge flere ting her");
-        }
-        else {
+        } else {
             inventory.removeItemFromInventory(item);
             room.addItemToRoom();
         }
