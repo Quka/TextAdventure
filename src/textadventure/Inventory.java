@@ -16,7 +16,6 @@ public class Inventory
 
     private ArrayList<Item> items = new ArrayList<>();
     private int capacity;
-    private Item item;
 
     public Inventory()
     {
@@ -26,33 +25,23 @@ public class Inventory
     // add to inventory
     private void addToInventory(Item item)
     {
-        this.item = item;
         items.add(item);
+          
     }
 
     // show inventory
-    private void showInventory(ArrayList<Item> items)
+    private void showInventory()
     {
 
         for (Item item : items)
         {
-            System.out.println(items); // invokes Item.toString()
+            System.out.println(item); // invokes Item.toString()
         }
     }
 
-    // use item
-    private void useItem(Item item)
+    // remove item from inventory
+    private void removeItemFromInventory(Item item)
     {
-
-        this.item = item;
-        items.remove(item);
-
-    }
-
-    // remove item
-    private void removeItem(Item item)
-    {
-        this.item = item;
         items.remove(item);
 
     }
