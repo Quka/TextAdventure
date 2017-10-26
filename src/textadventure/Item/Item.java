@@ -19,5 +19,9 @@ abstract public class Item {
         this.effect = effect;
         this.roundsLeftModifier = roundsLeftModifier;
     }
+    
+    public int getRoundsModifier(){
+        return roundsLeftModifier;
+    }
 
 }
