@@ -41,7 +41,7 @@ public class Monster implements MainCharacter {
     }
 
     /**
-     * Checks 
+     * Moves the monster in a random available(!) direction
      * 
      */
     public void moveMonster() {
