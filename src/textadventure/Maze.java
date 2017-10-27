@@ -70,6 +70,8 @@ public class Maze {
                 + "at du er sent på den. WTF! FISKEDAG! Bare der er\n"
                 + "fiskefilet tilbage, når du når kantinen", false, null));
 
+        
+        
         //Adding offices to <>officerooms, randomly placed later        
         officeRooms.add(new Room(
                 "Du bliver kort blændet af en kontorlampe, som peger\n"
@@ -102,6 +104,8 @@ public class Maze {
                 "Tobias sidder med sit seneste blad om 3d-gaming, men du ved at han burde\n"
                 + "lave oplæg om et nyt TAG-koncept", false, null));
 
+        
+        
         //Adding copyrooms to <>copyrooms, randomly placed later 
         copyRooms.add(new Room(
                 "Døren knirker som du åbner den. Et kopirum! Det burde\n "
@@ -113,6 +117,8 @@ public class Maze {
                 + "chefens oplæg til spareforslag 😮 Du er nødt til at se om dit\n"
                 + "navn står på listen. Det koster en runde ekstra", false, null));
 
+        
+        
         //Adding restrooms to <>restrooms, randomly placed later 
         restRooms.add(new Room(
                 "Ups! Dametoilettet. Der hænger en klam stank i luften.\n"
@@ -130,6 +136,8 @@ public class Maze {
         restRooms.add(new Room(
                 "Lisette står og pudrer næse. Hun opdager dig og langer dig en syngende lussing", false, null));
 
+        
+        
         //Adding meetingrooms to<>meetingrooms, randomly placed later
         meetingRooms.add(new Room(
                 "Du træder ind i et lokale, hvor et vigtigt møde med en potentiel\n"
@@ -143,6 +151,8 @@ public class Maze {
                 "Projektgruppen sidder i mødelokalet. Vil du forsøge at forsinke dem i at\n"
                 + "nå fiskefileterne i kantinen?", false, null)); //mulige actions
 
+        
+        
         //Adding specialrooms to<>specialrooms, randomly placed later
         specialRooms.add(new Room(
                 "Du vader ind på chefens kontor. På hans skrivebord sidder sekretæren\n"
@@ -157,6 +167,8 @@ public class Maze {
                 + "lige foran ham den arrogante fra din afdeling. Da du når frem til fadet\n"
                 + "er der kun 4 fiskefileter tilbage. Du snupper alle 4!", true, null));
 
+        
+        
         //Adding rooms(Inde1-5)
         addOfficeRoom();
         addRestRoom(rooms, restRooms);
@@ -164,6 +176,8 @@ public class Maze {
         addOfficeRoom();
         addRestRoom(rooms, restRooms);
 
+        
+        
         //Adding rooms(Inde6-10)
         addMeetingRoom(rooms, meetingRooms);
         addCopyRoom(rooms, copyRooms);
@@ -171,6 +185,8 @@ public class Maze {
         addOfficeRoom();
         addCopyRoom(rooms, copyRooms);
 
+        
+        
         //Adding rooms(Inde11-15)
         addOfficeRoom();
         addSpecialRoom(rooms, specialRooms);
@@ -178,12 +194,16 @@ public class Maze {
         addRestRoom(rooms, restRooms);
         addOfficeRoom();
 
+        
+        
         //Adding rooms(Inde16-19)
         addOfficeRoom();
         addSpecialRoom(rooms, specialRooms);
         addSpecialRoom(rooms, specialRooms);
         addMeetingRoom(rooms, meetingRooms);
 
+        
+        
         //Setting possible ways to access rooms
         rooms.get(0).setNorth(rooms.get(1));
 
