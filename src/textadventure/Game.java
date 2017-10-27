@@ -16,18 +16,22 @@ import textio.*;
  *
  * @author Group 7
  */
-public class Game {
+public class Game
+{
 
     private TextIO io = new TextIO(new SysTextIO());
     private Player p;
     private Monster monster;
     private Maze m;
+    private HighScore h;
+    int[] highScore = new int[5];
 
     /**
      * Contructs a new Game
      *
      */
-    public Game() {
+    public Game()
+    {
 
     }
 
@@ -36,8 +40,9 @@ public class Game {
      * ending the game
      *
      */
-    public void play() throws IOException {
-        
+    public void play() 
+    {
+
         io.put(startGame());
         io.put("Hvad hedder du, arbejdstager?");
         String name = io.get();
@@ -45,7 +50,6 @@ public class Game {
         io.put("Hej " + name + ", velkommen til Firma & Fiskefilet\n"
                 + "Husk at du altid kan skrive h for hjælp\n"
                 + "-----------------------------------------\n");
-io.put(getHighScore());
         // Setup rooms for the maze
         m = new Maze();
         ArrayList<Room> rooms = m.createRooms();
@@ -53,25 +57,36 @@ io.put(getHighScore());
         // Initialize characters
         p = new Player(name, rooms.get(0));
         monster = new Monster("Chefen", rooms.get(12));
-
+        
+        h = new HighScore();
+        h.loadHighScoresFromFile();
+        io.put(h.getHighScores());
+        
         io.put(p.getCurrentRoom().getDescription());
         boolean gameEnded = false;
-        while (!gameEnded) {
+        while (!gameEnded)
+        {
 
             // Get a command from user
             command();
 
-            if (p.getCurrentRoom().equals(monster.getCurrentRoom())) {
+            if (p.getCurrentRoom().equals(monster.getCurrentRoom()))
+            {
                 // # Brug item her / mist liv
                 System.out.println("Monster og spiller i samme rum. Du dør");
                 p.changeRounds(-p.getRoundsLeft()); //Sætter p spillerunder til 0, så spiller "dør"
             }
 
-            if (p.getCurrentRoom().isWinGame() == true) {
+            if (p.getCurrentRoom().isWinGame() == true)
+            {
                 //io.put(p.getCurrentRoom().getDescription());
                 gameEnded = true;
+                h.sortHighScores(p.getRoundsLeft());
+                h.saveHighScoresToFile();
+                io.put(h.getHighScores());
             }
-            if (p.getRoundsLeft() < 1) {
+            if (p.getRoundsLeft() < 1)
+            {
                 gameEnded = true;
                 io.put("\n\n\n");
                 io.put("Du var for langsom. Alle fiskefiletterne er væk.\n"
@@ -87,7 +102,8 @@ io.put(getHighScore());
      *
      * @return
      */
-    public String startGame() {
+    public String startGame()
+    {
         return "\n********************************************************\n"
                 + "***************    FIRMA & FISKEFILET    ***************\n"
                 + "********************************************************\n\n"
@@ -104,15 +120,18 @@ io.put(getHighScore());
      * Takes commands from user and reacts accordingly
      *
      */
-    public void command() {
+    public void command()
+    {
         String command = io.get().toUpperCase();
 
-        switch (command) {
+        switch (command)
+        {
             case "N":
             case "E":
             case "S":
             case "W":
-                if (p.canWalk(command)) {
+                if (p.canWalk(command))
+                {
                     p.walk(command);
                     p.changeRounds(-3);
                     io.put("\n\n\n");
@@ -120,7 +139,8 @@ io.put(getHighScore());
 
                     // Move monster, only if user also moves (issues move command)
                     monster.moveMonster();
-                } else {
+                } else
+                {
                     io.put("Der er ingen dør i den retning. Prøv igen!\n");
                     p.changeRounds(-1);
                 }
@@ -137,6 +157,8 @@ io.put(getHighScore());
                 break;
             case "PICK UP":
                 break;
+            case "Win":
+                
             default:
                 io.put("Det er ikke en gyldig kommando!\n"
                         + "Du kan altid skrive h for hjælp.\n");
@@ -148,7 +170,8 @@ io.put(getHighScore());
      * Menu showing the player which actions they can peform. Is shown when user
      * is entering "h"
      */
-    private void helpMenu() {
+    private void helpMenu()
+    {
         String str = "\nDu har følgende muligheder: \n"
                 + "E - for at gå mod øst\n"
                 + "S - for at gå mod syd\n"
@@ -160,78 +183,7 @@ io.put(getHighScore());
         io.put("\n\n\n");
         io.put(str);
     }
-    
-    public String getHighScore() throws IOException
-    {
-        BufferedReader inputStream = null;
-        String str="";
-        try
-        {
-            String line;
-            File file = new File("/Users/thomasfritzboger/Documents/Cph.DatSem1/TextAdventure/ressources/highScore.txt");
-            //System.err.println(file.getAbsolutePath());
-            inputStream = new BufferedReader(new FileReader("/Users/thomasfritzboger/Documents/Cph.DatSem1/TextAdventure/ressources/highScore.txt"));
-           
-            while ((line = inputStream.readLine()) != null)
-            {
-                str +=line+"\n";
-            }
 
-        } catch (IOException e)
-        {
-            e.printStackTrace();
-        } finally
-        {
-            inputStream.close();
-        }
-       
-        return str;
-    }
-    
-    public String saveHighScore (){
-        
-        int roundsLeft= p.getRoundsLeft();
-        
-        BufferedReader inputStream = null;
-        PrintWriter outputStream =null;
-        try
-        {
-            inputStream = new BufferedReader(new FileReader("/Users/thomasfritzboger/Documents/Cph.DatSem1/TextAdventure/ressources/highScore.txt"));
-            outputStream = new PrintWriter(new FileWriter("/Users/thomasfritzboger/Documents/Cph.DatSem1/TextAdventure/ressources/highScore.txt"));
-
-            String str;
-            String all = "";
-            while ((str = inputStream.readLine()) != null)
-            {
-                try { 
-                    int t = Integer.parseInt(str);
-                    if(t < roundsLeft){
-                        all += roundsLeft+"\n";
-                    }
-                    all += t+"\n";
-                }
-                catch (NumberFormatException e){
-                    
-                }
-                
-                
-                
-                str = str.replace( );
-                outputStream.println(str);
-            }
-
-        } catch (IOException e)
-        {
-        }
-        finally{
-            outputStream.close();
-            inputStream.close();
-        }
-    }
-
-        
-        
-        
-    }
+     
 
 }

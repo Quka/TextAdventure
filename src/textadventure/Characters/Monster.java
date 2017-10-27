@@ -56,8 +56,8 @@ public class Monster implements MainCharacter {
             int rand = (int) (Math.random() * availableDirections.size());
             String direction = availableDirections.get(rand);
 
-            System.out.println(direction);
-            System.out.println(availableDirections);
+//            System.out.println(direction);
+//            System.out.println(availableDirections);
 
             // try and walk
             if (currentRoom.getRoom(direction) != null) {
