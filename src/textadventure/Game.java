@@ -3,7 +3,9 @@ package textadventure;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import textadventure.Characters.Monster;
 import textadventure.Characters.Player;
 import java.util.ArrayList;
@@ -184,6 +186,52 @@ io.put(getHighScore());
         }
        
         return str;
+    }
+    
+    public String saveHighScore (){
+        
+        int roundsLeft= p.getRoundsLeft();
+        
+        BufferedReader inputStream = null;
+        PrintWriter outputStream =null;
+        try
+        {
+            inputStream = new BufferedReader(new FileReader("/Users/thomasfritzboger/Documents/Cph.DatSem1/TextAdventure/ressources/highScore.txt"));
+            outputStream = new PrintWriter(new FileWriter("/Users/thomasfritzboger/Documents/Cph.DatSem1/TextAdventure/ressources/highScore.txt"));
+
+            String str;
+            String all = "";
+            while ((str = inputStream.readLine()) != null)
+            {
+                try { 
+                    int t = Integer.parseInt(str);
+                    if(t < roundsLeft){
+                        all += roundsLeft+"\n";
+                    }
+                    all += t+"\n";
+                }
+                catch (NumberFormatException e){
+                    
+                }
+                
+                
+                
+                str = str.replace( );
+                outputStream.println(str);
+            }
+
+        } catch (IOException e)
+        {
+        }
+        finally{
+            outputStream.close();
+            inputStream.close();
+        }
+    }
+
+        
+        
+        
     }
 
 }
