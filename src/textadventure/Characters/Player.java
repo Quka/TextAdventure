@@ -103,7 +103,7 @@ public class Player implements MainCharacter {
 
     public void dropItem(Item item, Room room) {
         if (room.getItem() != null) {
-            io.put("Du må ikke ligge flere ting her");
+            io.put("Du må ikke lægge flere ting her");
         } else {
             inventory.removeItemFromInventory(item);
             room.addItemToRoom();
