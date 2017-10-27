@@ -1,5 +1,9 @@
 package textadventure;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import textadventure.Characters.Monster;
 import textadventure.Characters.Player;
 import java.util.ArrayList;
@@ -30,7 +34,8 @@ public class Game {
      * ending the game
      *
      */
-    public void play() {
+    public void play() throws IOException {
+        
         io.put(startGame());
         io.put("Hvad hedder du, arbejdstager?");
         String name = io.get();
@@ -38,7 +43,7 @@ public class Game {
         io.put("Hej " + name + ", velkommen til Firma & Fiskefilet\n"
                 + "Husk at du altid kan skrive h for hjælp\n"
                 + "-----------------------------------------\n");
-
+io.put(getHighScore());
         // Setup rooms for the maze
         m = new Maze();
         ArrayList<Room> rooms = m.createRooms();
@@ -81,7 +86,7 @@ public class Game {
      * @return
      */
     public String startGame() {
-        return "********************************************************\n"
+        return "\n********************************************************\n"
                 + "***************    FIRMA & FISKEFILET    ***************\n"
                 + "********************************************************\n\n"
                 + "********************************************************\n"
@@ -153,4 +158,32 @@ public class Game {
         io.put("\n\n\n");
         io.put(str);
     }
+    
+    public String getHighScore() throws IOException
+    {
+        BufferedReader inputStream = null;
+        String str="";
+        try
+        {
+            String line;
+            File file = new File("/Users/thomasfritzboger/Documents/Cph.DatSem1/TextAdventure/ressources/highScore.txt");
+            //System.err.println(file.getAbsolutePath());
+            inputStream = new BufferedReader(new FileReader("/Users/thomasfritzboger/Documents/Cph.DatSem1/TextAdventure/ressources/highScore.txt"));
+           
+            while ((line = inputStream.readLine()) != null)
+            {
+                str +=line+"\n";
+            }
+
+        } catch (IOException e)
+        {
+            e.printStackTrace();
+        } finally
+        {
+            inputStream.close();
+        }
+       
+        return str;
+    }
+
 }
