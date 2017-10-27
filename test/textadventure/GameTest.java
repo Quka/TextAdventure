@@ -23,6 +23,7 @@ public class GameTest
     public void testAddSpecialRoom()
     {
         Game game = new Game();
+        Maze maze = new Maze();
         ArrayList<Room> rooms = new ArrayList<>();
         rooms.add(new Room(
                 "Du sidder på dit kontor. Du kigger på uret og opdager,\n"
@@ -44,7 +45,7 @@ public class GameTest
                 + "er der kun"+ 4 +"fiskefileter tilbage. Du snupper alle "+ 4 +"!", true, 17));
         
         
-        game.addSpecialRoom(rooms, specialrooms);
+        maze.addSpecialRoom(rooms, specialrooms);
         
         int expected = 2;
         int actual = specialrooms.size();

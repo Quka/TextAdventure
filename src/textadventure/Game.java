@@ -47,7 +47,7 @@ public class Game {
         p = new Player(name, rooms.get(0));
         monster = new Monster("Chefen", rooms.get(12));
 
-        io.put(p.getCurrentRoom().getDescription() + "\n");
+        io.put(p.getCurrentRoom().getDescription());
         boolean gameEnded = false;
         while (!gameEnded) {
 
@@ -56,7 +56,7 @@ public class Game {
 
             if (p.getCurrentRoom().equals(monster.getCurrentRoom())) {
                 // # Brug item her / mist liv
-                System.out.println("Monster og spiller i samme rum, du dør");
+                System.out.println("Monster og spiller i samme rum. Du dør");
                 p.changeRounds(-p.getRoundsLeft()); //Sætter p spillerunder til 0, så spiller "dør"
             }
 
@@ -67,7 +67,7 @@ public class Game {
             if (p.getRoundsLeft() < 1) {
                 gameEnded = true;
                 io.put("\n\n\n");
-                io.put("\nDu var for langsom. Alle fiskefiletterne er væk.\n"
+                io.put("Du var for langsom. Alle fiskefiletterne er væk.\n"
                         + "Du må hjem og se om mor har fiskefiletter i fryseren :(\n");
             }
         }
