@@ -1,6 +1,5 @@
 package textadventure.Characters;
 
-import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 import textadventure.Inventory;
 import textadventure.Item.Item;
 import textadventure.Room;

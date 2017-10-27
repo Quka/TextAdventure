@@ -34,7 +34,7 @@ public class Game {
         io.put(startGame());
         io.put("Hvad hedder du, arbejdstager?");
         String name = io.get();
-        io.clear();
+        io.put("\n\n\n");
         io.put("Hej " + name + ", velkommen til Firma & Fiskefilet\n"
                 + "Husk at du altid kan skrive h for hjælp\n"
                 + "-----------------------------------------\n");
@@ -56,7 +56,8 @@ public class Game {
 
             if (p.getCurrentRoom().equals(monster.getCurrentRoom())) {
                 // # Brug item her / mist liv
-                System.out.println("Monster og spiller i samme rum");
+                System.out.println("Monster og spiller i samme rum, du dør");
+                p.changeRounds(-p.getRoundsLeft()); //Sætter p spillerunder til 0, så spiller "dør"
             }
 
             if (p.getCurrentRoom().isWinGame() == true) {
@@ -65,12 +66,12 @@ public class Game {
             }
             if (p.getRoundsLeft() < 1) {
                 gameEnded = true;
-                io.clear();
+                io.put("\n\n\n");
                 io.put("\nDu var for langsom. Alle fiskefiletterne er væk.\n"
                         + "Du må hjem og se om mor har fiskefiletter i fryseren :(\n");
             }
         }
-        io.clear();
+        io.put("\n\n\n");
         io.put("Spillet er slut! ");
     }
 
@@ -107,7 +108,7 @@ public class Game {
                 if (p.canWalk(command)) {
                     p.walk(command);
                     p.changeRounds(-3);
-                    io.clear();
+                    io.put("\n\n\n");
                     io.put(p.getCurrentRoom().getDescription());
 
                     // Move monster, only if user also moves (issues move command)
@@ -149,7 +150,7 @@ public class Game {
                 + "H - for hjælp\n"
                 + "T - for at se resterende runder\n"
                 + "Q - for at afslutte spillet\n";
-        io.clear();
+        io.put("\n\n\n");
         io.put(str);
     }
 }
