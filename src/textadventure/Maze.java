@@ -17,6 +17,10 @@ public class Maze {
     private ArrayList<Room> meetingRooms = new ArrayList<>();
     private ArrayList<Room> restRooms = new ArrayList<>();
 
+    /**
+     * Constructs a maze
+     * 
+     */
     public Maze() {
 
     }
