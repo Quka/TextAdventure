@@ -151,7 +151,7 @@ public class Maze {
         specialRooms.add(new Room(
                 "OMG! Hvad er det syn?! KANTINEN!! Du klarede det! Du skynder dig op i køen\n"
                 + "lige foran ham den arrogante fra din afdeling. Da du når frem til fadet\n"
-                + "er der kun " + p.roundsLeft + "fiskefileter tilbage. Du snupper alle " + p.roundsLeft + "!", true, null));
+                + "er der kun 4 fiskefileter tilbage. Du snupper alle 4!", true, null));
 
         //Adding rooms(Inde1-5)
         addOfficeRoom();
