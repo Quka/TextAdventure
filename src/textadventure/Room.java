@@ -80,6 +80,13 @@ public class Room {
         return winGame;
     }
 
+    /**
+     * Returns the room in the direction the Character wants to move or null
+     * if there is no room in that direction
+     * 
+     * @param direction
+     * @return 
+     */
     public Room getRoom(String direction) {
         Room returnRoom = null;
 
@@ -101,14 +108,27 @@ public class Room {
         return returnRoom;
     }
 
+    /**
+     * Removes item from the room
+     * 
+     */
     public void removeItem(){
        this.item=null;
     }
     
+    /**
+     * Adds item to the room
+     * 
+     */
     public void addItemToRoom(){
         this.item = item;
     }
 
+    /**
+     * Returns item in room
+     * 
+     * @return 
+     */
     public Item getItem()
     {
         return item;
