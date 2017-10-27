@@ -20,7 +20,7 @@ public class Player implements MainCharacter {
     private TextIO io = new TextIO(new SysTextIO());
 
     /**
-     * Creates and initilizes a human player with "health" and inventory
+     * Creates and initializes a human player with "health" and inventory
      *
      * @param name
      * @param startingRoom
@@ -79,6 +79,13 @@ public class Player implements MainCharacter {
         return roundsLeft;
     }
 
+    /**
+     * Adds item to the inventory if inventory is not at max capacity. Else it
+     * explains the user that there is not enough space.
+     * 
+     * @param item
+     * @param room 
+     */
     public void addItemToInventory(Item item, Room room) {
         if (inventory.getInventorySize() >= inventory.getCapacity()) {
             io.put("Du har ikke plads til flere ting på dig");
@@ -89,18 +96,38 @@ public class Player implements MainCharacter {
 
     }
 
+    /**
+     * Removes the item from inventory and modifies round timer(?)
+     * 
+     * @param item
+     * @param rounds 
+     */
     public void useItem(Item item, int rounds) {
         inventory.removeItemFromInventory(item);
         rounds += item.getRoundsModifier();
 
     }
-
+    
+    /**
+     * Removes item from inventory and modifies round timer
+     * 
+     * @param item
+     * @param rounds 
+     */
     public void consumeItem(Item item, int rounds) {
         inventory.removeItemFromInventory(item);
         rounds += item.getRoundsModifier();
 
     }
 
+    /**
+     * Removes the item from inventory and adds it to the room
+     * 
+     * @param item
+     * @param room 
+     */
+    
+    // Shouldn't it remove it from the hand instead of inventory?
     public void dropItem(Item item, Room room) {
         if (room.getItem() != null) {
             io.put("Du må ikke lægge flere ting her");
