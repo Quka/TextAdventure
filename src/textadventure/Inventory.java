@@ -9,6 +9,8 @@ import textadventure.Item.Item;
 import java.util.ArrayList;
 
 /**
+ * Inventory is used to hold items that i picked up during gameplay
+ *
  * @author Arlind U. <arlind.u at cph-au53@cphbusiness.dk>
  */
 public class Inventory {
@@ -16,27 +18,49 @@ public class Inventory {
     private ArrayList<Item> items;
     private int capacity;
 
+    /**
+     * Contructs an inventory and initiliazes with a capacity of 10
+     *
+     */
     public Inventory() {
         items = new ArrayList<>();
         capacity = 10;
 
     }
 
-    // add to inventory
+    /**
+     * Add an item to the inventory
+     *
+     * @param item
+     */
     public void addToInventory(Item item) {
         items.add(item);
 
     }
 
+    /**
+     * Returns how many items there are in the inventory
+     *
+     * @return
+     */
     public int getInventorySize() {
         return items.size();
     }
 
+    /**
+     * Returns how many items inventory can hold at maximum capacity
+     *
+     * @return
+     */
     public int getCapacity() {
         return capacity;
     }
 
-    // show inventory
+    /**
+     * Creates a string showing the items in the inventory
+     *
+     * @return
+     */
     public String[] showInventory() {
 
         String[] res = new String[items.size()];
@@ -46,7 +70,11 @@ public class Inventory {
         return res;
     }
 
-    // remove item from inventory
+    /**
+     * Removes item from inventory
+     *
+     * @param item
+     */
     public void removeItemFromInventory(Item item) {
         items.remove(item);
 
