@@ -1,11 +1,5 @@
 package textadventure;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
 import textadventure.Characters.Monster;
 import textadventure.Characters.Player;
 import java.util.ArrayList;
@@ -148,6 +142,11 @@ public class Game
             case "H":
                 helpMenu();
                 break;
+                
+            case "D":
+                p.getCurrentRoom().addItemToRoom();
+                break;    
+                
             case "Q":
                 io.put("Du har afsluttet spillet");
                 System.exit(0);
@@ -155,9 +154,18 @@ public class Game
             case "T":
                 io.put("" + p.getRoundsLeft());
                 break;
-            case "PICK UP":
+            case "P":
+                if (p.getCurrentRoom().getItem()==null)
+                {
+                    io.put("Der er ikke noget at samle op!, Find på noget andet");
+                    p.changeRounds(-1);
+                }
+                else
+                {
+                p.getCurrentRoom().removeItem();
+                p.changeRounds(-1);
+                }
                 break;
-            case "Win":
                 
             default:
                 io.put("Det er ikke en gyldig kommando!\n"
@@ -178,6 +186,8 @@ public class Game
                 + "W - for at gå mod vest\n"
                 + "N - for at gå mod nord\n"
                 + "H - for hjælp\n"
+                + "D - for at smide en ting i et rum\n"
+                + "p - for at samle en ting op i et rum\n"
                 + "T - for at se resterende runder\n"
                 + "Q - for at afslutte spillet\n";
         io.put("\n\n\n");
