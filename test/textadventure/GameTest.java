@@ -28,21 +28,21 @@ public class GameTest
         rooms.add(new Room(
                 "Du sidder på dit kontor. Du kigger på uret og opdager,\n"
                 + "at du er sent på den. WTF! Bare der er fiskefilet\n"
-                + "tilbage, når du når kantinen", false, 0));
+                + "tilbage, når du når kantinen", false, null));
         ArrayList<Room> specialrooms = new ArrayList<Room>();
         
         specialrooms.add(new Room(
                 "Du vader ind på chefens kontor. På hans skrivebord sidder sekretæren\n"
-                + "Line. Chefen ser, at du opdager dem flirte.", false, 9));
+                + "Line. Chefen ser, at du opdager dem flirte.", false, null));
 
         specialrooms.add(new Room(
                 "Viceværten sidder og swiper på Tinder. Du tænker \"er han ikke gift med\n"
-                + "hende Alice fra regnskabsafdelingen?\"", false, 14));
+                + "hende Alice fra regnskabsafdelingen?\"", false, null));
 
         specialrooms.add(new Room(
                 "OMG! Hvad er det syn?! KANTINEN!! Du klarede det! Du skynder dig op i køen\n"
                 + "lige foran ham den arrogante fra din afdeling. Da du når frem til fadet\n"
-                + "er der kun"+ 4 +"fiskefileter tilbage. Du snupper alle "+ 4 +"!", true, 17));
+                + "er der kun"+ 4 +"fiskefileter tilbage. Du snupper alle "+ 4 +"!", true, null));
         
         
         maze.addSpecialRoom(rooms, specialrooms);
@@ -58,28 +58,29 @@ public class GameTest
     public void testAddSpecialRoomEmoveObject()
     {
         Game game = new Game();
+         Maze maze = new Maze();
         ArrayList<Room> rooms = new ArrayList<>();
         rooms.add(new Room(
                 "Du sidder på dit kontor. Du kigger på uret og opdager,\n"
                 + "at du er sent på den. WTF! Bare der er fiskefilet\n"
-                + "tilbage, når du når kantinen", false, 0));
+                + "tilbage, når du når kantinen", false, null));
         ArrayList<Room> specialrooms = new ArrayList<Room>();
         
         specialrooms.add(new Room(
                 "Du vader ind på chefens kontor. På hans skrivebord sidder sekretæren\n"
-                + "Line. Chefen ser, at du opdager dem flirte.", false, 9));
+                + "Line. Chefen ser, at du opdager dem flirte.", false, null));
 
         specialrooms.add(new Room(
                 "Viceværten sidder og swiper på Tinder. Du tænker \"er han ikke gift med\n"
-                + "hende Alice fra regnskabsafdelingen?\"", false, 14));
+                + "hende Alice fra regnskabsafdelingen?\"", false, null));
 
         specialrooms.add(new Room(
                 "OMG! Hvad er det syn?! KANTINEN!! Du klarede det! Du skynder dig op i køen\n"
                 + "lige foran ham den arrogante fra din afdeling. Da du når frem til fadet\n"
-                + "er der kun"+ 4 +"fiskefileter tilbage. Du snupper alle "+ 4 +"!", true, 17));
+                + "er der kun"+ 4 +"fiskefileter tilbage. Du snupper alle "+ 4 +"!", true,null));
         
         
-        game.addSpecialRoom(rooms, specialrooms);
+        maze.addSpecialRoom(rooms, specialrooms);
         boolean expected = false;
         boolean actual = specialrooms.contains(rooms.get(1));
         assertEquals(expected, actual);

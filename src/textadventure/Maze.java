@@ -31,25 +31,25 @@ public class Maze {
         officeRooms.remove(removeIndex);
     }
 
-    private void addSpecialRoom(ArrayList<Room> rooms, ArrayList<Room> specialRooms) {
+    public void addSpecialRoom(ArrayList<Room> rooms, ArrayList<Room> specialRooms) {
         int removeIndex = ((int) (Math.random() * specialRooms.size()));
         rooms.add(specialRooms.get(removeIndex));
         specialRooms.remove(removeIndex);
     }
 
-    private void addCopyRoom(ArrayList<Room> rooms, ArrayList<Room> copyRooms) {
+    public void addCopyRoom(ArrayList<Room> rooms, ArrayList<Room> copyRooms) {
         int removeIndex = ((int) (Math.random() * copyRooms.size()));
         rooms.add(copyRooms.get(removeIndex));
         copyRooms.remove(removeIndex);
     }
 
-    private void addMeetingRoom(ArrayList<Room> rooms, ArrayList<Room> meetingRooms) {
+    public void addMeetingRoom(ArrayList<Room> rooms, ArrayList<Room> meetingRooms) {
         int removeIndex = ((int) (Math.random() * meetingRooms.size()));
         rooms.add(meetingRooms.get(removeIndex));
         meetingRooms.remove(removeIndex);
     }
 
-    private void addRestRoom(ArrayList<Room> rooms, ArrayList<Room> restRooms) {
+    public void addRestRoom(ArrayList<Room> rooms, ArrayList<Room> restRooms) {
         int removeIndex = ((int) (Math.random() * restRooms.size()));
         rooms.add(restRooms.get(removeIndex));
         restRooms.remove(removeIndex);
