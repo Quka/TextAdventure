@@ -112,7 +112,7 @@ public class Room {
      * Removes item from the room
      * 
      */
-    public void removeItem(){
+    public void removeItemFromRoom(){
        this.item=null;
     }
     

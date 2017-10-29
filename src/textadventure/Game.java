@@ -162,7 +162,7 @@ public class Game
                 }
                 else
                 {
-                p.getCurrentRoom().removeItem();
+                p.getCurrentRoom().removeItemFromRoom();
                 p.changeRounds(-1);
                 }
                 break;

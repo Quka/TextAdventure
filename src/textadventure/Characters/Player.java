@@ -93,7 +93,7 @@ public class Player implements MainCharacter {
             io.put("Du har ikke plads til flere ting på dig");
         } else {
             inventory.addToInventory(item);
-            room.removeItem();
+            room.removeItemFromRoom();
         }
 
     }
