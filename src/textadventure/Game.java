@@ -83,6 +83,7 @@ public class Game
             {
                 gameEnded = true;
                 io.put("\n\n\n");
+                //Vis andet sted da dette også ses hvis man støder ind i monsteret
                 io.put("Du var for langsom. Alle fiskefiletterne er væk.\n"
                         + "Du må hjem og se om mor har fiskefiletter i fryseren :(\n");
             }
