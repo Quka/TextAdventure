@@ -96,7 +96,7 @@ public class Game
      *
      * @return
      */
-    public String startGame()
+    private String startGame()
     {
         return "\n********************************************************\n"
                 + "***************    FIRMA & FISKEFILET    ***************\n"
