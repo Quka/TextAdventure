@@ -54,7 +54,7 @@ public class HighScore {
             System.out.println(ex);
         }
     }
-
+    //slight namechange to clarify that only latest score gets sorted into existing list?
     public void sortHighScores(int score) {
         for (int i = 0; i < highScore.length; i++) {
             if (score > highScore[i]) {
