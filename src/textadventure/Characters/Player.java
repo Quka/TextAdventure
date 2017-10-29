@@ -37,6 +37,7 @@ public class Player implements MainCharacter {
      *
      * @return
      */
+    @Override
     public Room getCurrentRoom() {
         return currentRoom;
     }
@@ -57,6 +58,7 @@ public class Player implements MainCharacter {
      *
      * @param direction
      */
+    @Override
     public void walk(String direction) {
         currentRoom = currentRoom.getRoom(direction);
     }
