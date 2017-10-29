@@ -1,6 +1,8 @@
 package textadventure;
 
 import java.util.ArrayList;
+import textadventure.Item.ConsumableItem;
+import textadventure.Item.UsableItem;
 
 /**
  * Class used to create rooms and maze to tell which rooms can access which
@@ -17,9 +19,27 @@ public class Maze {
     private ArrayList<Room> meetingRooms = new ArrayList<>();
     private ArrayList<Room> restRooms = new ArrayList<>();
 
+    //Items that are placed in the rooms. Should probably be moved to somewhere else in the code.
+    //Two descriptions: Both for when you take it AND when you use it?
+    private final ConsumableItem biscuitAndCoke = new ConsumableItem("Kiks & Cola", "Du ser en "
+            + "pakke Mariekiks og en Pepsi. Du kan næsten ikke lade være med at nappe dem.", 7);
+    private final ConsumableItem coffee = new ConsumableItem("Kaffe", "Du føler dig træt, "
+            + " så det er dejligt at koffein stadig er lovligt! Koppen med kaffe er varm.", 3);
+    private final ConsumableItem snickers = new ConsumableItem("Snickers", "Phillipa har en "
+            + "Snickers liggende øverst i sin håndtaske.", 4);
+    private final ConsumableItem sourMilk = new ConsumableItem("Mælk", "Mælken ser "
+            + "lækker tyk ud. Det må være sødmælk!", -9);
+    private final ConsumableItem redBull = new ConsumableItem("Red Bull", "En Red Bull "
+            + "selvfølgelig!", 5);
+    private final UsableItem consultancyReport = new UsableItem("Konsulentrapport", "Det er "
+            + "oplæg til spareforslag 😮 bestil af chefen. Personer\n"
+            + "som vil blive fyret står på listen", 10);
+    private final UsableItem dogTreats = new UsableItem("Hundegodbidder", "Hvad i alverdenen "
+            + "skal du dog bruge hundegodbidder til?!", 8);
+
     /**
      * Constructs a maze
-     * 
+     *
      */
     public Maze() {
 
@@ -61,51 +81,47 @@ public class Maze {
      *
      * @return ArrayList of rooms
      */
-
     //either rename or divide into 2 methods because it also creates the maze? 
     public ArrayList<Room> createRooms() {
         //Adding starting position, always rooms(index0)
+
         rooms.add(new Room(
                 "Du sidder på dit kontor. Du kigger på uret og opdager,\n"
                 + "at du er sent på den. WTF! FISKEDAG! Bare der er\n"
-                + "fiskefilet tilbage, når du når kantinen", false, null));
+                + "fiskefilet tilbage, når du når kantinen.", false, null));
 
-        
-        
         //Adding offices to <>officerooms, randomly placed later        
         officeRooms.add(new Room(
                 "Du bliver kort blændet af en kontorlampe, som peger\n"
                 + "lige mod døråbningen. Du ser en gammel dame. SHHH!!\n"
                 + "Det må være hende de omtaler som \"blinde, snaksaglige,\n"
-                + "pensionsparate Ruth\". Forundret over "
-                + "hvorfor en blind har lys tændt?", false, null)); //lister videre, hører hun dig?
+                + "pensionsparate Ruth\". Forundret over hvorfor en blind\n"
+                + "har lys tændt lister du dig videre.", false, null)); //lister videre, hører hun dig?
 
         officeRooms.add(new Room(
-                "Rummet er tomt, men Phillipa har glemt sin håndtaske.", false, null)); //Du bliver nysgerrig eller !
+                "Rummet er tomt, men Phillipa har glemt sin håndtaske.", false, snickers)); //Du bliver nysgerrig eller !
 
         officeRooms.add(new Room(
                 "Du kommer til at vade ind i IT-lokalet, hvor alle nørderne sidder.\n"
                 + "De snakker ikke om andet end Rick & Morty og hvordan Heroes 3 var\n"
-                + "det bedste i serien.", false, null));
+                + "det bedste i serien.", false, coffee));
 
         officeRooms.add(new Room(
-                "Det var ikke kantinen det her, men du finder tilgengæld\n"
-                + "kiks og kaffe til at lette sulten lidt", false, null));
+                "Det var ikke kantinen det her, men hvorfor er der\n"
+                + "så krummer på gulvet?", false, biscuitAndCoke));
 
         officeRooms.add(new Room(
                 "Tine er ved at skrive en indkøbsseddel, da hun skal have gæster.\n"
                 + "Hun undskylder sig dog med, at hun skal bruge det til et IT-program", false, null));
 
         officeRooms.add(new Room(
-                "Du kommer ind i tekøkkenet, hvor du kan se Thomas har efterladt\n"
-                + "sin Red Bull. Den napper du selvfølgelig", false, null));
+                "Du træder ind i det tekøkken, hvor Thomas plejer at opholde\n"
+                + "sig. Du ved, hvad det betyder!", false, redBull));
 
         officeRooms.add(new Room(
                 "Tobias sidder med sit seneste blad om 3d-gaming, men du ved at han burde\n"
                 + "lave oplæg om et nyt TAG-koncept", false, null));
 
-        
-        
         //Adding copyrooms to <>copyrooms, randomly placed later 
         copyRooms.add(new Room(
                 "Døren knirker som du åbner den. Et kopirum! Det burde\n "
@@ -113,16 +129,12 @@ public class Maze {
 
         copyRooms.add(new Room(
                 "Kopimaskinen summer stadig. Den er åbenbart lige blevet færdig.\n"
-                + "Du går nysgerrigt over og kigger i de udskrevne papirer. Det er\n"
-                + "chefens oplæg til spareforslag 😮 Du er nødt til at se om dit\n"
-                + "navn står på listen. Det koster en runde ekstra", false, null));
+                + "Du går nysgerrigt over og kigger på alle de udskrevne papirer.", false, consultancyReport));
 
-        
-        
         //Adding restrooms to <>restrooms, randomly placed later 
         restRooms.add(new Room(
                 "Ups! Dametoilettet. Der hænger en klam stank i luften.\n"
-                + "Det må være Ruth, som har været i gang.", false, null)); //boolean om der er nogen derude
+                + "Det må være Ruth, som har været i gang.", false, dogTreats)); //boolean om der er nogen derude
 
         restRooms.add(new Room(
                 "Pedersen er på vej ud fra toilettet. Han vasker ikke fingre!\n"
@@ -131,17 +143,16 @@ public class Maze {
         restRooms.add(new Room(
                 "Du kommer ind på herretoilettet. Du skal simpelthen tisse så meget,\n"
                 + "at fiskefileterne må vente lidt. Du åbner toiletdøren, men ser at Ronnie\n"
-                + "har glemt at låse døren! Du mister en runde", false, null));
+                + "har glemt at låse døren!", false, null));
 
         restRooms.add(new Room(
-                "Lisette står og pudrer næse. Hun opdager dig og langer dig en syngende lussing", false, null));
+                "Lisette står og pudrer næse på dametoilettet. Hun opdager dig og langer dig\n"
+                + "en syngende lussing.", false, null));
 
-        
-        
         //Adding meetingrooms to<>meetingrooms, randomly placed later
         meetingRooms.add(new Room(
                 "Du træder ind i et lokale, hvor et vigtigt møde med en potentiel\n"
-                + "kunde er i gang. Du bliver nødt til at lade som om, at du er en sekretær", false, null));
+                + "kunde er i gang. Du bliver nødt til at lade som om, at du er en sekretær.", false, null));
 
         meetingRooms.add(new Room(
                 "Mødelokalet er tomt, men der står kopper og service fra sidste møde.\n"
@@ -151,8 +162,6 @@ public class Maze {
                 "Projektgruppen sidder i mødelokalet. Vil du forsøge at forsinke dem i at\n"
                 + "nå fiskefileterne i kantinen?", false, null)); //mulige actions
 
-        
-        
         //Adding specialrooms to<>specialrooms, randomly placed later
         specialRooms.add(new Room(
                 "Du vader ind på chefens kontor. På hans skrivebord sidder sekretæren\n"
@@ -160,15 +169,13 @@ public class Maze {
 
         specialRooms.add(new Room(
                 "Viceværten sidder og swiper på Tinder. Du tænker \"er han ikke gift med\n"
-                + "hende Alice fra regnskabsafdelingen?\"", false, null)); //hans reaktion
+                + "hende Alice fra regnskabsafdelingen?\"", false, sourMilk)); //hans reaktion
 
         specialRooms.add(new Room(
                 "OMG! Hvad er det syn?! KANTINEN!! Du klarede det! Du skynder dig op i køen\n"
                 + "lige foran ham den arrogante fra din afdeling. Da du når frem til fadet\n"
                 + "er der kun 4 fiskefileter tilbage. Du snupper alle 4!", true, null));
 
-        
-        
         //Adding rooms(Inde1-5)
         addOfficeRoom();
         addRestRoom(rooms, restRooms);
@@ -176,8 +183,6 @@ public class Maze {
         addOfficeRoom();
         addRestRoom(rooms, restRooms);
 
-        
-        
         //Adding rooms(Inde6-10)
         addMeetingRoom(rooms, meetingRooms);
         addCopyRoom(rooms, copyRooms);
@@ -185,8 +190,6 @@ public class Maze {
         addOfficeRoom();
         addCopyRoom(rooms, copyRooms);
 
-        
-        
         //Adding rooms(Inde11-15)
         addOfficeRoom();
         addSpecialRoom(rooms, specialRooms);
@@ -194,16 +197,12 @@ public class Maze {
         addRestRoom(rooms, restRooms);
         addOfficeRoom();
 
-        
-        
         //Adding rooms(Inde16-19)
         addOfficeRoom();
         addSpecialRoom(rooms, specialRooms);
         addSpecialRoom(rooms, specialRooms);
         addMeetingRoom(rooms, meetingRooms);
 
-        
-        
         //Setting possible ways to access rooms
         rooms.get(0).setNorth(rooms.get(1));
 
