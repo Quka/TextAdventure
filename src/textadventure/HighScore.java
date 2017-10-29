@@ -19,8 +19,8 @@ import java.io.PrintWriter;
  */
 public class HighScore {
 
-    int[] highScore = new int[5];
-    String path = "highScore.txt";
+    private int[] highScore = new int[5];
+    private String path = "highScore.txt";
 
     // Run in the start of the game only //
     public void loadHighScoresFromFile() {
