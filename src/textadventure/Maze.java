@@ -22,6 +22,7 @@ public class Maze {
     //Items that are placed in the rooms. Should probably be moved to somewhere else in the code.
     //Two descriptions: Both for when you take it AND when you use it?
     //Neither description nor roundLeftModifier is shown when picking up items at the moment
+    //This is not shown in our UML Class Diagram
     private final ConsumableItem biscuitAndCoke = new ConsumableItem("Kiks & Cola", "Du ser en "
             + "pakke Mariekiks og en Pepsi. Du kan næsten ikke lade være med at nappe dem.", 7);
     private final ConsumableItem coffee = new ConsumableItem("Kaffe", "Du føler dig træt, "
