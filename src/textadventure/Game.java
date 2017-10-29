@@ -36,7 +36,7 @@ public class Game
      */
     public void play() 
     {
-
+        //Ryk alt dette ind i en start game method?
         io.put(startGame());
         io.put("Hvad hedder du, arbejdstager?");
         String name = io.get();
@@ -83,7 +83,7 @@ public class Game
             {
                 gameEnded = true;
                 io.put("\n\n\n");
-                //Vis andet sted da dette også ses hvis man støder ind i monsteret
+                //Dette vises (da denne comment blev skrevet) også når man støder ind i monstret, da monstret er sat til at tage alle runder fra en
                 io.put("Du var for langsom. Alle fiskefiletterne er væk.\n"
                         + "Du må hjem og se om mor har fiskefiletter i fryseren :(\n");
             }
