@@ -16,10 +16,23 @@ public class UsableItem extends Item {
     
     private Monster usableOn;
     
+    /**
+     * Contructs an item (that can be used against (specific) monsters)
+     * 
+     * @param name
+     * @param description
+     * @param roundsLeftModifier 
+     */
+    
     public UsableItem(String name, String description, int roundsLeftModifier) {
         super(name, description, roundsLeftModifier);
     }
     
+    /**
+     * Checks if the item is usable on the specific monster
+     * 
+     * @return 
+     */
     public boolean isUsable() {
         // not done
         return false;

@@ -14,11 +14,25 @@ abstract public class Item {
     protected String effect;
     protected int roundsLeftModifier;
     
+    /**
+     * Abstract contructor of an Item
+     * 
+     * @param name
+     * @param effect
+     * @param roundsLeftModifier 
+     */
+    
     public Item (String name, String effect, int roundsLeftModifier) {
         this.name = name;
         this.effect = effect;
         this.roundsLeftModifier = roundsLeftModifier;
     }
+    
+    /**
+     * Method to see how the specific item modifies rounds left for the player
+     * 
+     * @return 
+     */
     
     public int getRoundsModifier(){
         return roundsLeftModifier;

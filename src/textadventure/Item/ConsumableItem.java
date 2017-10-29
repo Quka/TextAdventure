@@ -28,7 +28,7 @@ public class ConsumableItem extends Item {
     }
     
     /**
-     * Changes round the for player p!
+     * Changes round for player p!
      * 
      * @param p 
      */
