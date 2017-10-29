@@ -18,7 +18,7 @@ public class Game
     private Monster monster;
     private Maze m;
     private HighScore h;
-    int[] highScore = new int[5];
+    private int[] highScore = new int[5];
 
     /**
      * Contructs a new Game
