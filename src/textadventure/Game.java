@@ -158,7 +158,7 @@ public class Game
             case "P":
                 if (p.getCurrentRoom().getItem()==null)
                 {
-                    io.put("Der er ikke noget at samle op!, Find på noget andet");
+                    io.put("Der er ikke noget at samle op!");
                     p.changeRounds(-1);
                 }
                 else
