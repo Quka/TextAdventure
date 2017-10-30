@@ -166,7 +166,7 @@ public class Maze {
         //Adding specialrooms to<>specialrooms, randomly placed later
         specialRooms.add(new Room(
                 "Du vader ind på chefens kontor. På hans skrivebord sidder sekretæren\n"
-                + "Line. Chefen ser, at du opdager dem flirte.", false, null)); //bliver sur, flov ect
+                + "Phillipa.", false, null)); //bliver sur, flov ect
 
         specialRooms.add(new Room(
                 "Viceværten sidder og swiper på Tinder. Du tænker \"er han ikke gift med\n"
