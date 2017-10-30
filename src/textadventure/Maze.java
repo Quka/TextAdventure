@@ -79,7 +79,7 @@ public class Maze {
 
     /**
      * Creates rooms with parameters
-     * 
+     *
      *
      * @return ArrayList of rooms
      */
@@ -207,14 +207,14 @@ public class Maze {
         return rooms;
     }
 
-/**
- * Creates maze by setting which rooms can be accessed by which other rooms
- * 
- * @param rooms 
- */    
-    public void createMaze(ArrayList<Room> rooms){
-        
-           rooms.get(0).setNorth(rooms.get(1));
+    /**
+     * Creates maze by setting which rooms can be accessed by which other rooms
+     *
+     * @param rooms
+     */
+    public void createMaze(ArrayList<Room> rooms) {
+
+        rooms.get(0).setNorth(rooms.get(1));
 
         rooms.get(1).setEast(rooms.get(2));
         rooms.get(1).setWest(rooms.get(4));
@@ -275,6 +275,6 @@ public class Maze {
         rooms.get(18).setSouth(rooms.get(14));
 
         rooms.get(19).setSouth(rooms.get(13));
-        
+
     }
 }
