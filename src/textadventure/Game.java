@@ -144,6 +144,56 @@ public class Game
                 helpMenu();
                 break;
                 
+           // Her noget med at vise/vælge items fra rygsækken!  
+           //case "I":
+            //    not done!!
+            //  break;
+                
+            //       Her noget med consume Item         
+            //                
+                //case "C":
+            //   p.getConsumableItem();
+            //if (p.getConsumableItem == null)
+            //     {
+            //          io.put("Der er ikke noget, at putte i munden, du bider dig i fingrene!);
+            //           p.changeRounds(-2);
+            //     }
+            
+            //else 
+            //     {
+            //      io.put("Du putter " + p.getConsumableItem + " i munden! Du får " + p.getConsumableItem.getBonus 
+            //              + " ekstra runder");
+            //      items.remove(p.getConsumableItem());
+            //       
+            //       p.changeRounds(-1);
+            //     }
+            //     break;    
+
+            // Skal nok være noget andet, da vi jo enten consumer eller user items??
+                
+            //case "U":
+            //   p.getUsableItem();
+            //if (m.getMonster == null)
+            //     {
+            //          io.put("Der er ikke nogen, at bruge et Item mod);
+            //           p.changeRounds(-1);
+            //     }
+            //else if (!m.getMonster.getNeutralizingItem)
+            //     {
+            //        io.put("Denne Item har ingen effekt!");
+            //          p.changeRounds(m.getMonster.getPenalty());
+            //        io.put("Du mister " + m.getMonster.getPenalty() + " runder");
+            //     }
+            //else 
+            //     {
+            //      io.put("Du gør " + m.getMonster + " glad! Du får " + m.getMonster.getDropItem 
+            //              + " som du putter i din rygsæk");
+            //      items.remove(p.getUsableItem());
+            //       item.add(m.getMonster.getDropItem());
+            //       p.changeRounds(-1);
+            //     }
+            //     break;    
+                
             case "D":
                 p.getCurrentRoom().addItemToRoom();
                 break;    
@@ -153,7 +203,7 @@ public class Game
                 System.exit(0);
                 break;
             case "T":
-                io.put("" + p.getRoundsLeft());
+                io.put("Du har " + p.getRoundsLeft()+ " runder tilbage!");
                 break;
             case "P":
                 if (p.getCurrentRoom().getItem()==null)
