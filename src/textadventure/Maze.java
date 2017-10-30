@@ -53,37 +53,36 @@ public class Maze {
         officeRooms.remove(removeIndex);
     }
 
-    public void addSpecialRoom(ArrayList<Room> rooms, ArrayList<Room> specialRooms) {
+    private void addSpecialRoom(ArrayList<Room> rooms, ArrayList<Room> specialRooms) {
         int removeIndex = ((int) (Math.random() * specialRooms.size()));
         rooms.add(specialRooms.get(removeIndex));
         specialRooms.remove(removeIndex);
     }
 
-    public void addCopyRoom(ArrayList<Room> rooms, ArrayList<Room> copyRooms) {
+    private void addCopyRoom(ArrayList<Room> rooms, ArrayList<Room> copyRooms) {
         int removeIndex = ((int) (Math.random() * copyRooms.size()));
         rooms.add(copyRooms.get(removeIndex));
         copyRooms.remove(removeIndex);
     }
 
-    public void addMeetingRoom(ArrayList<Room> rooms, ArrayList<Room> meetingRooms) {
+    private void addMeetingRoom(ArrayList<Room> rooms, ArrayList<Room> meetingRooms) {
         int removeIndex = ((int) (Math.random() * meetingRooms.size()));
         rooms.add(meetingRooms.get(removeIndex));
         meetingRooms.remove(removeIndex);
     }
 
-    public void addRestRoom(ArrayList<Room> rooms, ArrayList<Room> restRooms) {
+    private void addRestRoom(ArrayList<Room> rooms, ArrayList<Room> restRooms) {
         int removeIndex = ((int) (Math.random() * restRooms.size()));
         rooms.add(restRooms.get(removeIndex));
         restRooms.remove(removeIndex);
     }
 
     /**
-     * Creates both rooms with parameters and maze by setting which rooms can
-     * access which other rooms
+     * Creates rooms with parameters
+     * 
      *
      * @return ArrayList of rooms
      */
-    //either rename or divide into 2 methods because it also creates the maze? 
     public ArrayList<Room> createRooms() {
         //Adding starting position, always rooms(index0)
 
@@ -205,8 +204,17 @@ public class Maze {
         addSpecialRoom(rooms, specialRooms);
         addMeetingRoom(rooms, meetingRooms);
 
-        //Setting possible ways to access rooms
-        rooms.get(0).setNorth(rooms.get(1));
+        return rooms;
+    }
+
+/**
+ * Creates maze by setting which rooms can be accessed by which other rooms
+ * 
+ * @param rooms 
+ */    
+    public void createMaze(ArrayList<Room> rooms){
+        
+           rooms.get(0).setNorth(rooms.get(1));
 
         rooms.get(1).setEast(rooms.get(2));
         rooms.get(1).setWest(rooms.get(4));
@@ -267,7 +275,6 @@ public class Maze {
         rooms.get(18).setSouth(rooms.get(14));
 
         rooms.get(19).setSouth(rooms.get(13));
-
-        return rooms;
+        
     }
 }
