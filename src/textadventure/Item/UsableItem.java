@@ -7,14 +7,14 @@
 package textadventure.Item;
 
 import textadventure.Item.Item;
-import textadventure.Characters.Monster;
+import textadventure.Characters.Boss;
 
 /**
  * @author Arlind U. <arlind.u at cph-au53@cphbusiness.dk>
  */
 public class UsableItem extends Item {
     
-    private Monster usableOn;
+    private Boss usableOn;
     
     /**
      * Contructs an item (that can be used against (specific) monsters)

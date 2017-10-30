@@ -1,6 +1,6 @@
 package textadventure;
 
-import textadventure.Characters.Monster;
+import textadventure.Characters.Boss;
 import textadventure.Characters.Player;
 import java.util.ArrayList;
 import textio.*;
@@ -15,7 +15,7 @@ public class Game
 
     private TextIO io = new TextIO(new SysTextIO());
     private Player p;
-    private Monster monster;
+    private Boss monster;
     private Maze m;
     private HighScore h;
     private int[] highScore = new int[5];
@@ -47,10 +47,11 @@ public class Game
         // Setup rooms for the maze
         m = new Maze();
         ArrayList<Room> rooms = m.createRooms();
+        m.createMaze(rooms);
 
         // Initialize characters
         p = new Player(name, rooms.get(0));
-        monster = new Monster("Chefen", rooms.get(12));
+        monster = new Boss("Chefen", rooms.get(12));
         
         h = new HighScore();
         h.loadHighScoresFromFile();
@@ -83,7 +84,6 @@ public class Game
             {
                 gameEnded = true;
                 io.put("\n\n\n");
-                //Dette vises (da denne comment blev skrevet) også når man støder ind i monstret, da monstret er sat til at tage alle runder fra en
                 io.put("Du var for langsom. Alle fiskefiletterne er væk.\n"
                         + "Du må hjem og se om mor har fiskefiletter i fryseren :(\n");
             }

@@ -5,68 +5,57 @@
  */
 package textadventure.Characters;
 
-import textadventure.Characters.MainCharacter;
 import java.util.ArrayList;
+import textadventure.Item.Item;
 import textadventure.Room;
 
 /**
- * "Boss" walking around in the maze
- * 
+ *
  * @author Ionsight
  */
-public class Monster implements MainCharacter {
+class Monster {
 
-    private String name;
-    private Room currentRoom;
+    protected String decription;
+    protected Room currentRoom;
+    protected int penalty;
+    protected Item neutralizingItem;
+    protected Item dropItem;
+    private ArrayList<Monster> monsters;
 
-    /**
-     * Contructs a monster and places it in the maze
-     * 
-     * @param name
-     * @param startingRoom 
-     */
-    public Monster(String name, Room startingRoom) {
-        this.name = name;
-        this.currentRoom = startingRoom;
+    public Monster(String decription, int penalty, Item neutralizingItem, Item dropItem) {
+        this.decription = decription;
+        this.penalty = penalty;
+        this.neutralizingItem = neutralizingItem;
+        this.dropItem = dropItem;
+    }
+
+    public String getDecription() {
+        return decription;
+    }
+
+    public int getPenalty() {
+        return penalty;
+    }
+
+    public Item getNeutralizingItem() {
+        return neutralizingItem;
+    }
+
+    public Item getDropItem() {
+        return dropItem;
+    }
+
+    public void setPenalty(int penalty) {
+        this.penalty = penalty;
     }
 
     @Override
-    public Room getCurrentRoom() {
-        return currentRoom;
-    }
-
-    @Override
-    public void walk(String direction) {
-        currentRoom = currentRoom.getRoom(direction);
-    }
-
-    /**
-     * Moves the monster in a random available(!) direction
-     * 
-     */
-    public void moveMonster() {
-        boolean cont = true;
-        ArrayList<String> availableDirections = new ArrayList<>();
-        availableDirections.add("N");
-        availableDirections.add("E");
-        availableDirections.add("S");
-        availableDirections.add("W");
-
-        do {
-            int rand = (int) (Math.random() * availableDirections.size());
-            String direction = availableDirections.get(rand);
-
-//            System.out.println(direction);
-//            System.out.println(availableDirections);
-
-            // try and walk
-            if (currentRoom.getRoom(direction) != null) {
-                this.walk(direction);
-                cont = false;
-            } else {
-                // remove direction
-                availableDirections.remove(rand);
-            }
-        } while (cont);
+    public String toString() {
+        return "Monster{" + "decription=" + decription + '}';
+    }  
+    
+    public ArrayList<Monster> createMonsters(){
+        
+    return monsters;
     }
 }

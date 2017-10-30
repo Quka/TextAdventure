@@ -33,7 +33,6 @@ public class ConsumableItem extends Item {
      * @param p 
      */
     
-    //Shouldn't this be for what/whoever you call this method with, not specifically player p?
     public void changeRoundsLeft(Player p) {
         p.changeRounds(roundsLeftModifier);
     }
