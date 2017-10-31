@@ -34,14 +34,8 @@ public class Game {
      *
      */
     public void play() {
-        //Ryk alt dette ind i en start game method?
+        //Writes to console and get players name
         startGame();
-//        io.put("Hvad hedder du, arbejdstager?");
-//        String name = io.get();
-//        io.put(clear());
-//        io.put("Hej " + name + ", velkommen til Firma & Fiskefilet\n"
-//                + "Husk at du altid kan skrive h for hjælp\n"
-//                + "-----------------------------------------\n");
         // Setup rooms for the maze
         m = new Maze();
         ArrayList<Room> rooms = m.createMaze();
