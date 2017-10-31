@@ -13,13 +13,13 @@ import textadventure.Room;
  *
  * @author Ionsight
  */
-class Monster {
+public class Monster {
 
-    protected String decription;
-    protected Room currentRoom;
-    protected int penalty;
-    protected Item neutralizingItem;
-    protected Item dropItem;
+    private String decription;
+    private Room currentRoom;
+    private int penalty;
+    private Item neutralizingItem;
+    private Item dropItem;
     private ArrayList<Monster> monsters;
 
     public Monster(String decription, int penalty, Item neutralizingItem, Item dropItem) {
