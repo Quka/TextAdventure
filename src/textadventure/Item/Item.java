@@ -40,4 +40,11 @@ abstract public class Item {
         return roundsLeftModifier;
     }
 
+    @Override
+    public String toString() {
+        return description;
+    }
+    
+    
+
 }
