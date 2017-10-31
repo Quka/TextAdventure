@@ -2,6 +2,7 @@ package textadventure;
 
 import java.util.ArrayList;
 import textadventure.Item.ConsumableItem;
+import textadventure.Item.Item;
 import textadventure.Item.UsableItem;
 
 /**
@@ -18,26 +19,13 @@ public class Maze {
     private ArrayList<Room> copyRooms = new ArrayList<>();
     private ArrayList<Room> meetingRooms = new ArrayList<>();
     private ArrayList<Room> restRooms = new ArrayList<>();
+    private ItemList itemList = new ItemList();
 
     //Items that are placed in the rooms. Should probably be moved to somewhere else in the code.
     //Two descriptions: Both for when you take it AND when you use it?
     //Neither description nor roundLeftModifier is shown when picking up items at the moment
     //This is not shown in our UML Class Diagram
-    private final ConsumableItem biscuitAndCoke = new ConsumableItem("Kiks & Cola", "Du ser en "
-            + "pakke Mariekiks og en Pepsi. Du kan næsten ikke lade være med at nappe dem.", 7);
-    private final ConsumableItem coffee = new ConsumableItem("Kaffe", "Du føler dig træt, "
-            + " så det er dejligt at koffein stadig er lovligt! Koppen med kaffe er varm.", 3);
-    private final ConsumableItem snickers = new ConsumableItem("Snickers", "Phillipa har en "
-            + "Snickers liggende øverst i sin håndtaske.", 4);
-    private final ConsumableItem sourMilk = new ConsumableItem("Mælk", "Mælken ser "
-            + "lækker tyk ud. Det må være sødmælk!", -9);
-    private final ConsumableItem redBull = new ConsumableItem("Red Bull", "En Red Bull "
-            + "selvfølgelig!", 5);
-    private final UsableItem consultancyReport = new UsableItem("Konsulentrapport", "Det er "
-            + "oplæg til spareforslag 😮 bestil af chefen. Personer\n"
-            + "som vil blive fyret står på listen", 10);
-    private final UsableItem dogTreats = new UsableItem("Hundegodbidder", "Hvad i alverdenen "
-            + "skal du dog bruge hundegodbidder til?!", 8);
+   
 
     /**
      * Constructs a maze
