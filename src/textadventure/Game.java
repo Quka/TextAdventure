@@ -197,7 +197,7 @@ public class Game {
                 + "N - for at gå mod nord\n"
                 + "H - for hjælp\n"
                 + "D - for at smide en ting i et rum\n"
-                + "p - for at samle en ting op i et rum\n"
+                + "P - for at samle en ting op i et rum\n"
                 + "T - for at se resterende runder\n"
                 + "Q - for at afslutte spillet\n";
         io.put("\n\n\n");
