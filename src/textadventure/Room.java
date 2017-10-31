@@ -31,7 +31,6 @@ public class Room {
      * @param item
      */
     public Room(String description, boolean winGame, Monster monster, Item item) {
-        this.id = id;
         this.description = description;
         this.winGame = winGame;
         this.monster = monster;
