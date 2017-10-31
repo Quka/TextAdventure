@@ -10,8 +10,7 @@ import textio.*;
  *
  * @author Group 7
  */
-public class Game
-{
+public class Game {
 
     private TextIO io = new TextIO(new SysTextIO());
     private Player p;
@@ -24,8 +23,7 @@ public class Game
      * Contructs a new Game
      *
      */
-    public Game()
-    {
+    public Game() {
 
     }
 
@@ -34,8 +32,7 @@ public class Game
      * ending the game
      *
      */
-    public void play() 
-    {
+    public void play() {
         //Ryk alt dette ind i en start game method?
         io.put(startGame());
         io.put("Hvad hedder du, arbejdstager?");
@@ -52,36 +49,32 @@ public class Game
         // Initialize characters
         p = new Player(name, rooms.get(0));
         monster = new Boss("Chefen", rooms.get(12));
-        
+
         h = new HighScore();
         h.loadHighScoresFromFile();
         io.put(h.getHighScores());
-        
+
         io.put(p.getCurrentRoom().getDescription());
         boolean gameEnded = false;
-        while (!gameEnded)
-        {
+        while (!gameEnded) {
 
             // Get a command from user
             command();
 
-            if (p.getCurrentRoom().equals(monster.getCurrentRoom()))
-            {
+            if (p.getCurrentRoom().equals(monster.getCurrentRoom())) {
                 // # Brug item her / mist liv
                 System.out.println("\n\nMonster og spiller i samme rum. Du dør");
                 p.changeRounds(-p.getRoundsLeft()); //Sætter p spillerunder til 0, så spiller "dør"
             }
 
-            if (p.getCurrentRoom().isWinGame() == true)
-            {
+            if (p.getCurrentRoom().isWinGame() == true) {
                 //io.put(p.getCurrentRoom().getDescription());
                 gameEnded = true;
                 h.sortHighScores(p.getRoundsLeft());
                 h.saveHighScoresToFile();
                 io.put(h.getHighScores());
             }
-            if (p.getRoundsLeft() < 1)
-            {
+            if (p.getRoundsLeft() < 1) {
                 gameEnded = true;
                 io.put("\n\n\n");
                 io.put("Du var for langsom. Alle fiskefiletterne er væk.\n"
@@ -97,8 +90,7 @@ public class Game
      *
      * @return
      */
-    private String startGame()
-    {
+    private String startGame() {
         return "\n********************************************************\n"
                 + "***************    FIRMA & FISKEFILET    ***************\n"
                 + "********************************************************\n\n"
@@ -115,37 +107,32 @@ public class Game
      * Takes commands from user and reacts accordingly
      *
      */
-    public void command()
-    {
+    public void command() {
         String command = io.get().toUpperCase();
 
-        switch (command)
-        {
+        switch (command) {
             case "N":
             case "E":
             case "S":
             case "W":
-               changeRoom(command);
-               break;
+                changeRoom(command);
+                break;
             case "H":
                 helpMenu();
                 break;
-                
-           // Her noget med at vise/vælge items fra rygsækken!  
-           //case "I":
+            // Her noget med at vise/vælge items fra rygsækken!  
+            //case "I":
             //    not done!!
             //  break;
-                
             //       Her noget med consume Item         
             //                
-                //case "C":
+            //case "C":
             //   p.getConsumableItem();
             //if (p.getConsumableItem == null)
             //     {
             //          io.put("Der er ikke noget, at putte i munden, du bider dig i fingrene!);
             //           p.changeRounds(-2);
             //     }
-            
             //else 
             //     {
             //      io.put("Du putter " + p.getConsumableItem + " i munden! Du får " + p.getConsumableItem.getBonus 
@@ -155,9 +142,7 @@ public class Game
             //       p.changeRounds(-1);
             //     }
             //     break;    
-
             // Skal nok være noget andet, da vi jo enten consumer eller user items??
-                
             //case "U":
             //   p.getUsableItem();
             //if (m.getMonster == null)
@@ -180,31 +165,19 @@ public class Game
             //       p.changeRounds(-1);
             //     }
             //     break;    
-                
             case "D":
                 p.getCurrentRoom().addItemToRoom();
-                break;    
-                
+                break;
             case "Q":
                 io.put("Du har afsluttet spillet");
                 System.exit(0);
                 break;
             case "T":
-                io.put("Du har " + p.getRoundsLeft()+ " runder tilbage!");
+                io.put("Du har " + p.getRoundsLeft() + " runder tilbage!");
                 break;
             case "P":
-                if (p.getCurrentRoom().getItem()==null)
-                {
-                    io.put("Der er ikke noget at samle op!");
-                    p.changeRounds(-1);
-                }
-                else
-                {
-                p.getCurrentRoom().removeItemFromRoom();
-                p.changeRounds(-1);
-                }
+                pickup();
                 break;
-                
             default:
                 io.put("Det er ikke en gyldig kommando!\n"
                         + "Du kan altid skrive h for hjælp.\n");
@@ -216,8 +189,7 @@ public class Game
      * Menu showing the player which actions they can peform. Is shown when user
      * is entering "h"
      */
-    private void helpMenu()
-    {
+    private void helpMenu() {
         String str = "\nDu har følgende muligheder: \n"
                 + "E - for at gå mod øst\n"
                 + "S - for at gå mod syd\n"
@@ -232,25 +204,30 @@ public class Game
         io.put(str);
     }
 
-    private void changeRoom(String command)
-    {
-         if (p.canWalk(command))
-                {
-                    p.walk(command);
-                    p.changeRounds(-3);
-                    io.put("\n\n\n");
-                    io.put(p.getCurrentRoom().getDescription());
+    private void changeRoom(String command) {
+        if (p.canWalk(command)) {
+            p.walk(command);
+            p.changeRounds(-3);
+            io.put("\n\n\n");
+            io.put(p.getCurrentRoom().getDescription());
 
-                    // Move monster, only if user also moves (issues move command)
-                    monster.moveMonster();
-                } else
-                {
-                    io.put("Der er ingen dør i den retning. Prøv igen!");
-                    p.changeRounds(-1);
-                }
-                
-        
+            // Move monster, only if user also moves (issues move command)
+            monster.moveMonster();
+        } else {
+            io.put("Der er ingen dør i den retning. Prøv igen!");
+            p.changeRounds(-1);
+        }
+
     }
-     
+
+    private void pickup() {
+        if (p.getCurrentRoom().getItem() == null) {
+            io.put("Der er ikke noget at samle op!");
+            p.changeRounds(-1);
+        } else {
+            p.getCurrentRoom().removeItemFromRoom();
+            p.changeRounds(-1);
+        }
+    }
 
 }
