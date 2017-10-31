@@ -20,7 +20,7 @@ public class ItemList {
     public ItemList() {
         itemList.add(new ConsumableItem(
                 "Redbull",
-                "Du spotter en 33cl. blå dåse, med to røde tyre der støder hinanden markeret udenpå.",
+                "Du spotter en 33cl. blå dåse, med to røde tyre der støder hinanden, markeret udenpå.",
                 5,
                 "Du føler dig rig på energi (+5)")
         );
@@ -44,33 +44,33 @@ public class ItemList {
         );
         itemList.add(new ConsumableItem(
                 "Gulerødder",
-                "",
-                0,
-                "")
+                "Hvad er det orange, kaninen sidder og nipper til?",
+                4,
+                "Det var Snurre Snups favorit måltid! (+4)")
         );
         itemList.add(new ConsumableItem(
-                "Vand",
-                "",
-                0,
-                "")
+                "Glas vand",
+                "Et hydrogen og to oxygen i en kovalent binding omringent af glas",
+                5,
+                "Mhmm vand (")
         );
         itemList.add(new ConsumableItem(
                 "Nødder", // Skal give minus da Pedersen som ikke vasker hænder dropper den
-                "",
-                0,
-                "")
+                "Deez?",
+                7,
+                "Nutz.")
         );
         itemList.add(new ConsumableItem(
-                "Mælk (sur)",
-                "",
-                0,
-                "")
+                "Mælk",
+                "Cremet, blegt, drikkeligt?",
+                -4,
+                "Det var surt... surt mælk! (-4)")
         );
         itemList.add(new ConsumableItem(
                 "Snickers",
-                "",
-                0,
-                "")
+                "Du føler dig sulten og ikke helt som dig selv",
+                9,
+                "Her, tag en snickers! (+9)")
         );
         itemList.add(new UsableItem(
                 "Tilbudsavis",
