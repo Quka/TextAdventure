@@ -46,6 +46,14 @@ public class Maze {
     public Maze() {
 
     }
+    
+    public ArrayList<Room> createMaze()
+    {
+        createRooms();
+        createAccess(rooms);
+        
+        return rooms;
+    }
 
     private void addOfficeRoom() {
         int removeIndex = (int) (Math.random() * officeRooms.size());
@@ -83,7 +91,7 @@ public class Maze {
      *
      * @return ArrayList of rooms
      */
-    public ArrayList<Room> createRooms() {
+    private ArrayList<Room> createRooms() {
         //Adding starting position, always rooms(index0)
 
         rooms.add(new Room(
@@ -212,7 +220,7 @@ public class Maze {
      *
      * @param rooms
      */
-    public void createMaze(ArrayList<Room> rooms) {
+    private void createAccess(ArrayList<Room> rooms) {
 
         rooms.get(0).setNorth(rooms.get(1));
 
@@ -277,4 +285,6 @@ public class Maze {
         rooms.get(19).setSouth(rooms.get(13));
 
     }
+    
+    
 }

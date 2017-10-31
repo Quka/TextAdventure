@@ -13,7 +13,7 @@ import textadventure.Room;
  * 
  * @author Ionsight
  */
-public class Boss extends Monster implements MainCharacter {
+public class Boss  implements MainCharacter {
 
     private String name;
     private Room currentRoom;
@@ -24,6 +24,7 @@ public class Boss extends Monster implements MainCharacter {
      * @param name
      * @param startingRoom 
      */
+    
     public Boss(String name, Room startingRoom) {
         this.name = name;
         this.currentRoom = startingRoom;

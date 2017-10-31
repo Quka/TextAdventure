@@ -46,8 +46,8 @@ public class Game
                 + "-----------------------------------------\n");
         // Setup rooms for the maze
         m = new Maze();
-        ArrayList<Room> rooms = m.createRooms();
-        m.createMaze(rooms);
+        ArrayList<Room> rooms = m.createMaze();
+//        m.createMaze(rooms);
 
         // Initialize characters
         p = new Player(name, rooms.get(0));
@@ -125,21 +125,8 @@ public class Game
             case "E":
             case "S":
             case "W":
-                if (p.canWalk(command))
-                {
-                    p.walk(command);
-                    p.changeRounds(-3);
-                    io.put("\n\n\n");
-                    io.put(p.getCurrentRoom().getDescription());
-
-                    // Move monster, only if user also moves (issues move command)
-                    monster.moveMonster();
-                } else
-                {
-                    io.put("Der er ingen dør i den retning. Prøv igen!\n");
-                    p.changeRounds(-1);
-                }
-                break;
+               changeRoom(command);
+               break;
             case "H":
                 helpMenu();
                 break;
@@ -245,6 +232,25 @@ public class Game
         io.put(str);
     }
 
+    private void changeRoom(String command)
+    {
+         if (p.canWalk(command))
+                {
+                    p.walk(command);
+                    p.changeRounds(-3);
+                    io.put("\n\n\n");
+                    io.put(p.getCurrentRoom().getDescription());
+
+                    // Move monster, only if user also moves (issues move command)
+                    monster.moveMonster();
+                } else
+                {
+                    io.put("Der er ingen dør i den retning. Prøv igen!\n");
+                    p.changeRounds(-1);
+                }
+                
+        
+    }
      
 
 }
