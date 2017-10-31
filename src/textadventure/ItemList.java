@@ -55,16 +55,16 @@ public class ItemList {
                 "Mhmm vand (")
         );
         itemList.add(new ConsumableItem(
-                "Nødder", // Skal give minus da Pedersen som ikke vasker hænder dropper den
+                "Nødder",
                 "Deez?",
                 7,
                 "Nutz.")
         );
         itemList.add(new ConsumableItem(
                 "Mælk",
-                "Cremet, blegt, drikkeligt?",
+                "Cremet, blegt, og drikkeligt?",
                 -4,
-                "Det var surt... surt mælk! (-4)")
+                "Det var surt... mælk... (-4)")
         );
         itemList.add(new ConsumableItem(
                 "Snickers",
@@ -74,47 +74,52 @@ public class ItemList {
         );
         itemList.add(new UsableItem(
                 "Tilbudsavis",
-                "På trods af 'Nej Tak' klistermærket, ligger den stadig her"
+                "På trods af 'Nej Tak' klistermærket, ligger den her stadig"
         ));
         itemList.add(new UsableItem(
                 "3D Gamerblad",
-                ""
+                "Firkantet hovede og pickaxe? Er det om 3D og gaming?"
         ));
         itemList.add(new UsableItem(
                 "Rulle toiletpapir",
-                ""
+                "Dejlig blødt og i 3-lag"
         ));
         itemList.add(new UsableItem(
                 "Konsulentrapport",
-                ""
+                "Dette executive summary indeholder et kortfattet resumé af \n"
+                        + "en række konklusioner og anbefalinger i ... zzzZZZzzz"
         ));
         itemList.add(new UsableItem(
                 "Telefonlader",
-                ""
+                "En oplader, men er det Mini, micro, eller nano USB stik?"
         ));
         itemList.add(new UsableItem(
                 "Stok",
-                ""
+                "Anvendes når man står, eller går, eller at partere med\n"
+                        + " hvis man fjerner hylsteret."
         ));
         itemList.add(new UsableItem(
                 "Håndtaske",
-                ""
+                "En taske man holder på med hænderne. Er det et 'P' indgraveret på?"
         ));
         itemList.add(new UsableItem(
                 "Kaffe",
-                ""
+                "Mmm, en duft af roasted, bitre, malet, stemplede, bønner!"
         ));
         itemList.add(new UsableItem(
                 "Håndsæbe",
-                ""
+                "Holder dine hænder rene"
         ));
         itemList.add(new UsableItem(
                 "Mascara",
-                ""
+                "Påfør sminken på øjnene så de træder mere ud"
         ));
         itemList.add(new UsableItem(
                 "Salgspræsentation",
-                ""
+                "Find ud af hvad der er det centrale budskab,\n"
+                        + "som du vil have \nlytterne til at huske.\n"
+                        + "Fokuser altid på kundens behov. \n"
+                        + "Hvis du... vent, hvad prøver jeg at sælge?"
         ));
     }
 
