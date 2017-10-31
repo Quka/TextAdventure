@@ -68,7 +68,7 @@ public class Game
             if (p.getCurrentRoom().equals(monster.getCurrentRoom()))
             {
                 // # Brug item her / mist liv
-                System.out.println("Monster og spiller i samme rum. Du dør");
+                System.out.println("\nMonster og spiller i samme rum. Du dør");
                 p.changeRounds(-p.getRoundsLeft()); //Sætter p spillerunder til 0, så spiller "dør"
             }
 
@@ -245,7 +245,7 @@ public class Game
                     monster.moveMonster();
                 } else
                 {
-                    io.put("Der er ingen dør i den retning. Prøv igen!\n");
+                    io.put("Der er ingen dør i den retning. Prøv igen!");
                     p.changeRounds(-1);
                 }
                 
