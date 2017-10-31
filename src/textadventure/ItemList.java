@@ -55,7 +55,7 @@ public class ItemList {
                 "")
         );
         itemList.add(new ConsumableItem(
-                "Nødder",
+                "Nødder", // Skal give minus da Pedersen som ikke vasker hænder dropper den
                 "",
                 0,
                 "")

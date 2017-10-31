@@ -91,12 +91,12 @@ public class Maze {
                 + "har lys tændt lister du dig videre.", false, null, null)); //lister videre, hører hun dig?
 
         officeRooms.add(new Room(
-                "Rummet er tomt, men Phillipa har glemt sin håndtaske.", false, monsterList.getMonster(0), itemList.getItem(0))); //Du bliver nysgerrig eller !
+                "Rummet er tomt, men Phillipa har glemt sin håndtaske.", false, null, itemList.getItem(0))); //Du bliver nysgerrig eller !
 
         officeRooms.add(new Room(
                 "Du kommer til at vade ind i IT-lokalet, hvor alle nørderne sidder.\n"
                 + "De snakker ikke om andet end Rick & Morty og hvordan Heroes 3 var\n"
-                + "det bedste i serien.", false, null, null));
+                + "det bedste i serien.", false, monsterList.getMonster(0), null));
 
         officeRooms.add(new Room(
                 "Det var ikke kantinen det her, men hvorfor er der\n"
