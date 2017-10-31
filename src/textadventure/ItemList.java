@@ -74,58 +74,47 @@ public class ItemList {
         );
         itemList.add(new UsableItem(
                 "Tilbudsavis",
-                "",
-                0
+                "På trods af 'Nej Tak' klistermærket, ligger den stadig her"
         ));
         itemList.add(new UsableItem(
                 "3D Gamerblad",
-                "",
-                0
+                ""
         ));
         itemList.add(new UsableItem(
                 "Rulle toiletpapir",
-                "",
-                0
+                ""
         ));
         itemList.add(new UsableItem(
                 "Konsulentrapport",
-                "",
-                0
+                ""
         ));
         itemList.add(new UsableItem(
                 "Telefonlader",
-                "",
-                0
+                ""
         ));
         itemList.add(new UsableItem(
                 "Stok",
-                "",
-                0
+                ""
         ));
         itemList.add(new UsableItem(
                 "Håndtaske",
-                "",
-                0
+                ""
         ));
         itemList.add(new UsableItem(
                 "Kaffe",
-                "",
-                0
+                ""
         ));
         itemList.add(new UsableItem(
                 "Håndsæbe",
-                "",
-                0
+                ""
         ));
         itemList.add(new UsableItem(
                 "Mascara",
-                "",
-                0
+                ""
         ));
         itemList.add(new UsableItem(
                 "Salgspræsentation",
-                "",
-                0
+                ""
         ));
     }
 

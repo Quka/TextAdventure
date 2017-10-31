@@ -22,10 +22,9 @@ abstract public class Item {
      * @param roundsLeftModifier 
      */
     
-    public Item (String name, String description, int roundsLeftModifier) {
+    public Item (String name, String description) {
         this.name = name;
         this.description = description;
-        this.roundsLeftModifier = roundsLeftModifier;
     }
     
     /**
