@@ -14,6 +14,7 @@ public class Game {
 
     private TextIO io = new TextIO(new SysTextIO());
     private Player p;
+    private String name;
     private Boss monster;
     private Maze m;
     private HighScore h;
@@ -34,13 +35,13 @@ public class Game {
      */
     public void play() {
         //Ryk alt dette ind i en start game method?
-        io.put(startGame());
-        io.put("Hvad hedder du, arbejdstager?");
-        String name = io.get();
-        io.put(clear());
-        io.put("Hej " + name + ", velkommen til Firma & Fiskefilet\n"
-                + "Husk at du altid kan skrive h for hjælp\n"
-                + "-----------------------------------------\n");
+        startGame();
+//        io.put("Hvad hedder du, arbejdstager?");
+//        String name = io.get();
+//        io.put(clear());
+//        io.put("Hej " + name + ", velkommen til Firma & Fiskefilet\n"
+//                + "Husk at du altid kan skrive h for hjælp\n"
+//                + "-----------------------------------------\n");
         // Setup rooms for the maze
         m = new Maze();
         ArrayList<Room> rooms = m.createMaze();
@@ -90,8 +91,8 @@ public class Game {
      *
      * @return
      */
-    private String startGame() {
-        return "\n********************************************************\n"
+    private void startGame() {
+        io.put("\n********************************************************\n"
                 + "***************    FIRMA & FISKEFILET    ***************\n"
                 + "********************************************************\n\n"
                 + "********************************************************\n"
@@ -100,7 +101,13 @@ public class Game {
                 + "** fileterne er udsolgt. Alt det andet fisk lugter og **\n"
                 + "** smager dårligt. Derfor er det vigtigt, at du gør   **\n"
                 + "** dit bedste for at få fiskefilet til frokost i dag  **\n"
-                + "********************************************************\n";
+                + "********************************************************\n");
+        io.put("Hvad hedder du, arbejdstager?");
+        this.name = io.get();
+        io.put(clear());
+        io.put("Hej " + name + ", velkommen til Firma & Fiskefilet\n"
+                + "Husk at du altid kan skrive h for hjælp\n"
+                + "-----------------------------------------\n");
     }
 
     /**
@@ -230,7 +237,7 @@ public class Game {
         }
     }
 
-    public String clear(){
+    public String clear() {
         return "\n\n\n";
     }
 }
