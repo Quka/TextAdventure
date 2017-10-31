@@ -11,20 +11,20 @@ package textadventure.Item;
 abstract public class Item {
 
     protected String name;
-    protected String effect;
+    protected String description;
     protected int roundsLeftModifier;
     
     /**
      * Abstract contructor of an Item
      * 
      * @param name
-     * @param effect
+     * @param description
      * @param roundsLeftModifier 
      */
     
-    public Item (String name, String effect, int roundsLeftModifier) {
+    public Item (String name, String description, int roundsLeftModifier) {
         this.name = name;
-        this.effect = effect;
+        this.description = description;
         this.roundsLeftModifier = roundsLeftModifier;
     }
     

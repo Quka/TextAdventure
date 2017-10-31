@@ -15,6 +15,7 @@ import textadventure.Characters.Player;
  * @author Arlind U. <arlind.u at cph-au53@cphbusiness.dk>
  */
 public class ConsumableItem extends Item {
+    private String descriptionUsed;
     
     /**
      * Contructs and item
@@ -23,8 +24,9 @@ public class ConsumableItem extends Item {
      * @param description
      * @param roundsLeftModifier 
      */
-    public ConsumableItem(String name, String description, int roundsLeftModifier) {
+    public ConsumableItem(String name, String description, int roundsLeftModifier, String descriptionUsed) {
         super(name, description, roundsLeftModifier);
+        this.descriptionUsed = descriptionUsed;
     }
     
     /**
@@ -35,5 +37,9 @@ public class ConsumableItem extends Item {
     
     public void changeRoundsLeft(Player p) {
         p.changeRounds(roundsLeftModifier);
+    }
+    
+    public String getDescriptionUsed() {
+        return this.descriptionUsed;
     }
 }
