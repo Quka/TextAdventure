@@ -1,6 +1,7 @@
 package textadventure;
 
 import java.util.ArrayList;
+import textadventure.Characters.MonsterList;
 import textadventure.Item.ConsumableItem;
 import textadventure.Item.Item;
 import textadventure.Item.UsableItem;
@@ -20,12 +21,7 @@ public class Maze {
     private ArrayList<Room> meetingRooms = new ArrayList<>();
     private ArrayList<Room> restRooms = new ArrayList<>();
     private ItemList itemList = new ItemList();
-
-    //Items that are placed in the rooms. Should probably be moved to somewhere else in the code.
-    //Two descriptions: Both for when you take it AND when you use it?
-    //Neither description nor roundLeftModifier is shown when picking up items at the moment
-    //This is not shown in our UML Class Diagram
-   
+    private MonsterList monsterList = new MonsterList();
 
     /**
      * Constructs a maze
@@ -34,12 +30,11 @@ public class Maze {
     public Maze() {
 
     }
-    
-    public ArrayList<Room> createMaze()
-    {
+
+    public ArrayList<Room> createMaze() {
         createRooms();
         createAccess(rooms);
-        
+
         return rooms;
     }
 
@@ -85,7 +80,7 @@ public class Maze {
         rooms.add(new Room(
                 "Du sidder på dit kontor. Du kigger på uret og opdager,\n"
                 + "at du er sent på den. WTF! FISKEDAG! Bare der er\n"
-                + "fiskefilet tilbage, når du når kantinen.", false, null));
+                + "fiskefilet tilbage, når du når kantinen.", false, null, null));
 
         //Adding offices to <>officerooms, randomly placed later        
         officeRooms.add(new Room(
@@ -93,85 +88,85 @@ public class Maze {
                 + "lige mod døråbningen. Du ser en gammel dame. SHHH!!\n"
                 + "Det må være hende de omtaler som \"blinde, snaksaglige,\n"
                 + "pensionsparate Ruth\". Forundret over hvorfor en blind\n"
-                + "har lys tændt lister du dig videre.", false, null)); //lister videre, hører hun dig?
+                + "har lys tændt lister du dig videre.", false, null, null)); //lister videre, hører hun dig?
 
         officeRooms.add(new Room(
-                "Rummet er tomt, men Phillipa har glemt sin håndtaske.", false,  itemList.getItem(0))); //Du bliver nysgerrig eller !
+                "Rummet er tomt, men Phillipa har glemt sin håndtaske.", false, null, itemList.getItem(0))); //Du bliver nysgerrig eller !
 
         officeRooms.add(new Room(
                 "Du kommer til at vade ind i IT-lokalet, hvor alle nørderne sidder.\n"
                 + "De snakker ikke om andet end Rick & Morty og hvordan Heroes 3 var\n"
-                + "det bedste i serien.", false, coffee));
+                + "det bedste i serien.", false, null, null));
 
         officeRooms.add(new Room(
                 "Det var ikke kantinen det her, men hvorfor er der\n"
-                + "så krummer på gulvet?", false, biscuitAndCoke));
+                + "så krummer på gulvet?", false, null, null));
 
         officeRooms.add(new Room(
                 "Tine er ved at skrive en indkøbsseddel, da hun skal have gæster.\n"
-                + "Hun undskylder sig dog med, at hun skal bruge det til et IT-program", false, null));
+                + "Hun undskylder sig dog med, at hun skal bruge det til et IT-program", false, null, null));
 
         officeRooms.add(new Room(
                 "Du træder ind i det tekøkken, hvor Thomas plejer at opholde\n"
-                + "sig. Du ved, hvad det betyder!", false, redBull));
+                + "sig. Du ved, hvad det betyder!", false, null, null));
 
         officeRooms.add(new Room(
                 "Tobias sidder med sit seneste blad om 3d-gaming, men du ved at han burde\n"
-                + "lave oplæg om et nyt TAG-koncept", false, null));
+                + "lave oplæg om et nyt TAG-koncept", false, null, null));
 
         //Adding copyrooms to <>copyrooms, randomly placed later 
         copyRooms.add(new Room(
                 "Døren knirker som du åbner den. Et kopirum! Det burde\n "
-                + "du have set komme. Især fordi det var en glasdør.", false, null));
+                + "du have set komme. Især fordi det var en glasdør.", false, null, null));
 
         copyRooms.add(new Room(
                 "Kopimaskinen summer stadig. Den er åbenbart lige blevet færdig.\n"
-                + "Du går nysgerrigt over og kigger på alle de udskrevne papirer.", false, consultancyReport));
+                + "Du går nysgerrigt over og kigger på alle de udskrevne papirer.", false, null, null));
 
         //Adding restrooms to <>restrooms, randomly placed later 
         restRooms.add(new Room(
                 "Ups! Dametoilettet. Der hænger en klam stank i luften.\n"
-                + "Det må være Ruth, som har været i gang.", false, dogTreats)); //boolean om der er nogen derude
+                + "Det må være Ruth, som har været i gang.", false, null, null)); //boolean om der er nogen derude
 
         restRooms.add(new Room(
                 "Pedersen er på vej ud fra toilettet. Han vasker ikke fingre!\n"
-                + "Slut med at give ham hånden.", false, null));
+                + "Slut med at give ham hånden.", false, null, null));
 
         restRooms.add(new Room(
                 "Du kommer ind på herretoilettet. Du skal simpelthen tisse så meget,\n"
                 + "at fiskefileterne må vente lidt. Du åbner toiletdøren, men ser at Ronnie\n"
-                + "har glemt at låse døren!", false, null));
+                + "har glemt at låse døren!", false, null, null));
 
         restRooms.add(new Room(
                 "Lisette står og pudrer næse på dametoilettet. Hun opdager dig og langer dig\n"
-                + "en syngende lussing.", false, null));
+                + "en syngende lussing.", false, null, null));
 
         //Adding meetingrooms to<>meetingrooms, randomly placed later
         meetingRooms.add(new Room(
                 "Du træder ind i et lokale, hvor et vigtigt møde med en potentiel\n"
-                + "kunde er i gang. Du bliver nødt til at lade som om, at du er en sekretær.", false, null));
+                + "kunde er i gang. Du bliver nødt til at lade som om, at du er en sekretær.", false, null, null));
 
         meetingRooms.add(new Room(
                 "Mødelokalet er tomt, men der står kopper og service fra sidste møde.\n"
-                + "Sikke et rod!", false, null)); //boolean med oprydning. der kommer en ind, skal hun have hjælp eller ej
+                + "Sikke et rod!", false, null, null)); //boolean med oprydning. der kommer en ind, skal hun have hjælp eller ej
 
         meetingRooms.add(new Room(
                 "Projektgruppen sidder i mødelokalet. Vil du forsøge at forsinke dem i at\n"
-                + "nå fiskefileterne i kantinen?", false, null)); //mulige actions
+                + "nå fiskefileterne i kantinen?", false, null, null)); //mulige actions
 
         //Adding specialrooms to<>specialrooms, randomly placed later
         specialRooms.add(new Room(
                 "Du vader ind på chefens kontor. På hans skrivebord sidder sekretæren\n"
-                + "Phillipa.", false, null)); //bliver sur, flov ect
+                + "Phillipa.", false, null, null)); //bliver sur, flov ect
 
         specialRooms.add(new Room(
                 "Viceværten sidder og swiper på Tinder. Du tænker \"er han ikke gift med\n"
-                + "hende Alice fra regnskabsafdelingen?\"", false, sourMilk)); //hans reaktion
+                + "hende Alice fra regnskabsafdelingen?\"", false, null, null)); //hans reaktion
 
         specialRooms.add(new Room(
                 "OMG! Hvad er det syn?! KANTINEN!! Du klarede det! Du skynder dig op i køen\n"
                 + "lige foran ham den arrogante fra din afdeling. Da du når frem til fadet\n"
-                + "er der kun 4 fiskefileter tilbage. Du snupper alle 4!", true, null));
+                + "er der kun 4 fiskefileter tilbage. Du snupper alle 4!", true, null, null));
 
         //Adding rooms(Inde1-5)
         addOfficeRoom();
@@ -273,6 +268,5 @@ public class Maze {
         rooms.get(19).setSouth(rooms.get(13));
 
     }
-    
-    
+
 }

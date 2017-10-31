@@ -1,6 +1,7 @@
 package textadventure;
 
 import textadventure.Item.Item;
+import textadventure.Characters.Monster;
 import textio.*;
 
 /**
@@ -16,6 +17,7 @@ public class Room {
     private Room east;
     private Room south;
     private Room west;
+    private Monster monster;
     private Item item;
 
     private boolean winGame;
@@ -28,10 +30,11 @@ public class Room {
      * @param winGame
      * @param item
      */
-    public Room(String description, boolean winGame, Item item) {
+    public Room(String description, boolean winGame, Monster monster, Item item) {
         this.id = id;
         this.description = description;
         this.winGame = winGame;
+        this.monster = monster;
         this.item = item;
     }
 
