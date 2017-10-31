@@ -145,7 +145,15 @@ public class Game {
             //     break;    
             // Skal nok være noget andet, da vi jo enten consumer eller user items??
             //case "U":
-            //   p.getUsableItem();
+                
+                
+                // io.put show inventory (hvilket item vil du bruge?)
+                // itemIndex = io.get inventory itemIndex
+                // usableItem = p.getItem(itemIndex)
+                // m.getMonster.useItem(usableItem);
+                
+                
+            //  p.getUsableItem();
             //if (m.getMonster == null)
             //     {
             //          io.put("Der er ikke nogen, at bruge et Item mod);
@@ -211,6 +219,9 @@ public class Game {
             p.changeRounds(-3);
             io.put(clear());
             io.put(p.getCurrentRoom().getDescription());
+            // # io put monster description hvis den findes
+            
+            // # io put item description hvis den findes
 
             // Move monster, only if user also moves (issues move command)
             monster.moveMonster();
@@ -226,6 +237,7 @@ public class Game {
             io.put("Der er ikke noget at samle op!");
             p.changeRounds(-1);
         } else {
+            p.pickupItem( p.getCurrentRoom().getItem() );
             p.getCurrentRoom().removeItemFromRoom();
             p.changeRounds(-1);
         }
