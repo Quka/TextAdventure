@@ -67,10 +67,11 @@ public class HighScore {
     }
 
     public String getHighScores() {
-                String str = "\nHigh Scores:\n\n";
+                String str = "\nHigh Scores:";
         for (int i = 0; i < highScore.length; i++) {
             str += highScore[i] + "\n";
         }
+        str+= "\n";
         return str;
     }
 }
