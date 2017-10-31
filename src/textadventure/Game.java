@@ -37,7 +37,7 @@ public class Game {
         io.put(startGame());
         io.put("Hvad hedder du, arbejdstager?");
         String name = io.get();
-        io.put("\n\n\n");
+        io.put(space());
         io.put("Hej " + name + ", velkommen til Firma & Fiskefilet\n"
                 + "Husk at du altid kan skrive h for hjælp\n"
                 + "-----------------------------------------\n");
@@ -63,7 +63,7 @@ public class Game {
 
             if (p.getCurrentRoom().equals(monster.getCurrentRoom())) {
                 // # Brug item her / mist liv
-                System.out.println("\n\nMonster og spiller i samme rum. Du dør");
+                System.out.println(space() + "Monster og spiller i samme rum. Du dør");
                 p.changeRounds(-p.getRoundsLeft()); //Sætter p spillerunder til 0, så spiller "dør"
             }
 
@@ -76,12 +76,12 @@ public class Game {
             }
             if (p.getRoundsLeft() < 1) {
                 gameEnded = true;
-                io.put("\n\n\n");
+                io.put(space());
                 io.put("Du var for langsom. Alle fiskefiletterne er væk.\n"
                         + "Du må hjem og se om mor har fiskefiletter i fryseren :(\n");
             }
         }
-        io.put("\n\n\n");
+        io.put(space());
         io.put("Spillet er slut! ");
     }
 
@@ -200,7 +200,7 @@ public class Game {
                 + "P - for at samle en ting op i et rum\n"
                 + "T - for at se resterende runder\n"
                 + "Q - for at afslutte spillet\n";
-        io.put("\n\n\n");
+        io.put(space());
         io.put(str);
     }
 
@@ -208,7 +208,7 @@ public class Game {
         if (p.canWalk(command)) {
             p.walk(command);
             p.changeRounds(-3);
-            io.put("\n\n\n");
+            io.put(space());
             io.put(p.getCurrentRoom().getDescription());
 
             // Move monster, only if user also moves (issues move command)
@@ -230,4 +230,7 @@ public class Game {
         }
     }
 
+    public String space(){
+        return "\n\n\n";
+    }
 }
