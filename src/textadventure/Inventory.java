@@ -7,6 +7,7 @@ package textadventure;
 
 import textadventure.Item.Item;
 import java.util.ArrayList;
+import textadventure.Item.UsableItem;
 
 /**
  * Inventory is used to hold items that i picked up during gameplay
@@ -75,9 +76,13 @@ public class Inventory {
      *
      * @param item
      */
-    public void removeItemFromInventory(Item item) {
-        items.remove(item);
+    public void removeItemFromInventory(int itemIndex) {
+        items.remove(itemIndex);
 
+    }
+
+    public Item getItem(int itemIndex) {
+        return items.get(itemIndex);
     }
 
     @Override

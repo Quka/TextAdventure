@@ -1,7 +1,9 @@
 package textadventure.Characters;
 
 import textadventure.Inventory;
+import textadventure.Item.ConsumableItem;
 import textadventure.Item.Item;
+import textadventure.Item.UsableItem;
 import textadventure.Room;
 import textio.SysTextIO;
 import textio.TextIO;
@@ -84,59 +86,30 @@ public class Player implements MainCharacter {
     /**
      * Adds item to the inventory if inventory is not at max capacity. Else it
      * explains the user that there is not enough space.
-     * 
+     *
      * @param item
-     * @param room 
+     * @param room
      */
-    public void addItemToInventory(Item item, Room room) {
-        if (inventory.getInventorySize() >= inventory.getCapacity()) {
-            io.put("Du har ikke plads til flere ting på dig");
-        } else {
-            inventory.addToInventory(item);
-            room.removeItemFromRoom();
-        }
+    public void pickupItem(Item item) {
 
+        if (item instanceof ConsumableItem) {
+            // # Hvis item er consumable så brug med det samme
+            changeRounds(item.getRoundsModifier());
+        } else {
+            // # Hvis item er usable, så læg i backpack
+            inventory.addToInventory(item);
+        }
     }
 
     /**
      * Removes the item from inventory and modifies round timer(?)
-     * 
+     *
      * @param item
-     * @param rounds 
+     * @param rounds
      */
-    public void useItem(Item item, int rounds) {
-        inventory.removeItemFromInventory(item);
-        rounds += item.getRoundsModifier();
-
-    }
-    
-    /**
-     * Removes item from inventory and modifies round timer
-     * 
-     * @param item
-     * @param rounds 
-     */
-    public void consumeItem(Item item, int rounds) {
-        inventory.removeItemFromInventory(item);
-        rounds += item.getRoundsModifier();
-
-    }
-
-    /**
-     * Removes the item from inventory and adds it to the room
-     * 
-     * @param item
-     * @param room 
-     */
-    
-    // Shouldn't it remove it from the hand instead of inventory?
-    public void dropItem(Item item, Room room) {
-        if (room.getItem() != null) {
-            io.put("Du må ikke lægge flere ting her");
-        } else {
-            inventory.removeItemFromInventory(item);
-            room.addItemToRoom();
-        }
+    public Item getItem(int itemIndex) {
+        inventory.removeItemFromInventory(itemIndex);
+        return inventory.getItem(itemIndex);
     }
 
 }

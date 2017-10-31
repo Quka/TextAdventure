@@ -33,8 +33,7 @@ public class UsableItem extends Item {
      * 
      * @return 
      */
-    public boolean isUsable() {
+    public void useItem() {
         // not done
-        return false;
     }
 }
