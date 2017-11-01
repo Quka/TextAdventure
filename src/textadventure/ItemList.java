@@ -84,8 +84,7 @@ public class ItemList {
         ));
         itemList.add(new UsableItem(
                 "Konsulentrapport",
-                "Dette executive summary indeholder et kortfattet resumé af \n"
-                        + "en række konklusioner og anbefalinger i ... zzzZZZzzz.."
+                "Dette executive summary indeholder et kortfattet resumé af en række konklusioner og anbefalinger i ... zzzZZZzzz.."
         ));
         itemList.add(new UsableItem(
                 "Telefonlader",
@@ -93,8 +92,7 @@ public class ItemList {
         ));
         itemList.add(new UsableItem(
                 "Stok",
-                "Anvendes når man står, eller går, eller at partere med\n"
-                        + " hvis man fjerner hylsteret."
+                "Anvendes når man står, eller går, eller at partere med hvis man fjerner hylsteret."
         ));
         itemList.add(new UsableItem(
                 "Håndtaske",
@@ -114,10 +112,7 @@ public class ItemList {
         ));
         itemList.add(new UsableItem(
                 "Salgspræsentation",
-                "Find ud af hvad der er det centrale budskab,\n"
-                        + "som du vil have \nlytterne til at huske.\n"
-                        + "Fokuser altid på kundens behov. \n"
-                        + "Hvis du... vent, hvad prøver jeg at sælge?"
+                "Find ud af hvad der er det centrale budskab, som du vil have \nlytterne til at huske. Fokuser altid på kundens behov. Hvis du... vent, hvad prøver jeg at sælge?"
         ));
     }
 
