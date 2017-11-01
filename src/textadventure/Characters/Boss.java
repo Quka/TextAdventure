@@ -18,7 +18,7 @@ public class Boss  implements MainCharacter {
 
     private final String name;
     private Room currentRoom;
-    private boolean happy = false;
+    private boolean happy;
     private Item neutralizingItem;  // mangler at sæyttes som parameter
     /**
      * Constructs a monster and places it in the maze
@@ -28,10 +28,9 @@ public class Boss  implements MainCharacter {
      */
     
     public Boss(String name, Room startingRoom) {
+        this.happy = false;
         this.name = name;
         this.currentRoom = startingRoom;
-        
-        this.happy = happy;
     }
 
     @Override
