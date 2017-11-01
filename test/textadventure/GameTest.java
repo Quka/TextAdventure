@@ -33,7 +33,7 @@ public class GameTest
                 "Praesent elementum tincidunt risus eget cursus. Maecenas eleifend accumsan felis, et commodo turpis vestibulum eu. Vestibulum tellus nisi, elementum nec ligula eget, congue luctus nisi. Sed ante turpis, lacinia at tortor at, semper suscipit magna."
         );
         
-        System.out.println(game.prettyMessage(item.getDescription()));
+        System.out.println(game.prettyMessage(item.getDescription(), "Monster"));
     }
     
     
