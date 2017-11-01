@@ -15,7 +15,7 @@ abstract public class Item {
     protected int roundsLeftModifier;
     
     /**
-     * Abstract contructor of an Item
+     * Abstract constructor of an Item
      * 
      * @param name
      * @param description 

@@ -19,7 +19,7 @@ public class Inventory {
     private int capacity;
 
     /**
-     * Contructs an inventory and initializes with a capacity of 10
+     * Constructs an inventory and initializes with a capacity of 10
      *
      */
     public Inventory() {

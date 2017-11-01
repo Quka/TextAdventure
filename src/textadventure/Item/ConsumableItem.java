@@ -18,7 +18,7 @@ public class ConsumableItem extends Item {
     private int roundsLeftModifier;
     
     /**
-     * Contructs a consumable item
+     * Constructs a consumable item
      * 
      * @param name
      * @param description

@@ -19,7 +19,7 @@ public class Boss  implements MainCharacter {
     private Room currentRoom;
 
     /**
-     * Contructs a monster and places it in the maze
+     * Constructs a monster and places it in the maze
      * 
      * @param name
      * @param startingRoom 

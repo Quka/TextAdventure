@@ -24,7 +24,7 @@ public class Room {
     private final String description;
 
     /**
-     * Contructs and initializes a room
+     * Constructs and initializes a room
      *
      * @param description
      * @param winGame

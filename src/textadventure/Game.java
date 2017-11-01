@@ -21,7 +21,7 @@ public class Game {
     private int[] highScore = new int[5];
 
     /**
-     * Contructs a new Game
+     * Constructs a new Game
      *
      */
     public Game() {
