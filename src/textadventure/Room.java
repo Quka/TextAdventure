@@ -23,13 +23,14 @@ public class Room {
     private boolean winGame;
     private final String description;
 
-    /**
-     * Constructs and initializes a room
-     *
-     * @param description
-     * @param winGame
-     * @param item
-     */
+/**
+ * Constructs and initializes a room
+ * 
+ * @param description
+ * @param winGame
+ * @param monster
+ * @param item 
+ */
     public Room(String description, boolean winGame, Monster monster, Item item) {
         this.description = description;
         this.winGame = winGame;
