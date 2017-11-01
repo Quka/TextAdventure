@@ -221,16 +221,14 @@ public class Game {
     public String prettyMessage(String str, String title) {
         String prettyLine = "#------------------------------------------------";
         prettyLine += title.length() % 2 == 0 ? "-#" : "#"; // tilføj ekstra "-" for at flugte teksten
-        int prettyLineHalfPoint = prettyLine.length() / 2;
-        int titleWidth = title.length() / 2;
         int lineBreak = 39;
         int pad;
         String[] strArr = str.split(" ");
         String line = "";
 
-        prettyLine = prettyLine.substring(0, prettyLineHalfPoint - titleWidth)
+        prettyLine = prettyLine.substring(0, prettyLine.length() / 2 - title.length() / 2)
                 + " " + title + " "
-                + prettyLine.substring(prettyLineHalfPoint + titleWidth);
+                + prettyLine.substring(prettyLine.length() / 2 + title.length() / 2);
 
         String result = prettyLine + "\n";
 
