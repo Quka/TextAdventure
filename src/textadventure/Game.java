@@ -65,7 +65,7 @@ public class Game {
             if (p.getCurrentRoom().equals(boss.getCurrentRoom())) {
                 // # Brug item her / mist liv
                 System.out.println(clear() + "Monster og spiller i samme rum. Du dør");
-                p.changeRounds(-p.getRoundsLeft()); //Sætter p spillerunder til 0, så spiller "dør"
+                //p.changeRounds(-p.getRoundsLeft()); //Sætter p spillerunder til 0, så spiller "dør"
             }
             //Delete == true?
             if (p.getCurrentRoom().isWinGame() == true) {
@@ -136,7 +136,7 @@ public class Game {
 
                 io.put(Arrays.toString(i.showInventory()) + "\nHvilket item vil du bruge?\n");
                 int itemIndex = Integer.parseInt(io.get());
-                
+
                 // Check om man er i samme rum som bossen, og om bossen er sur, når man bruger item
                 if (p.getCurrentRoom().equals(boss.getCurrentRoom()) && boss.getPenalty() != 0) {
                     //To be done
@@ -210,15 +210,15 @@ public class Game {
             // # io put boss description hvis den findes
             if (p.getCurrentRoom().getMonster() != null) {
                 io.put(clear());
-                io.put(
+                io.put(prettyMessage(
                         "Du støder på " + p.getCurrentRoom().getMonster().getName() + ". "
                         + p.getCurrentRoom().getMonster().getName() + " giver dig tæsk ("
-                        + p.getCurrentRoom().getMonster().getPenalty() + ")"
-                );
+                        + p.getCurrentRoom().getMonster().getPenalty() + ")", "Monster"));
             }
-            
-            if(p.getCurrentRoom().getItem() != null) {
+
+            if (p.getCurrentRoom().getItem() != null) {
                 io.put(clear());
+                io.put(p.getCurrentRoom().getItem().getDescription());
             }
 
             // # io put item description hvis den findes
@@ -244,5 +244,35 @@ public class Game {
 
     public String clear() {
         return "\n\n\n";
+    }
+
+    public String prettyMessage(String str, String title) {
+        String prettyLine = "#------------------------------------------------#";
+        String result = prettyLine + "\n";
+        String[] strArr = str.split(" ");
+        String line = "";
+        int lineBreak = 39;
+        int pad;
+
+        for (String word : strArr) {
+            if (line.length() > lineBreak) {
+                pad = prettyLine.length() - line.length() - 3;
+                result += "| " + line.trim();
+                
+                while(pad > 0) {
+                    result += " ";
+                    pad--;
+                }
+                
+                result += " |\n";
+                line = "";
+            }
+
+            line += word + " ";
+        }
+
+        result += prettyLine + "\n";
+
+        return result;
     }
 }

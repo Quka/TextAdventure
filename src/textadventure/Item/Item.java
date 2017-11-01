@@ -34,6 +34,14 @@ abstract public class Item {
     
     //Check if method is used
     
+    public String getName() {
+        return this.name;
+    }
+    
+    public String getDescription() {
+        return this.description;
+    }
+    
     public int getRoundsModifier(){
         return roundsLeftModifier;
     }
