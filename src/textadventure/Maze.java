@@ -105,8 +105,9 @@ public class Maze {
                 + "sig. Du ved, hvad det betyder!", false, null, itemList.getItem(0)));
 
         officeRooms.add(new Room(
-                "Tobias sidder med sit seneste blad om 3d-gaming, men du ved at han burde\n"
-                + "lave oplæg om et nyt TAG-koncept.", false, monsterList.getMonster(1), itemList.getItem(9)));
+                "Du går ind i det nok mest intetsigende rum du nogensinde har\n"
+                + "har set. Det er så intetsigende, at der faktisk ikke er mere\n"
+                + "at sige om det.", false, monsterList.getMonster(1), itemList.getItem(9)));
 
         //Adding copyrooms to <>copyrooms, randomly placed later 
         copyRooms.add(new Room(

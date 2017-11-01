@@ -18,8 +18,16 @@ public class MonsterList {
     private ItemList itemList = new ItemList();
 
     public MonsterList() {
-        monsterList.add(new Monster("Tine", -3, itemList.getItem(9), itemList.getItem(16), ""));//
-        monsterList.add(new Monster("Tobias", -3, itemList.getItem(10), itemList.getItem(14), ""));
+        monsterList.add(new Monster("Tine", -3, itemList.getItem(9), itemList.getItem(16), 
+                "Hun drejer stolen 180 grader og kigger dig direkte i øjnene. Du får et koldt gys.\n"
+                + "Hvordan opdagede hun dig?! Hvad har hun tænkt sig at gøre?! Hvilken\n"
+                + "ret har hun tænkt sig at servere i aften?! Mens alle disse spørgsmål\n"
+                + "suser rundt i dit hoved rejser hun sig lige pludselig op, smiler og\n"
+                + "siger, uoverbevisende: \"Jeg skal bruge det til et IT-program\""));//
+        monsterList.add(new Monster("Tobias", -3, itemList.getItem(10), itemList.getItem(14), 
+                "Tobias sidder med sit seneste blad om 3D-gaming, men du ved at han burde\n"
+                + "lave oplæg om et nyt TAG-koncept. I et øjebliks hjerneafkopning påpeger\n"
+                + "du dette overfor ham. Det skulle du aldrig have gjort"));
         monsterList.add(new Monster("Ronnie", -4, itemList.getItem(11), itemList.getItem(2), 
                   "Hvis han ikke så presset ud før, så gør han det i hvert fald, da han ser dig!\n"
                 + "Han ligner en, som ikke ved om han skal spørge efter noget eller skrige\n"
