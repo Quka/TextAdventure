@@ -60,7 +60,7 @@ public class Game {
                 System.out.println(clear() + "Monster og spiller i samme rum. Du dør");
                 p.changeRounds(-p.getRoundsLeft()); //Sætter p spillerunder til 0, så spiller "dør"
             }
-
+            //Delete == true?
             if (p.getCurrentRoom().isWinGame() == true) {
                 //io.put(p.getCurrentRoom().getDescription());
                 gameEnded = true;
