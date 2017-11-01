@@ -1,8 +1,6 @@
 package textadventure;
 
-import textadventure.Characters.Boss;
-import textadventure.Characters.Monster;
-import textadventure.Characters.Player;
+import textadventure.Characters.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import textio.*;
@@ -243,7 +241,7 @@ public class Game {
         return result;
     }
 
-    public void useItem() {
+    private void useItem() {
         io.put(Arrays.toString(i.showInventory()) + "\nHvilket item vil du bruge?\n");
         int itemIndex = Integer.parseInt(io.get());
 
