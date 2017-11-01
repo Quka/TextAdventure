@@ -18,7 +18,7 @@ public class ItemList {
     public ItemList() {
         itemList.add(new ConsumableItem(
                 "Redbull",
-                "Du spotter en 33cl. blå dåse, med to røde tyre der støder hinanden, markeret udenpå.",
+                "Du spotter en 25cl. blå dåse, med to røde tyre der støder hinanden, markeret udenpå.",
                 5,
                 "Du føler dig rig på energi (+5)")
         );
@@ -36,7 +36,7 @@ public class ItemList {
         );
         itemList.add(new ConsumableItem(
                 "Chokolade",
-                "Du nænner en 12x18 cm. mørk romantisk plade",
+                "Du opdager en 12x18 cm. mørk romantisk plade",
                 6,
                 "Mums! Du elsker chokolade. (+6)")
         );
