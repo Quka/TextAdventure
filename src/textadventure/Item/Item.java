@@ -18,8 +18,7 @@ abstract public class Item {
      * Abstract contructor of an Item
      * 
      * @param name
-     * @param description
-     * @param roundsLeftModifier 
+     * @param description 
      */
     
     public Item (String name, String description) {

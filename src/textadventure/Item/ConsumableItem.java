@@ -6,7 +6,6 @@
 
 package textadventure.Item;
 
-import textadventure.Item.Item;
 import textadventure.Characters.Player;
 
 /**
@@ -15,15 +14,16 @@ import textadventure.Characters.Player;
  * @author Arlind U. <arlind.u at cph-au53@cphbusiness.dk>
  */
 public class ConsumableItem extends Item {
-    private String descriptionUsed;
+    private final String descriptionUsed;
     private int roundsLeftModifier;
     
     /**
-     * Contructs and item
+     * Contructs a consumable item
      * 
      * @param name
      * @param description
-     * @param roundsLeftModifier 
+     * @param roundsLeftModifier
+     * @param descriptionUsed
      */
     public ConsumableItem(String name, String description, int roundsLeftModifier, String descriptionUsed) {
         super(name, description);
@@ -40,7 +40,11 @@ public class ConsumableItem extends Item {
     public void changeRoundsLeft(Player p) {
         p.changeRounds(roundsLeftModifier);
     }
-    
+   /**
+    * Returns the description for when the consumed item is (automatically)used
+    * 
+    * @return 
+    */
     public String getDescriptionUsed() {
         return this.descriptionUsed;
     }
