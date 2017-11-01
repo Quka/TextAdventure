@@ -50,13 +50,13 @@ public class ItemList {
                 "Glas vand",
                 "Et hydrogen og to oxygen i en kovalent binding omringent af glas",
                 5,
-                "Mhmm vand (")
+                "Mhmm vand (+5)")
         );
         itemList.add(new ConsumableItem(
                 "Nødder",
                 "Deez?",
                 7,
-                "Nutz.")
+                "Nutz. (+7)")
         );
         itemList.add(new ConsumableItem(
                 "Mælk",

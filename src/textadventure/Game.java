@@ -23,6 +23,7 @@ public class Game {
     private HighScore h;
     private Inventory i;  // Inventory oprettes
     private int[] highScore = new int[5];
+    private ItemList itemList = new ItemList();
 
     /**
      * Constructs a new Game
@@ -46,14 +47,13 @@ public class Game {
 
         // Initialize characters
         p = new Player(name, rooms.get(0));
-        boss = new Boss("Chefen", rooms.get(12));
+        boss = new Boss("Chefen", -12, itemList.getItem(12), itemList.getItem(0), rooms.get(12));
 
         h = new HighScore();
         h.loadHighScoresFromFile();
         io.put(h.getHighScores());
-        
+
         i = new Inventory();
-        
 
         io.put(p.getCurrentRoom().getDescription());
         boolean gameEnded = false;
@@ -71,8 +71,8 @@ public class Game {
             if (p.getCurrentRoom().isWinGame() == true) {
                 //io.put(p.getCurrentRoom().getDescription());
                 gameEnded = true;
-                h.sortHighScores(p.getRoundsLeft()); 
-                h.saveHighScoresToFile();   
+                h.sortHighScores(p.getRoundsLeft());
+                h.saveHighScoresToFile();
                 io.put(h.getHighScores());
             }
             if (p.getRoundsLeft() < 1) {
@@ -124,80 +124,47 @@ public class Game {
             case "W":
                 changeRoom(command);
                 break;
-                
-                
+
             case "H":
                 helpMenu();
                 break;
-             
+
             case "I":  // show inventory
-            io.put(Arrays.toString(i.showInventory()));
-             break;
-             
-             
-            //       Her noget med consume Item         
-            //                
-            //case "C":
-            //   p.getConsumableItem();
-            //if (p.getConsumableItem == null)
-            //     {
-            //          io.put("Der er ikke noget, at putte i munden, du bider dig i fingrene!);
-            //           p.changeRounds(-2);
-            //     }
-            //else 
-            //     {
-            //      io.put("Du putter " + p.getConsumableItem + " i munden! Du får " + p.getConsumableItem.getBonus 
-            //              + " ekstra runder");
-            //      items.remove(p.getConsumableItem());
-            //       
-            //       p.changeRounds(-1);
-            //     }
-            //     break;    
-            // Skal nok være noget andet, da vi jo enten consumer eller user items??
-             
-             
+                io.put(Arrays.toString(i.showInventory()));
+                break;
             case "U":
+
+                io.put(Arrays.toString(i.showInventory()) + "\nHvilket item vil du bruge?\n");
+                int itemIndex = Integer.parseInt(io.get());
                 
-                
-               io.put(Arrays.toString(i.showInventory())+"\nHvilket item vil du bruge?\n");
-                 int itemIndex = Integer.parseInt(io.get ());
-             
-            if (p.getCurrentRoom().equals(boss.getCurrentRoom()) && boss.getIfBossHappy()==false)
-            {
-                //To be done
-            }
-            
-           
-            if (p.getCurrentRoom().getMonster() == null 
-                    || !boss.getCurrentRoom().equals(p.getCurrentRoom())
-                    || p.getCurrentRoom().getMonster().getDropItem()==null
-                    || boss.getIfBossHappy()==true)
-                {
-                      io.put("Der er ikke nogen, at bruge et Item imod");
-                      p.changeRounds(-1);
+                // Check om man er i samme rum som bossen, og om bossen er sur, når man bruger item
+                if (p.getCurrentRoom().equals(boss.getCurrentRoom()) && boss.getPenalty() != 0) {
+                    //To be done
                 }
-            
-            
-            else if (!p.getCurrentRoom().getMonster().getNeutralizingItem().equals(i.getItem(itemIndex)))
-                {
-                   io.put("Denne Item har ingen effekt!");
-                   p.changeRounds(p.getCurrentRoom().getMonster().getPenalty());
-                   io.put("Du mister " + p.getCurrentRoom().getMonster().getPenalty() + " runder");
-                   
+
+                if (p.getCurrentRoom().getMonster() == null
+                        || !boss.getCurrentRoom().equals(p.getCurrentRoom())
+                        || p.getCurrentRoom().getMonster().getDropItem() == null
+                        || boss.getPenalty() != 0) {
+                    io.put("Der er ikke nogen, at bruge et Item imod");
+                    p.changeRounds(-1);
+                } else if (!p.getCurrentRoom().getMonster().getNeutralizingItem().equals(i.getItem(itemIndex))) {
+                    io.put("Denne Item har ingen effekt!");
+                    p.changeRounds(p.getCurrentRoom().getMonster().getPenalty());
+                    io.put("Du mister " + p.getCurrentRoom().getMonster().getPenalty() + " runder");
+
+                } else {
+                    io.put("Du gør " + p.getCurrentRoom().getMonster().getName()
+                            + " glad! Du får " + p.getCurrentRoom().getMonster().getDropItem().toString()
+                            + ", som du putter i din rygsæk");
+                    i.removeItemFromInventory(itemIndex);
+                    i.addToInventory(p.getCurrentRoom().getMonster().getDropItem());
+                    p.getCurrentRoom().getMonster().setDropItemToNull();
+                    p.getCurrentRoom().getMonster().setPenalty(0);
+                    p.changeRounds(-1);
                 }
-            else 
-                {
-                   io.put("Du gør " + p.getCurrentRoom().getMonster().getDecription() 
-                           + " glad! Du får " + p.getCurrentRoom().getMonster().getDropItem().toString() 
-                         + ", som du putter i din rygsæk");
-                  i.removeItemFromInventory(itemIndex);
-                  i.addToInventory(p.getCurrentRoom().getMonster().getDropItem());
-                  p.getCurrentRoom().getMonster().setDropItemToNull();
-                  p.getCurrentRoom().getMonster().setPenalty(0);
-                  p.changeRounds(-1);
-                }
-             break;    
-            
+                break;
+
             case "Q":
                 io.put("Du har afsluttet spillet");
                 System.exit(0);
@@ -216,8 +183,8 @@ public class Game {
     }
 
     /**
-     * Menu showing the player which actions they can perform. Is shown when user
-     * is entering "h"
+     * Menu showing the player which actions they can perform. Is shown when
+     * user is entering "h"
      */
     private void helpMenu() {
         String str = "\nDu har følgende muligheder: \n"
@@ -226,8 +193,8 @@ public class Game {
                 + "W - for at gå mod vest\n"
                 + "N - for at gå mod nord\n"
                 + "H - for hjælp\n"
-                + "D - for at smide en ting i et rum\n"
-                + "P - for at samle en ting op i et rum\n"
+                + "U - for at bruge et item fra dit inventory\n"
+                + "P - for at samle et item op fra rummet\n"
                 + "T - for at se resterende runder\n"
                 + "Q - for at afslutte spillet\n";
         io.put(clear());
@@ -241,9 +208,20 @@ public class Game {
             io.put(clear());
             io.put(p.getCurrentRoom().getDescription());
             // # io put boss description hvis den findes
+            if (p.getCurrentRoom().getMonster() != null) {
+                io.put(clear());
+                io.put(
+                        "Du støder på " + p.getCurrentRoom().getMonster().getName() + ". "
+                        + p.getCurrentRoom().getMonster().getName() + " giver dig tæsk ("
+                        + p.getCurrentRoom().getMonster().getPenalty() + ")"
+                );
+            }
             
-            // # io put item description hvis den findes
+            if(p.getCurrentRoom().getItem() != null) {
+                io.put(clear());
+            }
 
+            // # io put item description hvis den findes
             // Move boss, only if user also moves (issues move command)
             boss.moveMonster();
         } else {
@@ -258,7 +236,7 @@ public class Game {
             io.put("Der er ikke noget at samle op!");
             p.changeRounds(-1);
         } else {
-            p.pickupItem( p.getCurrentRoom().getItem() );
+            p.pickupItem(p.getCurrentRoom().getItem());
             p.getCurrentRoom().removeItemFromRoom();
             p.changeRounds(-1);
         }

@@ -14,48 +14,26 @@ import textadventure.Room;
  * 
  * @author Ionsight
  */
-public class Boss implements MainCharacter {
+public class Boss extends Monster implements MainCharacter {
 
-    private final String name;
     private Room currentRoom;
-    private boolean happy;
-    private Item neutralizingItem;  // mangler at sæyttes som parameter
+
     /**
      * Constructs a monster and places it in the maze
-     * 
      * @param name
+     * @param penalty
+     * @param neutralizingItem
+     * @param dropItem
      * @param startingRoom 
      */
-    
-    public Boss(String name, Room startingRoom) {
-        this.happy = false;
-        this.name = name;
+    public Boss(String name, int penalty, Item neutralizingItem, Item dropItem, Room startingRoom) {
+        super(name, penalty, neutralizingItem, dropItem);
         this.currentRoom = startingRoom;
     }
 
     @Override
     public Room getCurrentRoom() {
         return currentRoom;
-    }
-    
-    /**
-     * Sets boss to happy if neutralizingItem is used on him, so boss doesn't
-     * deal damage
-     * @param happy
-     */
-    public void setIfBossHappy (boolean happy)
-    {
-        this.happy = happy;
-    }
-    
-    /**
-     * See if neutralItem has been used on boss, thereby seeing if boss deals  
-     * damage
-     * @return 
-     */
-    public boolean getIfBossHappy ()
-    {
-        return happy;
     }
 
     @Override

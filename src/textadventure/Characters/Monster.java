@@ -15,22 +15,20 @@ import textadventure.Room;
  */
 public class Monster {
 
-    private final String decription;
-    private Room currentRoom;
+    private final String name;
     private int penalty;
     private final Item neutralizingItem;
-    private  Item dropItem;
-    private ArrayList<Monster> monsters;
+    private Item dropItem;
 
-    public Monster(String decription, int penalty, Item neutralizingItem, Item dropItem) {
-        this.decription = decription;
+    public Monster(String name, int penalty, Item neutralizingItem, Item dropItem) {
+        this.name = name;
         this.penalty = penalty;
         this.neutralizingItem = neutralizingItem;
         this.dropItem = dropItem;
     }
 
-    public String getDecription() {
-        return decription;
+    public String getName() {
+        return name;
     }
 
     public int getPenalty() {
@@ -56,7 +54,7 @@ public class Monster {
 
     @Override
     public String toString() {
-        return "Monster{" + "decription=" + decription + '}';
+        return "Monster{" + "name=" + name + '}';
     }  
     
     // Kunne det være en ide, at lave en getDesription, og når vi går ind i et 
