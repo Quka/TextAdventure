@@ -105,7 +105,7 @@ public class Maze {
                 + "sig. Du ved, hvad det betyder!", false, null, itemList.getItem(0)));
 
         officeRooms.add(new Room(
-                "Du går ind i det nok mest intetsigende rum du nogensinde har\n"
+                "Du går ind i det nok mest intetsigende rum, som du nogensinde har\n"
                 + "har set. Det er så intetsigende, at der faktisk ikke er mere\n"
                 + "at sige om det.", false, monsterList.getMonster(1), itemList.getItem(9)));
 
@@ -132,8 +132,7 @@ public class Maze {
                 + "at fiskefileterne må vente lidt. Du åbner toiletdøren.", false, monsterList.getMonster(2), null));
 
         restRooms.add(new Room(
-                "Lisette står og pudrer næse på dametoilettet. Hun opdager dig og langer dig\n"
-                + "en syngende lussing.", false, monsterList.getMonster(8), null));
+                "Lisette står og pudrer næse på dametoilettet. Hvorfor gik du herud?", false, monsterList.getMonster(8), null));
 
         //Adding meetingrooms to<>meetingrooms, randomly placed later
         meetingRooms.add(new Room(
@@ -154,7 +153,8 @@ public class Maze {
                 + "Phillipa.", false, monsterList.getMonster(5), itemList.getItem(8))); //bliver sur, flov ect
 
         specialRooms.add(new Room(
-                "Viceværten sidder og swiper på Tinder. Du tænker \"er han ikke gift med\n"
+                "Det her ligner øjensynligt det kosteskab, Harry Potter boede i\n"
+                + "¨Viceværten sidder og swiper på Tinder. Du tænker \"er han ikke gift med\n"
                 + "hende Ruth fra regnskabsafdelingen?\"", false, monsterList.getMonster(3), itemList.getItem(4))); //hans reaktion
 
         specialRooms.add(new Room(
