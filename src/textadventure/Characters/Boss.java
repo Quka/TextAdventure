@@ -6,6 +6,7 @@
 package textadventure.Characters;
 
 import java.util.ArrayList;
+import textadventure.Item.Item;
 import textadventure.Room;
 
 /**
@@ -17,7 +18,8 @@ public class Boss  implements MainCharacter {
 
     private String name;
     private Room currentRoom;
-
+    private boolean happy = false;
+    private Item neutralizingItem;  // mangler at sæyttes som parameter
     /**
      * Contructs a monster and places it in the maze
      * 
@@ -28,11 +30,23 @@ public class Boss  implements MainCharacter {
     public Boss(String name, Room startingRoom) {
         this.name = name;
         this.currentRoom = startingRoom;
+        
+        this.happy = happy;
     }
 
     @Override
     public Room getCurrentRoom() {
         return currentRoom;
+    }
+    
+    public void setIfBossHappy ()
+    {
+        this.happy = happy;
+    }
+    
+    public boolean getIfBossHappy ()
+    {
+        return happy;
     }
 
     @Override

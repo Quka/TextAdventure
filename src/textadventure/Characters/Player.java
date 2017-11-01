@@ -82,6 +82,11 @@ public class Player implements MainCharacter {
     public int getRoundsLeft() {
         return roundsLeft;
     }
+    
+    public void setRoundsLeft(int i){
+        
+        this.roundsLeft=i;
+    }
 
     /**
      * Adds item to the inventory if inventory is not at max capacity. Else it
@@ -91,12 +96,18 @@ public class Player implements MainCharacter {
      * @param room
      */
     public void pickupItem(Item item) {
+        
+        // Skal der være en Exceptions, hvis man prøver at samle op i et rum uden items??
 
         if (item instanceof ConsumableItem) {
             // # Hvis item er consumable så brug med det samme
             changeRounds(item.getRoundsModifier());
         } else {
             // # Hvis item er usable, så læg i backpack
+            // Skal det her ikke være noget med
+         
+            // this.item = room.getItem();
+            
             inventory.addToInventory(item);
         }
     }
@@ -112,4 +123,11 @@ public class Player implements MainCharacter {
         return inventory.getItem(itemIndex);
     }
 
+    @Override
+    public String toString()
+    {
+        return "Player{" + "name=" + name + ", roundsLeft=" + roundsLeft + '}';
+    }
+
+    
 }

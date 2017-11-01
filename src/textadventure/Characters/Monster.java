@@ -48,6 +48,11 @@ public class Monster {
     public void setPenalty(int penalty) {
         this.penalty = penalty;
     }
+    
+    public void setDropItemToNull()
+    {
+        this.dropItem = null;
+    }
 
     @Override
     public String toString() {

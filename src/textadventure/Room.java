@@ -136,6 +136,11 @@ public class Room {
         return item;
     }
     
+    public Monster getMonster()
+    {
+        return monster;
+    }
+    
     /**
      * Shows room description
      *
