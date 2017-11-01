@@ -64,10 +64,10 @@ public class Game {
 
             if (p.getCurrentRoom().equals(boss.getCurrentRoom())) {
                 // # Brug item her / mist liv
-                System.out.println(clear() + "Monster og spiller i samme rum. Du dør");
+                System.out.println(clear() + "Monster og spiller i samme rum.");
             }
             //Delete == true?
-            if (p.getCurrentRoom().isWinGame() == true) {
+            if (p.getCurrentRoom().isWinGame()) {
                 gameEnded = true;
                 h.sortHighScores(p.getRoundsLeft());
                 h.saveHighScoresToFile();
