@@ -101,7 +101,7 @@ public class Maze {
 
         officeRooms.add(new Room(
                 "Tine er ved at skrive en indkøbsseddel, da hun skal have gæster.\n"
-                + "Hun undskylder sig dog med, at hun skal bruge det til et IT-program", false, monsterList.getMonster(0), null));
+                + "Hun undskylder sig dog med, at hun skal bruge det til et IT-program.", false, monsterList.getMonster(0), null));
 
         officeRooms.add(new Room(
                 "Du træder ind i det tekøkken, hvor Thomas plejer at opholde\n"
@@ -109,7 +109,7 @@ public class Maze {
 
         officeRooms.add(new Room(
                 "Tobias sidder med sit seneste blad om 3d-gaming, men du ved at han burde\n"
-                + "lave oplæg om et nyt TAG-koncept", false, monsterList.getMonster(1), itemList.getItem(9)));
+                + "lave oplæg om et nyt TAG-koncept.", false, monsterList.getMonster(1), itemList.getItem(9)));
 
         //Adding copyrooms to <>copyrooms, randomly placed later 
         copyRooms.add(new Room(
