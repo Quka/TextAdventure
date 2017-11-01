@@ -219,15 +219,25 @@ public class Game {
     }
 
     public String prettyMessage(String str, String title) {
-        String prettyLine = "#------------------------------------------------#";
-        String result = prettyLine + "\n";
-        String[] strArr = str.split(" ");
-        String line = "";
+        String prettyLine = "#------------------------------------------------";
+        prettyLine += title.length() % 2 == 0 ? "-#" : "#"; // tilføj ekstra "-" for at flugte teksten
+        int prettyLineHalfPoint = prettyLine.length() / 2;
+        int titleWidth = title.length() / 2;
         int lineBreak = 39;
         int pad;
+        String[] strArr = str.split(" ");
+        String line = "";
 
-        for (String word : strArr) {
-            if (line.length() > lineBreak) {
+        prettyLine = prettyLine.substring(0, prettyLineHalfPoint - titleWidth)
+                + " " + title + " "
+                + prettyLine.substring(prettyLineHalfPoint + titleWidth);
+
+        String result = prettyLine + "\n";
+
+        for (int i = 0; i < strArr.length; i++) {
+            line += strArr[i] + " ";
+
+            if (line.length() > lineBreak || i >= strArr.length - 1) {
                 pad = prettyLine.length() - line.length() - 3;
                 result += "| " + line.trim();
 
@@ -239,8 +249,6 @@ public class Game {
                 result += " |\n";
                 line = "";
             }
-
-            line += word + " ";
         }
 
         result += prettyLine + "\n";
