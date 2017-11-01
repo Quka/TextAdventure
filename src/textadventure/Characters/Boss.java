@@ -14,7 +14,7 @@ import textadventure.Room;
  * 
  * @author Ionsight
  */
-public class Boss  implements MainCharacter {
+public class Boss implements MainCharacter {
 
     private final String name;
     private Room currentRoom;
@@ -38,7 +38,7 @@ public class Boss  implements MainCharacter {
         return currentRoom;
     }
     
-    public void setIfBossHappy ()
+    public void setIfBossHappy (boolean happy)
     {
         this.happy = happy;
     }
