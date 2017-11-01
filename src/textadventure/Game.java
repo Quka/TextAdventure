@@ -3,6 +3,8 @@ package textadventure;
 import textadventure.Characters.*;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import textio.*;
 
 /**
@@ -83,7 +85,7 @@ public class Game {
     }
 
     /**
-     * Text (String) shown when starting game
+     * Text (String) shown when starting game and getting player name
      *
      * @return
      */
@@ -102,8 +104,13 @@ public class Game {
         this.name = io.get();
         io.put(clear());
         io.put("Hej " + name + ", velkommen til Firma & Fiskefilet\n"
-                + "HUSK AT DU ALTID KAN SKRIVE H FOR HJÆLP!!\n"
+                + "Husk at du altid kan skrive h for hjælp\n"
                 + "-----------------------------------------\n");
+        try {
+            Thread.sleep(4000);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(Game.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
