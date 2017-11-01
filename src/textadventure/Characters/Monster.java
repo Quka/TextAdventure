@@ -19,7 +19,7 @@ public class Monster {
     private Room currentRoom;
     private int penalty;
     private final Item neutralizingItem;
-    private final Item dropItem;
+    private  Item dropItem;
     private ArrayList<Monster> monsters;
 
     public Monster(String decription, int penalty, Item neutralizingItem, Item dropItem) {
