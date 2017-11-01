@@ -38,11 +38,21 @@ public class Boss implements MainCharacter {
         return currentRoom;
     }
     
+    /**
+     * Sets boss to happy if neutralizingItem is used on him, so boss doesn't
+     * deal damage
+     * @param happy
+     */
     public void setIfBossHappy (boolean happy)
     {
         this.happy = happy;
     }
     
+    /**
+     * See if neutralItem has been used on boss, thereby seeing if boss deals  
+     * damage
+     * @return 
+     */
     public boolean getIfBossHappy ()
     {
         return happy;
