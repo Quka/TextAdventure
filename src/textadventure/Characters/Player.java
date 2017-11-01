@@ -3,7 +3,6 @@ package textadventure.Characters;
 import textadventure.Inventory;
 import textadventure.Item.ConsumableItem;
 import textadventure.Item.Item;
-import textadventure.Item.UsableItem;
 import textadventure.Room;
 import textio.SysTextIO;
 import textio.TextIO;
@@ -15,7 +14,7 @@ import textio.TextIO;
  */
 public class Player implements MainCharacter {
 
-    private String name;
+    private final String name;
     private int roundsLeft;
     private Room currentRoom;
     private Inventory inventory;
@@ -66,7 +65,7 @@ public class Player implements MainCharacter {
     }
 
     /**
-     * Either adds or substracts rounds from the players "health"
+     * Either adds or subtracts rounds from the players "health"
      *
      * @param rounds
      */
@@ -93,7 +92,6 @@ public class Player implements MainCharacter {
      * explains the user that there is not enough space.
      *
      * @param item
-     * @param room
      */
     public void pickupItem(Item item) {
         
@@ -115,8 +113,8 @@ public class Player implements MainCharacter {
     /**
      * Removes the item from inventory and modifies round timer(?)
      *
-     * @param item
-     * @param rounds
+     * @param itemIndex
+     * @return 
      */
     public Item getItem(int itemIndex) {
         inventory.removeItemFromInventory(itemIndex);

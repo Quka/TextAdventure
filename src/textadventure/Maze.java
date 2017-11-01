@@ -2,9 +2,6 @@ package textadventure;
 
 import java.util.ArrayList;
 import textadventure.Characters.MonsterList;
-import textadventure.Item.ConsumableItem;
-import textadventure.Item.Item;
-import textadventure.Item.UsableItem;
 
 /**
  * Class used to create rooms and maze to tell which rooms can access which
@@ -87,8 +84,8 @@ public class Maze {
                 "Du bliver kort blændet af en kontorlampe, som peger\n"
                 + "lige mod døråbningen. Du ser en gammel dame. SHHH!!\n"
                 + "Det må være hende de omtaler som \"blinde, snaksaglige,\n"
-                + "pensionsparate Ruth\". Forundret over hvorfor en blind\n"
-                + "har lys tændt lister du dig videre.", false, null, null)); //lister videre, hører hun dig?
+                + "pensionsparate Ruth\". Du er forundret over hvorfor en\n"
+                + "blind har lys tændt.", false, monsterList.getMonster(4), null));
 
         officeRooms.add(new Room(
                 "Rummet er tomt, men Phillipa har glemt sin håndtaske.", false, null, itemList.getItem(15))); //Du bliver nysgerrig eller !
@@ -96,7 +93,7 @@ public class Maze {
         officeRooms.add(new Room(
                 "Du kommer til at vade ind i IT-lokalet, hvor alle nørderne sidder.\n"
                 + "De snakker ikke om andet end Rick & Morty og hvordan Heroes 3 var\n"
-                + "det bedste i serien.", false, null, itemList.getItem(7)));
+                + "det bedste i serien.", false, monsterList.getMonster(6), itemList.getItem(7)));
 
         officeRooms.add(new Room(
                 "Det var ikke kantinen det her, men hvorfor er der\n"
@@ -104,7 +101,7 @@ public class Maze {
 
         officeRooms.add(new Room(
                 "Tine er ved at skrive en indkøbsseddel, da hun skal have gæster.\n"
-                + "Hun undskylder sig dog med, at hun skal bruge det til et IT-program", false, null, null));
+                + "Hun undskylder sig dog med, at hun skal bruge det til et IT-program.", false, monsterList.getMonster(0), null));
 
         officeRooms.add(new Room(
                 "Du træder ind i det tekøkken, hvor Thomas plejer at opholde\n"
@@ -112,12 +109,12 @@ public class Maze {
 
         officeRooms.add(new Room(
                 "Tobias sidder med sit seneste blad om 3d-gaming, men du ved at han burde\n"
-                + "lave oplæg om et nyt TAG-koncept", false, null, itemList.getItem(9)));
+                + "lave oplæg om et nyt TAG-koncept.", false, monsterList.getMonster(1), itemList.getItem(9)));
 
         //Adding copyrooms to <>copyrooms, randomly placed later 
         copyRooms.add(new Room(
                 "Døren knirker som du åbner den. Et kopirum! Det burde\n "
-                + "du have set komme. Især fordi det var en glasdør.", false, null, null));
+                + "du have set komme. Især fordi det var en glasdør.", false, null, itemList.getItem(19)));
 
         copyRooms.add(new Room(
                 "Kopimaskinen summer stadig. Den er åbenbart lige blevet færdig.\n"
@@ -130,21 +127,21 @@ public class Maze {
 
         restRooms.add(new Room(
                 "Pedersen er på vej ud fra toilettet. Han vasker ikke fingre!\n"
-                + "Slut med at give ham hånden.", false, null, null));
+                + "Slut med at give ham hånden.", false, monsterList.getMonster(7), null));
 
         restRooms.add(new Room(
                 "Du kommer ind på herretoilettet. Du skal simpelthen tisse så meget,\n"
                 + "at fiskefileterne må vente lidt. Du åbner toiletdøren, men ser at Ronnie\n"
-                + "har glemt at låse døren!", false, null, null));
+                + "har glemt at låse døren!", false, monsterList.getMonster(2), null));
 
         restRooms.add(new Room(
                 "Lisette står og pudrer næse på dametoilettet. Hun opdager dig og langer dig\n"
-                + "en syngende lussing.", false, null, null));
+                + "en syngende lussing.", false, monsterList.getMonster(8), null));
 
         //Adding meetingrooms to<>meetingrooms, randomly placed later
         meetingRooms.add(new Room(
                 "Du træder ind i et lokale, hvor et vigtigt møde med en potentiel\n"
-                + "kunde er i gang. Du bliver nødt til at lade som om, at du er en sekretær.", false, null, null));
+                + "kunde er i gang. Du bliver nødt til at lade som om, at du er en sekretær.", false, monsterList.getMonster(9), null));
 
         meetingRooms.add(new Room(
                 "Mødelokalet er tomt, men der står kopper og service fra sidste møde.\n"
@@ -152,16 +149,16 @@ public class Maze {
 
         meetingRooms.add(new Room(
                 "Projektgruppen sidder i mødelokalet. Vil du forsøge at forsinke dem i at\n"
-                + "nå fiskefileterne i kantinen?", false, null, null)); //mulige actions
+                + "nå fiskefileterne i kantinen?", false, monsterList.getMonster(10), null)); //mulige actions
 
         //Adding specialrooms to<>specialrooms, randomly placed later
         specialRooms.add(new Room(
                 "Du vader ind på chefens kontor. På hans skrivebord sidder sekretæren\n"
-                + "Phillipa.", false, null, itemList.getItem(8))); //bliver sur, flov ect
+                + "Phillipa.", false, monsterList.getMonster(5), itemList.getItem(8))); //bliver sur, flov ect
 
         specialRooms.add(new Room(
                 "Viceværten sidder og swiper på Tinder. Du tænker \"er han ikke gift med\n"
-                + "hende Alice fra regnskabsafdelingen?\"", false, null, itemList.getItem(4))); //hans reaktion
+                + "hende Ruth fra regnskabsafdelingen?\"", false, monsterList.getMonster(3), itemList.getItem(4))); //hans reaktion
 
         specialRooms.add(new Room(
                 "OMG! Hvad er det syn?! KANTINEN!! Du klarede det! Du skynder dig op i køen\n"

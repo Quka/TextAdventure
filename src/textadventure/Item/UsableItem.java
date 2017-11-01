@@ -6,15 +6,13 @@
 
 package textadventure.Item;
 
-import textadventure.Item.Item;
-
 /**
  * @author Arlind U. <arlind.u at cph-au53@cphbusiness.dk>
  */
 public class UsableItem extends Item {
     
     /**
-     * Contructs an item (that can be used against (specific) monsters)
+     * Constructs an item (that can be used against (specific) monsters)
      * 
      * @param name
      * @param description
@@ -27,7 +25,6 @@ public class UsableItem extends Item {
     /**
      * Checks if the item is usable on the specific monster
      * 
-     * @return 
      */
     public void useItem() {
         // not done

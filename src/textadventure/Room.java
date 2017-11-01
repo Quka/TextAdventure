@@ -21,10 +21,10 @@ public class Room {
     private Item item;
 
     private boolean winGame;
-    private String description;
+    private final String description;
 
     /**
-     * Contructs and initializes a room
+     * Constructs and initializes a room
      *
      * @param description
      * @param winGame

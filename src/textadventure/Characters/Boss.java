@@ -16,12 +16,12 @@ import textadventure.Room;
  */
 public class Boss  implements MainCharacter {
 
-    private String name;
+    private final String name;
     private Room currentRoom;
     private boolean happy = false;
     private Item neutralizingItem;  // mangler at sæyttes som parameter
     /**
-     * Contructs a monster and places it in the maze
+     * Constructs a monster and places it in the maze
      * 
      * @param name
      * @param startingRoom 
@@ -69,10 +69,6 @@ public class Boss  implements MainCharacter {
         do {
             int rand = (int) (Math.random() * availableDirections.size());
             String direction = availableDirections.get(rand);
-
-//            System.out.println(direction);
-//            System.out.println(availableDirections);
-
             // try and walk
             if (currentRoom.getRoom(direction) != null) {
                 this.walk(direction);

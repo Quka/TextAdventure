@@ -25,7 +25,7 @@ public class Game {
     private int[] highScore = new int[5];
 
     /**
-     * Contructs a new Game
+     * Constructs a new Game
      *
      */
     public Game() {
@@ -43,7 +43,6 @@ public class Game {
         // Setup rooms for the maze
         m = new Maze();
         ArrayList<Room> rooms = m.createMaze();
-//        m.createMaze(rooms);
 
         // Initialize characters
         p = new Player(name, rooms.get(0));
@@ -68,7 +67,7 @@ public class Game {
                 System.out.println(clear() + "Monster og spiller i samme rum. Du dør");
                 p.changeRounds(-p.getRoundsLeft()); //Sætter p spillerunder til 0, så spiller "dør"
             }
-
+            //Delete == true?
             if (p.getCurrentRoom().isWinGame() == true) {
                 //io.put(p.getCurrentRoom().getDescription());
                 gameEnded = true;
@@ -217,7 +216,7 @@ public class Game {
     }
 
     /**
-     * Menu showing the player which actions they can peform. Is shown when user
+     * Menu showing the player which actions they can perform. Is shown when user
      * is entering "h"
      */
     private void helpMenu() {
