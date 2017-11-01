@@ -6,9 +6,7 @@
 package textadventure;
 
 import java.util.ArrayList;
-import textadventure.Item.ConsumableItem;
-import textadventure.Item.Item;
-import textadventure.Item.UsableItem;
+import textadventure.Item.*;
 
 /**
  * @author Arlind U. <arlind.u at cph-au53@cphbusiness.dk>

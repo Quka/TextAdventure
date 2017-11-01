@@ -6,8 +6,6 @@
 
 package textadventure.Item;
 
-import textadventure.Item.Item;
-
 /**
  * @author Arlind U. <arlind.u at cph-au53@cphbusiness.dk>
  */

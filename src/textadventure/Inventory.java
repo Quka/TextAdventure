@@ -7,7 +7,6 @@ package textadventure;
 
 import textadventure.Item.Item;
 import java.util.ArrayList;
-import textadventure.Item.UsableItem;
 
 /**
  * Inventory is used to hold items that i picked up during gameplay
