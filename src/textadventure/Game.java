@@ -122,46 +122,15 @@ public class Game {
             case "W":
                 changeRoom(command);
                 break;
-
             case "H":
                 helpMenu();
                 break;
-
             case "I":
                 io.put(Arrays.toString(i.showInventory()));
                 break;
             case "U":
-                io.put(Arrays.toString(i.showInventory()) + "\nHvilket item vil du bruge?\n");
-                int itemIndex = Integer.parseInt(io.get());
-
-                // Check om man er i samme rum som bossen, og om bossen er sur, når man bruger item
-                if (p.getCurrentRoom().equals(boss.getCurrentRoom()) && boss.getPenalty() != 0) {
-                    //To be done
-                }
-
-                if (p.getCurrentRoom().getMonster() == null
-                        || !boss.getCurrentRoom().equals(p.getCurrentRoom())
-                        || p.getCurrentRoom().getMonster().getDropItem() == null
-                        || boss.getPenalty() != 0) {
-                    io.put("Der er ikke nogen, at bruge et Item imod");
-                    p.changeRounds(-1);
-                } else if (!p.getCurrentRoom().getMonster().getNeutralizingItem().equals(i.getItem(itemIndex))) {
-                    io.put("Denne Item har ingen effekt!");
-                    p.changeRounds(p.getCurrentRoom().getMonster().getPenalty());
-                    io.put("Du mister " + p.getCurrentRoom().getMonster().getPenalty() + " runder");
-
-                } else {
-                    io.put("Du gør " + p.getCurrentRoom().getMonster().getName()
-                            + " glad! Du får " + p.getCurrentRoom().getMonster().getDropItem().toString()
-                            + ", som du putter i din rygsæk");
-                    i.removeItemFromInventory(itemIndex);
-                    i.addToInventory(p.getCurrentRoom().getMonster().getDropItem());
-                    p.getCurrentRoom().getMonster().setDropItemToNull();
-                    p.getCurrentRoom().getMonster().setPenalty(0);
-                    p.changeRounds(-1);
-                }
+                useItem();
                 break;
-
             case "Q":
                 io.put("Du har afsluttet spillet");
                 System.exit(0);
@@ -256,12 +225,12 @@ public class Game {
             if (line.length() > lineBreak) {
                 pad = prettyLine.length() - line.length() - 3;
                 result += "| " + line.trim();
-                
-                while(pad > 0) {
+
+                while (pad > 0) {
                     result += " ";
                     pad--;
                 }
-                
+
                 result += " |\n";
                 line = "";
             }
@@ -273,4 +242,37 @@ public class Game {
 
         return result;
     }
+
+    public void useItem() {
+        io.put(Arrays.toString(i.showInventory()) + "\nHvilket item vil du bruge?\n");
+        int itemIndex = Integer.parseInt(io.get());
+
+        // Check om man er i samme rum som bossen, og om bossen er sur, når man bruger item
+        if (p.getCurrentRoom().equals(boss.getCurrentRoom()) && boss.getPenalty() != 0) {
+            //To be done
+        }
+
+        if (p.getCurrentRoom().getMonster() == null
+                || !boss.getCurrentRoom().equals(p.getCurrentRoom())
+                || p.getCurrentRoom().getMonster().getDropItem() == null
+                || boss.getPenalty() != 0) {
+            io.put("Der er ikke nogen, at bruge et Item imod");
+            p.changeRounds(-1);
+        } else if (!p.getCurrentRoom().getMonster().getNeutralizingItem().equals(i.getItem(itemIndex))) {
+            io.put("Denne Item har ingen effekt!");
+            p.changeRounds(p.getCurrentRoom().getMonster().getPenalty());
+            io.put("Du mister " + p.getCurrentRoom().getMonster().getPenalty() + " runder");
+
+        } else {
+            io.put("Du gør " + p.getCurrentRoom().getMonster().getName()
+                    + " glad! Du får " + p.getCurrentRoom().getMonster().getDropItem().toString()
+                    + ", som du putter i din rygsæk");
+            i.removeItemFromInventory(itemIndex);
+            i.addToInventory(p.getCurrentRoom().getMonster().getDropItem());
+            p.getCurrentRoom().getMonster().setDropItemToNull();
+            p.getCurrentRoom().getMonster().setPenalty(0);
+            p.changeRounds(-1);
+        }
+    }
+
 }
