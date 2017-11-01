@@ -16,15 +16,17 @@ import textadventure.Room;
 public class Monster {
 
     private final String name;
+    private String description;
     private int penalty;
     private final Item neutralizingItem;
     private Item dropItem;
 
-    public Monster(String name, int penalty, Item neutralizingItem, Item dropItem) {
+    public Monster(String name, int penalty, Item neutralizingItem, Item dropItem, String description) {
         this.name = name;
         this.penalty = penalty;
         this.neutralizingItem = neutralizingItem;
         this.dropItem = dropItem;
+        this.description = description;
     }
 
     public String getName() {
