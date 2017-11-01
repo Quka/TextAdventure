@@ -61,6 +61,7 @@ public class Player implements MainCharacter {
      */
     @Override
     public void walk(String direction) {
+        io.put("Du går imod retningen >" + direction + "<");
         currentRoom = currentRoom.getRoom(direction);
     }
 
