@@ -177,23 +177,29 @@ public class Game {
         if (p.canWalk(command)) {
             p.walk(command);
             p.changeRounds(-3);
-            io.put(clear());
-            io.put(p.getCurrentRoom().getDescription());
-            // # io put boss description hvis den findes
+
+            io.put(
+                    clear()
+                    + prettyMessage(p.getCurrentRoom().getDescription(), "Rum")
+            );
+
             if (p.getCurrentRoom().getMonster() != null) {
-                io.put(clear());
-                io.put(prettyMessage(
-                        "Du støder på " + p.getCurrentRoom().getMonster().getName() + ". "
-                        + p.getCurrentRoom().getMonster().getName() + " giver dig tæsk ("
-                        + p.getCurrentRoom().getMonster().getPenalty() + ")", "Monster"));
+                io.put(
+                        clear()
+                        + prettyMessage(
+                                "Du støder på " + p.getCurrentRoom().getMonster().getName() + ". "
+                                + p.getCurrentRoom().getMonster().getName() + " giver dig tæsk ("
+                                + p.getCurrentRoom().getMonster().getPenalty() + ")", "Monster")
+                );
             }
 
             if (p.getCurrentRoom().getItem() != null) {
-                io.put(clear());
-                io.put(p.getCurrentRoom().getItem().getDescription());
+                io.put(
+                        clear()
+                        + prettyMessage(p.getCurrentRoom().getItem().getDescription(), "Item")
+                );
             }
 
-            // # io put item description hvis den findes
             // Move boss, only if user also moves (issues move command)
             boss.moveMonster();
         } else {
