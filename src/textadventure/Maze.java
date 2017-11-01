@@ -75,92 +75,149 @@ public class Maze {
         //Adding starting position, always rooms(index0)
 
         rooms.add(new Room(
-                "Du sidder på dit kontor. Du kigger på uret og opdager,\n"
-                + "at du er sent på den. WTF! FISKEDAG! Bare der er\n"
-                + "fiskefilet tilbage, når du når kantinen.", false, null, null));
+                "Du sidder på dit kontor. Du kigger på uret og opdager, at du er sent på den. WTF! FISKEDAG! Bare der er fiskefilet tilbage, når du når kantinen. Du må hellere finde en vej ud herfra og hen til kantinen.",
+                false,
+                null,
+                null
+        ));
 
         //Adding offices to <>officerooms, randomly placed later        
         officeRooms.add(new Room(
-                "Du bliver kort blændet af en kontorlampe, som peger\n"
-                + "lige mod døråbningen. Du ser en gammel dame.", false, monsterList.getMonster(4), null));
+                "Du bliver kort blændet af en kontorlampe, som peger lige mod døråbningen. Du ser en gammel dame.",
+                false,
+                monsterList.getMonster(4),
+                null
+        ));
 
         officeRooms.add(new Room(
-                "Rummet er tomt, men Phillipa har glemt sin håndtaske.", false, null, itemList.getItem(15))); //Du bliver nysgerrig eller !
+                "Rummet er tomt, men Phillipa har glemt sin håndtaske.",
+                false,
+                null,
+                itemList.getItem(15)
+        ));
 
         officeRooms.add(new Room(
-                "Du vader ind i et lokale, som er dunkelt oplyst af små, blinkende lamper\n"
-                + "og har en stank, der siger så meget spar fem, at det kun kan være IT-lokalet.\n"
-                + "Du når lige at høre ordene \"Rick & Morty\"", false, monsterList.getMonster(6), itemList.getItem(7)));
+                "Du vader ind i et lokale, som er dunkelt oplyst af små, blinkende lamper og har en stank, der siger så meget spar fem, at det kun kan være IT-lokalet. Du når lige at høre ordene \"Rick & Morty\"",
+                false,
+                monsterList.getMonster(6),
+                itemList.getItem(7)
+        ));
 
         officeRooms.add(new Room(
-                "Det var ikke kantinen det her, men hvorfor er der\n"
-                + "så krummer på gulvet?", false, null, itemList.getItem(1)));
+                "Det var ikke kantinen det her, men hvorfor er der så krummer på gulvet?",
+                false,
+                null,
+                itemList.getItem(1)
+        ));
 
         officeRooms.add(new Room(
-                "Tine sidder ved sit skrivebord. Du kan se, at hun er ved at skrive\n"
-                + "en lang indkøbsseddel. Hun skal nok have gæster i aften.", false, monsterList.getMonster(0), null));
+                "Tine sidder ved sit skrivebord. Du kan se, at hun er ved at skrive en lang indkøbsseddel. Hun skal nok have gæster i aften.",
+                false,
+                monsterList.getMonster(0),
+                null
+        ));
 
         officeRooms.add(new Room(
-                "Du træder ind i det tekøkken, hvor Thomas plejer at opholde\n"
-                + "sig. Du ved, hvad det betyder!", false, null, itemList.getItem(0)));
+                "Du træder ind i det tekøkken, hvor Thomas plejer at opholde sig. Du ved, hvad det betyder!",
+                false,
+                null,
+                itemList.getItem(0)
+        ));
 
         officeRooms.add(new Room(
-                "Du går ind i det nok mest intetsigende rum, som du nogensinde har\n"
-                + " set. Det er så intetsigende, at der faktisk ikke er mere at\n"
-                + "sige om det.", false, monsterList.getMonster(1), itemList.getItem(9)));
+                "Du går ind i det nok mest intetsigende rum, som du nogensinde har set. Det er så intetsigende, at der faktisk ikke er mere at sige om det.",
+                false,
+                monsterList.getMonster(1),
+                itemList.getItem(9)
+        ));
 
         //Adding copyrooms to <>copyrooms, randomly placed later 
         copyRooms.add(new Room(
-                "Døren knirker som du åbner den. Et kopirum! Det burde\n "
-                + "du have set komme. Især fordi det var en glasdør.", false, null, itemList.getItem(19)));
+                "Døren knirker som du åbner den. Et kopirum! Det burde du have set komme. Især fordi det var en glasdør.",
+                false,
+                null,
+                itemList.getItem(19)
+        ));
 
         copyRooms.add(new Room(
-                "Kopimaskinen summer stadig. Den er åbenbart lige blevet færdig.\n"
-                + "Du går nysgerrigt over og kigger på alle de udskrevne papirer.", false, null, itemList.getItem(12)));
+                "Kopimaskinen summer stadig. Den er åbenbart lige blevet færdig. Du går nysgerrigt over og kigger på alle de udskrevne papirer.",
+                false,
+                null,
+                itemList.getItem(12)
+        ));
 
         //Adding restrooms to <>restrooms, randomly placed later 
         restRooms.add(new Room(
-                "Ups! Dametoilettet. Der hænger en klam stank i luften.\n"
-                + "Det må være Ruth, som har været i gang.", false, null, itemList.getItem(5))); //boolean om der er nogen derude
+                "Ups! Dametoilettet. Der hænger en klam stank i luften. Det må være Ruth, som har været i gang.",
+                false,
+                null,
+                itemList.getItem(5)
+        ));
 
         restRooms.add(new Room(
-                "Pedersen er på vej ud fra toilettet. Han vasker ikke fingre!\n"
-                + "Slut med at give ham hånden.", false, monsterList.getMonster(7), null));
+                "Pedersen er på vej ud fra toilettet. Han vasker ikke fingre! Slut med at give ham hånden.",
+                false,
+                monsterList.getMonster(7),
+                null
+        ));
 
         restRooms.add(new Room(
-                "Du kommer ind på herretoilettet. Du skal simpelthen tisse så meget,\n"
-                + "at fiskefileterne må vente lidt. Du åbner toiletdøren.", false, monsterList.getMonster(2), null));
+                "Du kommer ind på herretoilettet. Du skal simpelthen tisse så meget, at fiskefileterne må vente lidt. Du åbner toiletdøren.",
+                false,
+                monsterList.getMonster(2),
+                null
+        ));
 
         restRooms.add(new Room(
-                "Lisette står og pudrer næse på dametoilettet. Hvorfor gik du herud?", false, monsterList.getMonster(8), null));
+                "Lisette står og pudrer næse på dametoilettet. Hvorfor gik du herud?",
+                false,
+                monsterList.getMonster(8),
+                null
+        ));
 
         //Adding meetingrooms to<>meetingrooms, randomly placed later
         meetingRooms.add(new Room(
-                "Du træder ind i et lokale, hvor et vigtigt møde med en potentiel\n"
-                + "kunde er i gang. Du bliver nødt til at lade som om, at du er en sekretær.", false, monsterList.getMonster(9), null));
+                "Du træder ind i et lokale, hvor et vigtigt møde med en potentiel kunde er i gang. Du bliver nødt til at lade som om, at du er en sekretær.",
+                false,
+                monsterList.getMonster(9),
+                null
+        ));
 
         meetingRooms.add(new Room(
-                "Mødelokalet er tomt, men der står kopper og service fra sidste møde.\n"
-                + "Sikke et rod!", false, null, null)); //boolean med oprydning. der kommer en ind, skal hun have hjælp eller ej
+                "Mødelokalet er tomt, men der står kopper og service fra sidste møde. Sikke et rod!",
+                false,
+                null,
+                null
+        ));
 
         meetingRooms.add(new Room(
-                "Projektgruppen sidder i mødelokalet. Vil du forsøge at forsinke dem i at\n"
-                + "nå fiskefileterne i kantinen?", false, monsterList.getMonster(10), null)); //mulige actions
+                "Projektgruppen sidder i mødelokalet. Vil du forsøge at forsinke dem i at nå fiskefileterne i kantinen?",
+                false,
+                monsterList.getMonster(10),
+                null
+        ));
 
         //Adding specialrooms to<>specialrooms, randomly placed later
         specialRooms.add(new Room(
-                "Du vader ind på chefens kontor. På hans skrivebord sidder sekretæren\n"
-                + "Phillipa.", false, monsterList.getMonster(5), itemList.getItem(8))); //bliver sur, flov ect
+                "Du vader ind på chefens kontor. På hans skrivebord sidder sekretæren Phillipa.",
+                false,
+                monsterList.getMonster(5),
+                itemList.getItem(8)
+        ));
 
         specialRooms.add(new Room(
-                "Det her ligner øjensynligt det kosteskab, Harry Potter boede i\n"
-                + "¨Viceværten sidder og swiper på Tinder. Du tænker \"er han ikke gift med\n"
-                + "hende Ruth fra regnskabsafdelingen?\"", false, monsterList.getMonster(3), itemList.getItem(4))); //hans reaktion
+                "Det her ligner øjensynligt det kosteskab, Harry Potter boede i Viceværten sidder og swiper på Tinder. Du tænker \"er han ikke gift med hende Ruth fra regnskabsafdelingen?\"",
+                false,
+                monsterList.getMonster(3),
+                itemList.getItem(4)
+        ));
 
         specialRooms.add(new Room(
-                "OMG! Hvad er det syn?! KANTINEN!! Du klarede det! Du skynder dig op i køen\n"
-                + "lige foran ham den arrogante fra din afdeling. Da du når frem til fadet\n"
-                + "er der kun 4 fiskefileter tilbage. Du snupper alle 4!", true, null, null));
+                "OMG! Hvad er det syn?! KANTINEN!! Du klarede det! Du skynder dig op i køen lige foran ham den arrogante fra din afdeling. Da du når frem til fadet er der kun 4 fiskefileter tilbage. Du snupper alle 4!",
+                true,
+                null,
+                null
+        ));
 
         //Adding rooms(Inde1-5)
         addOfficeRoom();
