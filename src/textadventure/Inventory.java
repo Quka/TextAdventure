@@ -73,7 +73,7 @@ public class Inventory {
     /**
      * Removes item from inventory
      *
-     * @param item
+     * @param itemIndex
      */
     public void removeItemFromInventory(int itemIndex) {
         items.remove(itemIndex);
