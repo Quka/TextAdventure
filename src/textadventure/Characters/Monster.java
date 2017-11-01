@@ -15,11 +15,11 @@ import textadventure.Room;
  */
 public class Monster {
 
-    private String decription;
+    private final String decription;
     private Room currentRoom;
     private int penalty;
-    private Item neutralizingItem;
-    private Item dropItem;
+    private final Item neutralizingItem;
+    private final Item dropItem;
     private ArrayList<Monster> monsters;
 
     public Monster(String decription, int penalty, Item neutralizingItem, Item dropItem) {

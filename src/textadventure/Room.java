@@ -21,7 +21,7 @@ public class Room {
     private Item item;
 
     private boolean winGame;
-    private String description;
+    private final String description;
 
     /**
      * Contructs and initializes a room

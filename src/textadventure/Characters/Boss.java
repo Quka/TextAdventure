@@ -15,7 +15,7 @@ import textadventure.Room;
  */
 public class Boss  implements MainCharacter {
 
-    private String name;
+    private final String name;
     private Room currentRoom;
 
     /**
