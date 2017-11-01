@@ -114,7 +114,7 @@ public class Maze {
         //Adding copyrooms to <>copyrooms, randomly placed later 
         copyRooms.add(new Room(
                 "Døren knirker som du åbner den. Et kopirum! Det burde\n "
-                + "du have set komme. Især fordi det var en glasdør.", false, null, null));
+                + "du have set komme. Især fordi det var en glasdør.", false, null, itemList.getItem(19)));
 
         copyRooms.add(new Room(
                 "Kopimaskinen summer stadig. Den er åbenbart lige blevet færdig.\n"

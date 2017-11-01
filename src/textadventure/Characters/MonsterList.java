@@ -29,7 +29,7 @@ public class MonsterList {
         monsterList.add(new Monster("Pedersen", -5, itemList.getItem(17), itemList.getItem(6)));
         monsterList.add(new Monster("Lisette", -3, itemList.getItem(18), itemList.getItem(17)));
         monsterList.add(new Monster("Potentiel Kunde", -7, itemList.getItem(19), itemList.getItem(3)));
-        monsterList.add(new Monster("Projektgruppen", -5, null, itemList.getItem(19)));
+        monsterList.add(new Monster("Projektgruppen", -5, null, null));
     }
 
     public Monster getMonster(int index) {
