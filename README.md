@@ -18,3 +18,6 @@ Text adventure game - cphbusiness
 -- Navne på score
 
 - Ret game class til
+
+- U - use item
+-- Lav "exit" item
