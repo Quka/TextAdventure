@@ -21,7 +21,7 @@ public class Game {
     private Maze m;
     private Monster monster;
     private HighScore h;
-    private Inventory i;  // Inventory oprettes
+    private Inventory i;
     private int[] highScore = new int[5];
     private ItemList itemList = new ItemList();
 
@@ -65,11 +65,9 @@ public class Game {
             if (p.getCurrentRoom().equals(boss.getCurrentRoom())) {
                 // # Brug item her / mist liv
                 System.out.println(clear() + "Monster og spiller i samme rum. Du dør");
-                //p.changeRounds(-p.getRoundsLeft()); //Sætter p spillerunder til 0, så spiller "dør"
             }
             //Delete == true?
             if (p.getCurrentRoom().isWinGame() == true) {
-                //io.put(p.getCurrentRoom().getDescription());
                 gameEnded = true;
                 h.sortHighScores(p.getRoundsLeft());
                 h.saveHighScoresToFile();
@@ -106,7 +104,7 @@ public class Game {
         this.name = io.get();
         io.put(clear());
         io.put("Hej " + name + ", velkommen til Firma & Fiskefilet\n"
-                + "Husk at du altid kan skrive h for hjælp\n"
+                + "HUSK AT DU ALTID KAN SKRIVE H FOR HJÆLP!!\n"
                 + "-----------------------------------------\n");
     }
 
@@ -129,11 +127,10 @@ public class Game {
                 helpMenu();
                 break;
 
-            case "I":  // show inventory
+            case "I":
                 io.put(Arrays.toString(i.showInventory()));
                 break;
             case "U":
-
                 io.put(Arrays.toString(i.showInventory()) + "\nHvilket item vil du bruge?\n");
                 int itemIndex = Integer.parseInt(io.get());
 
@@ -192,7 +189,8 @@ public class Game {
                 + "S - for at gå mod syd\n"
                 + "W - for at gå mod vest\n"
                 + "N - for at gå mod nord\n"
-                + "H - for hjælp\n"
+                + "H - for at få hjælp\n"
+                + "I - for at se dit inventory\n"
                 + "U - for at bruge et item fra dit inventory\n"
                 + "P - for at samle et item op fra rummet\n"
                 + "T - for at se resterende runder\n"
