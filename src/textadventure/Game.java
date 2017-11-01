@@ -39,7 +39,6 @@ public class Game {
         // Setup rooms for the maze
         m = new Maze();
         ArrayList<Room> rooms = m.createMaze();
-//        m.createMaze(rooms);
 
         // Initialize characters
         p = new Player(name, rooms.get(0));
@@ -195,7 +194,7 @@ public class Game {
     }
 
     /**
-     * Menu showing the player which actions they can peform. Is shown when user
+     * Menu showing the player which actions they can perform. Is shown when user
      * is entering "h"
      */
     private void helpMenu() {
