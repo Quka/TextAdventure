@@ -55,7 +55,9 @@ public class Game {
 
         i = new Inventory();
 
-        io.put(p.getCurrentRoom().getDescription());
+        io.put(
+                prettyMessage(p.getCurrentRoom().getDescription(), "Introduktion")
+        );
         boolean gameEnded = false;
         while (!gameEnded) {
 
@@ -90,24 +92,26 @@ public class Game {
      * @return
      */
     private void startGame() {
-        io.put("\n********************************************************\n"
-                + "***************    FIRMA & FISKEFILET    ***************\n"
-                + "********************************************************\n\n"
-                + "********************************************************\n"
-                + "** Det er lige blevet frokost, og det er fiskedag.    **\n"
-                + "** Du skal finde vej til kantinen inden alle fiske-   **\n"
-                + "** fileterne er udsolgt. Alt det andet fisk lugter og **\n"
-                + "** smager dårligt. Derfor er det vigtigt, at du gør   **\n"
-                + "** dit bedste for at få fiskefilet til frokost i dag  **\n"
-                + "********************************************************\n");
-        io.put("Hvad hedder du, arbejdstager?");
+        String introHeader = "\n*****************************************************\n"
+                + "**************    FIRMA & FISKEFILET    *************\n"
+                + "*****************************************************\n\n";
+        String introBody = "Det er lige blevet frokost, og det er fiskedag. Du skal finde vej til kantinen inden alle fiskefileterne er udsolgt. Alt det andet fisk lugter og smager dårligt. Derfor er det vigtigt, at du gør dit bedste for at få fiskefilet til frokost i dag.";
+        io.put(
+                introHeader
+                + prettyMessage(introBody, "Velkommen")
+                + clear()
+                + "Hvad hedder du, arbejdstager?"
+        );
+
         this.name = io.get();
-        io.put(clear());
-        io.put("Hej " + name + ", velkommen til Firma & Fiskefilet\n"
+
+        io.put(
+                clear()
+                + "Hej " + name + ", velkommen til Firma & Fiskefilet\n"
                 + "Husk at du altid kan skrive h for hjælp\n"
                 + "-----------------------------------------\n");
         try {
-            Thread.sleep(1000);
+            Thread.sleep(2000);
         } catch (InterruptedException ex) {
             Logger.getLogger(Game.class.getName()).log(Level.SEVERE, null, ex);
         }
