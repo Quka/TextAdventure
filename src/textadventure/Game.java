@@ -216,7 +216,7 @@ public class Game {
                             clear()
                             + prettyMessage("Du støder på " + p.getCurrentRoom().getMonster().getName() + ". "
                                     + p.getCurrentRoom().getMonster().getName()
-                                    + " er i godt humør, og hilser pænt på dig", "Monster")
+                                    + " er i godt humør, og hilser pænt på dig", p.getCurrentRoom().getMonster().getName())
                     );
                 } else {
                     io.put(
@@ -227,7 +227,7 @@ public class Game {
                                     + "(" + p.getCurrentRoom().getMonster().getPenalty() + ")", p.getCurrentRoom().getMonster().getName())
                     );
                     
-                    io.put("Vil du forsøge at brugen en Item mod " + p.getCurrentRoom().getMonster().getName() 
+                    io.put("Vil du forsøge at brugen en item mod " + p.getCurrentRoom().getMonster().getName() 
                             +"? \n(Tryk \"u\" for at bruge en item!)");
                        if (io.get().equalsIgnoreCase("u")) useItem();
                        else
@@ -328,7 +328,7 @@ public class Game {
                 p.getInventory().removeItemFromInventory(itemIndex);
             }
             else{
-                io.put("Denne Item har ingen effekt!");
+                io.put("Denne item har ingen effekt!");
                 p.changeRounds(boss.getPenalty());
                 io.put("Du mister " + boss.getPenalty()+ " runder!");
             }
@@ -340,10 +340,10 @@ public class Game {
         
         if (p.getCurrentRoom().getMonster() == null
                 || p.getCurrentRoom().getMonster().getPenalty()==0) {
-            io.put("Der er ikke nogen, at bruge et Item imod");
+            io.put("Der er ikke nogen, at bruge et item imod");
             p.changeRounds(-1);
         } else if (!p.getCurrentRoom().getMonster().getNeutralizingItem().equals(p.getInventory().getItem(itemIndex))) {
-            io.put("Denne Item har ingen effekt!");
+            io.put("Denne item har ingen effekt!");
             p.changeRounds(p.getCurrentRoom().getMonster().getPenalty());
             io.put("Du mister " + p.getCurrentRoom().getMonster().getPenalty() + " runder");
 
