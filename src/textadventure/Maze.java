@@ -2,7 +2,6 @@ package textadventure;
 
 import java.util.ArrayList;
 import textadventure.Characters.MonsterList;
-import textadventure.Item.Item;
 
 /**
  * Class used to create rooms and maze to tell which rooms can access which

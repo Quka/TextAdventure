@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package textadventure.Item;
 
 /**
@@ -26,6 +20,7 @@ public class UsableItem extends Item {
      * Checks if the item is usable on the specific monster
      * 
      */
+    //Does this do anything? At all?
     public void useItem() {
         // not done
     }
