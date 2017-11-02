@@ -70,7 +70,7 @@ public class Monster {
     // Arraylisten med Item skal jo sættes ind, men da den ikke er lavet, er alle
     // items bare sat til index1!
 
-    public boolean isIsHappy() {
+    public boolean isHappy() {
         return happy;
     }
 }
