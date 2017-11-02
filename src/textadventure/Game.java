@@ -207,9 +207,9 @@ public class Game {
                 io.put(
                         clear()
                         + prettyMessage(
-                                "Du støder på " + p.getCurrentRoom().getMonster().getName() + ". "
-                                + p.getCurrentRoom().getMonster().getName() + " giver dig tæsk ("
-                                + p.getCurrentRoom().getMonster().getPenalty() + ")", "Monster")
+                                  p.getCurrentRoom().getMonster().getName()
+                                + p.getCurrentRoom().getMonster().getDescription()
+                                + "(" +p.getCurrentRoom().getMonster().getPenalty() + ")", "Monster")
                 );
                 
                 }
