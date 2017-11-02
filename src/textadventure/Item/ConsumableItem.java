@@ -48,4 +48,8 @@ public class ConsumableItem extends Item {
     public String getDescriptionUsed() {
         return this.descriptionUsed;
     }
+    
+    public int getRoundsModifier(){
+        return roundsLeftModifier;
+    }
 }

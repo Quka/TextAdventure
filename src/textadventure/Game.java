@@ -249,7 +249,6 @@ public class Game {
                     )
             );
             p.getCurrentRoom().removeItemFromRoom();
-            p.changeRounds(-1);
         }
     }
 

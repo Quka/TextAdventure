@@ -12,45 +12,35 @@ abstract public class Item {
 
     protected String name;
     protected String description;
-    protected int roundsLeftModifier;
-    
+
     /**
      * Abstract constructor of an Item
-     * 
+     *
      * @param name
-     * @param description 
+     * @param description
      */
-    
-    public Item (String name, String description) {
+    public Item(String name, String description) {
         this.name = name;
         this.description = description;
     }
-    
+
     /**
      * Method to see how the specific item modifies rounds left for the player
-     * 
-     * @return 
+     *
+     * @return
      */
-    
     //Check if method is used
-    
     public String getName() {
         return this.name;
     }
-    
+
     public String getDescription() {
         return this.description;
-    }
-    
-    public int getRoundsModifier(){
-        return roundsLeftModifier;
     }
 
     @Override
     public String toString() {
         return description;
     }
-    
-    
 
 }
