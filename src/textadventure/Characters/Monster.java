@@ -20,7 +20,7 @@ public class Monster {
     private int penalty;
     private final Item neutralizingItem;
     private Item dropItem;
-    private boolean isHappy;
+    private boolean happy;
 
     public Monster(String name, int penalty, Item neutralizingItem, Item dropItem, String description, boolean happy) {
         this.name = name;
@@ -28,7 +28,7 @@ public class Monster {
         this.neutralizingItem = neutralizingItem;
         this.dropItem = dropItem;
         this.description = description;
-        this.isHappy = happy;
+        this.happy = happy;
     }
 
     public String getName() {
@@ -71,6 +71,6 @@ public class Monster {
     // items bare sat til index1!
 
     public boolean isIsHappy() {
-        return isHappy;
+        return happy;
     }
 }
