@@ -112,7 +112,7 @@ public class ItemList {
         ));
         itemList.add(new UsableItem(
                 "Salgspræsentation",
-                "Find ud af hvad der er det centrale budskab, som du vil have \nlytterne til at huske. Fokuser altid på kundens behov. Hvis du... vent, hvad prøver jeg at sælge?"
+                "Find ud af hvad der er det centrale budskab, som du vil have lytterne til at huske. Fokuser altid på kundens behov. Hvis du... vent, hvad prøver jeg at sælge?"
         ));
     }
 

@@ -35,7 +35,6 @@ public class Inventory {
      */
     public void addToInventory(Item item) {
         items.add(item);
-        System.out.println(items);
     }
 
     /**
