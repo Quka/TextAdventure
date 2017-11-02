@@ -217,9 +217,9 @@ public class Game {
                     io.put(
                             clear()
                             + prettyMessage(
-                                    p.getCurrentRoom().getMonster().getName() + "!\n"
-                                    + p.getCurrentRoom().getMonster().getDescription()
-                                    + "(" + p.getCurrentRoom().getMonster().getPenalty() + ")", "Monster")
+                                //    p.getCurrentRoom().getMonster().getName() + "!"
+                                     p.getCurrentRoom().getMonster().getDescription()
+                                    + "(" + p.getCurrentRoom().getMonster().getPenalty() + ")", p.getCurrentRoom().getMonster().getName())
                     );
                     
                     io.put("Vil du forsøge at brugen en Item mod " + p.getCurrentRoom().getMonster().getName() 
