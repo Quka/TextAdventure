@@ -3,8 +3,6 @@ package textadventure;
 import textadventure.Characters.*;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import textio.*;
 
 /**
@@ -26,14 +24,6 @@ public class Game {
     private ItemList itemList = new ItemList();
 
     /**
-     * Constructs a new Game
-     *
-     */
-    public Game() {
-
-    }
-
-    /**
      * GameController. Is responsible for calling methods and starting and
      * ending the game
      *
@@ -51,12 +41,12 @@ public class Game {
 
         h = new HighScore();
 
-        io.put(("\nHighscores er, mon du kan gøre det bedre?\n" + h.printScores()));
-
+//        io.put(("\nHighscores er, mon du kan gøre det bedre?\n" + h.printScores()));
         i = new Inventory();
 
         io.put(
-                prettyMessage(p.getCurrentRoom().getDescription(), "Introduktion")
+                clear()
+                + prettyMessage(p.getCurrentRoom().getDescription(), "Introduktion")
         );
         boolean gameEnded = false;
         while (!gameEnded) {
@@ -70,10 +60,10 @@ public class Game {
             }
             //Delete == true?
             if (p.getCurrentRoom().isWinGame()) {
-                gameEnded = true;
-                h.addScore(new Score(p.getName(), p.getRoundsLeft()));
-                h.saveHighScoresToFile(5);
-                io.put((h.printScores()));
+//                gameEnded = true;
+//                h.addScore(new Score(p.getName(), p.getRoundsLeft()));
+//                h.saveHighScoresToFile(5);
+//                io.put((h.printScores()));
             }
             if (p.getRoundsLeft() < 1) {
                 gameEnded = true;
@@ -107,15 +97,13 @@ public class Game {
 
         this.name = io.get();
 
-        io.put(clear()
-                + "Hej " + name + ", velkommen til Firma & Fiskefilet\n"
-                + "Husk at du altid kan skrive h for hjælp\n"
-                + "-----------------------------------------\n");
-        try {
-            Thread.sleep(3500);
-        } catch (InterruptedException ex) {
-            Logger.getLogger(Game.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        io.clear();
+        io.put(
+                "\u001B[30m=============================================\n"
+                + "\u001B[30mHej " + name + ", velkommen til Firma & Fiskefilet\n"
+                + "\u001B[30mHusk at du altid kan skrive \u001B[31mH \u001B[0mfor hjælp\n"
+                + "\u001B[30m=============================================\n"
+        );
     }
 
     /**
@@ -123,6 +111,9 @@ public class Game {
      *
      */
     public void command() {
+        io.put(
+                clear()
+                + "Hvad vil jeg gøre nu: (H for hjælp)");
         String command = io.get().toUpperCase();
 
         switch (command) {
@@ -136,7 +127,7 @@ public class Game {
                 helpMenu();
                 break;
             case "I":
-                io.put(Arrays.toString(i.showInventory()));
+                showInventory();
                 break;
             case "U":
                 useItem();
@@ -216,17 +207,23 @@ public class Game {
 
     private void pickup() {
         if (p.getCurrentRoom().getItem() == null) {
-            io.put("Der er ikke noget at samle op!");
+            io.put("Der er ikke noget at samle op! (-1)");
             p.changeRounds(-1);
         } else {
-            p.pickupItem(p.getCurrentRoom().getItem());
+            io.put(
+                    clear()
+                    + prettyMessage(
+                            p.pickupItem(p.getCurrentRoom().getItem()),
+                            p.getCurrentRoom().getItem().getName()
+                    )
+            );
             p.getCurrentRoom().removeItemFromRoom();
             p.changeRounds(-1);
         }
     }
 
     public String clear() {
-        return "\n\n\n";
+        return "\n\n";
     }
 
     public String prettyMessage(String str, String title) {
@@ -264,9 +261,13 @@ public class Game {
 
         return result;
     }
+    
+    private void showInventory() {
+        io.put(i.showInventory());
+    }
 
     private void useItem() {
-        io.put(Arrays.toString(i.showInventory()) + "\nHvilket item vil du bruge?\n");
+        io.put(i.showInventory() + "\nHvilket item vil du bruge?\n");
         int itemIndex = Integer.parseInt(io.get());
 
         // Check om man er i samme rum som bossen, og om bossen er sur, når man bruger item
