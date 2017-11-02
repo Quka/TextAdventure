@@ -88,6 +88,10 @@ public class Player implements MainCharacter {
         this.roundsLeft=i;
     }
 
+    public String getName() {
+        return name;
+    }
+
     /**
      * Adds item to the inventory if inventory is not at max capacity. Else it
      * explains the user that there is not enough space.

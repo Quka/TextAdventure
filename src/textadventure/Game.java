@@ -50,7 +50,7 @@ public class Game {
         boss = new Boss("Chefen", -12, itemList.getItem(12), itemList.getItem(0), "", rooms.get(12));
 
         h = new HighScore();
-
+       
         io.put(("\nHighscores er, mon du kan gøre det bedre?\n" + h.printScores()));
 
         i = new Inventory();
