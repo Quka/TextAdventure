@@ -48,7 +48,7 @@ public class ItemList {
         );
         itemList.add(new ConsumableItem(
                 "Glas vand",
-                "Et hydrogen og to oxygen i en kovalent binding omringent af glas.",
+                "To hydrogen og ét oxygen i en kovalent binding omringent af glas.",
                 5,
                 "Mhmm vand (+5)")
         );
