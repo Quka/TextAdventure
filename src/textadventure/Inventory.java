@@ -35,7 +35,7 @@ public class Inventory {
      */
     public void addToInventory(Item item) {
         items.add(item);
-
+        System.out.println(items);
     }
 
     /**
@@ -87,7 +87,7 @@ public class Inventory {
 
     @Override
     public String toString() {
-        return items.toString();
+        return showInventory();
     }
 
 }

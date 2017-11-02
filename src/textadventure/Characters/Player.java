@@ -91,6 +91,10 @@ public class Player implements MainCharacter {
     public String getName() {
         return name;
     }
+    
+    public Inventory getInventory () {
+        return this.inventory;
+    }
 
     /**
      * Adds item to the inventory if inventory is not at max capacity. Else it

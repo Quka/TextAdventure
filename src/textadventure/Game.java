@@ -19,7 +19,6 @@ public class Game {
     private Maze m;
     private Monster monster;
     private HighScore h;
-    private Inventory i;
     private int[] highScore = new int[5];
     private ItemList itemList = new ItemList();
 
@@ -42,8 +41,6 @@ public class Game {
         h = new HighScore();
 
         io.put(("\nHighscores er, mon du kan gøre det bedre?\n" + h.printScores()));
-
-        i = new Inventory();
 
         io.put(
                 clear()
@@ -281,12 +278,12 @@ public class Game {
 
     private void showInventory() {
         io.put(
-                i.showInventory()
+                p.getInventory().showInventory()
         );
     }
 
     private void useItem() {
-        io.put(i.showInventory() + "\nHvilket item vil du bruge?\n");
+        io.put(p.getInventory().showInventory() + "\nHvilket item vil du bruge?\n");
         int itemIndex = Integer.parseInt(io.get());
 
         // Check om man er i samme rum som bossen, og om bossen er sur, når man bruger item
@@ -300,7 +297,7 @@ public class Game {
                 || boss.getPenalty() != 0) {
             io.put("Der er ikke nogen, at bruge et Item imod");
             p.changeRounds(-1);
-        } else if (!p.getCurrentRoom().getMonster().getNeutralizingItem().equals(i.getItem(itemIndex))) {
+        } else if (!p.getCurrentRoom().getMonster().getNeutralizingItem().equals(p.getInventory().getItem(itemIndex))) {
             io.put("Denne Item har ingen effekt!");
             p.changeRounds(p.getCurrentRoom().getMonster().getPenalty());
             io.put("Du mister " + p.getCurrentRoom().getMonster().getPenalty() + " runder");
@@ -309,8 +306,8 @@ public class Game {
             io.put("Du gør " + p.getCurrentRoom().getMonster().getName()
                     + " glad! Du får " + p.getCurrentRoom().getMonster().getDropItem().toString()
                     + ", som du putter i din rygsæk");
-            i.removeItemFromInventory(itemIndex);
-            i.addToInventory(p.getCurrentRoom().getMonster().getDropItem());
+            p.getInventory().removeItemFromInventory(itemIndex);
+            p.getInventory().addToInventory(p.getCurrentRoom().getMonster().getDropItem());
             p.getCurrentRoom().getMonster().setDropItemToNull();
             p.getCurrentRoom().getMonster().setPenalty(0);
             p.changeRounds(-1);
