@@ -334,7 +334,7 @@ public class Game {
         System.out.println(p.getInventory().getItem(itemIndex));
         
         if (p.getCurrentRoom().getMonster() == null
-                || p.getCurrentRoom().getMonster().getDropItem() == null) {
+                || p.getCurrentRoom().getMonster().getPenalty()==0) {
             io.put("Der er ikke nogen, at bruge et Item imod");
             p.changeRounds(-1);
         } else if (!p.getCurrentRoom().getMonster().getNeutralizingItem().equals(p.getInventory().getItem(itemIndex))) {
