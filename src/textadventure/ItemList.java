@@ -87,8 +87,8 @@ public class ItemList {
                 "Dette executive summary indeholder et kortfattet resumé af en række konklusioner og anbefalinger i ... zzzZZZzzz.."
         ));
         itemList.add(new UsableItem(
-                "Telefonlader",
-                "En oplader, men er det Mini, micro, eller nano USB stik?"
+                "Telefonoplader",
+                "En oplader, men er det mini, micro, nano, USB C eller lightning stik?"
         ));
         itemList.add(new UsableItem(
                 "Stok",
