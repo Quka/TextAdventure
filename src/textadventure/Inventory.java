@@ -61,11 +61,11 @@ public class Inventory {
      *
      * @return
      */
-    public String[] showInventory() {
+    public String showInventory() {
 
-        String[] res = new String[items.size()];
-        for (int i = 0; i < res.length; i++) {
-            res[i] = items.get(i).toString();
+        String res = "";
+        for (int i = 0; i < items.size(); i++) {
+            res += "[" + i + "] " + items.get(i).toString();
         }
         return res;
     }

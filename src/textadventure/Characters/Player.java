@@ -61,6 +61,8 @@ public class Player implements MainCharacter {
      */
     @Override
     public void walk(String direction) {
+        io.clear();
+        
         io.put("Du går imod retningen >" + direction + "<");
         currentRoom = currentRoom.getRoom(direction);
     }
@@ -94,21 +96,25 @@ public class Player implements MainCharacter {
      *
      * @param item
      */
-    public void pickupItem(Item item) {
-        
+    public String pickupItem(Item item) {
+        String itemUse = "";
         // Skal der være en Exceptions, hvis man prøver at samle op i et rum uden items??
 
         if (item instanceof ConsumableItem) {
-            // # Hvis item er consumable så brug med det samme
+            // Hvis item er consumable så brug med det samme
             changeRounds(item.getRoundsModifier());
+            itemUse = ((ConsumableItem) item).getDescriptionUsed();
         } else {
-            // # Hvis item er usable, så læg i backpack
+            // Hvis item er usable, så læg i backpack
             // Skal det her ikke være noget med
          
             // this.item = room.getItem();
             
             inventory.addToInventory(item);
+            itemUse = "Du lægger " + item.getName() + " i rygsækken";
         }
+        
+        return itemUse;
     }
 
     /**

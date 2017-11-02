@@ -11,6 +11,11 @@ import textadventure.Item.UsableItem;
 public class GameTest {
 
     @Test
+    public void testShowInventory() {
+
+    }
+
+    @Test
     public void testPrettyMessage() {
         Game game = new Game();
         ItemList il = new ItemList();
