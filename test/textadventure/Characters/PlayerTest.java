@@ -26,13 +26,12 @@ public class PlayerTest {
         ArrayList<Room> rooms = m.createMaze();
         ItemList il = new ItemList();
         Inventory i = new Inventory();
-        
         Player p = new Player("test", rooms.get(0));
+        
         p.pickupItem(il.getItem(11));
+        i.addToInventory(il.getItem(11));
         
-        System.out.println(il.getItem(11).getName());
-        
-        System.out.println(p);
+        assertEquals(p.getInventory().showInventory(), i.showInventory());
     }
     
 }
