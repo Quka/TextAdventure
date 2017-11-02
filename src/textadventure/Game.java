@@ -63,10 +63,10 @@ public class Game {
             }
             //Delete == true?
             if (p.getCurrentRoom().isWinGame()) {
-//                gameEnded = true;
-//                h.addScore(new Score(p.getName(), p.getRoundsLeft()));
-//                h.saveHighScoresToFile(5);
-//                io.put((h.printScores()));
+                gameEnded = true;
+                h.addScore(new Score(p.getName(), p.getRoundsLeft()));
+                h.saveHighScoresToFile(5);
+                io.put((h.printScores()));
             }
             if (p.getRoundsLeft() < 1) {
                 gameEnded = true;
@@ -312,7 +312,8 @@ public class Game {
 
     private void useItem() {
         io.put(p.getInventory().showInventory() + "\nHvilket item vil du bruge?\n");
-        int itemIndex = Integer.parseInt(io.get());
+        
+        int itemIndex = io.getInteger(0, p.getInventory().getInventorySize()-1);
 
        if (p.getCurrentRoom().equals(boss.getCurrentRoom()) && boss.getPenalty() != 0) {
             if(p.getItem(itemIndex)==boss.getNeutralizingItem())
@@ -326,7 +327,12 @@ public class Game {
                 p.changeRounds(boss.getPenalty());
                 io.put("Du mister " + boss.getPenalty()+ " runder!");
             }
-
+            
+       }
+       
+        System.out.println(p.getCurrentRoom().getMonster().getNeutralizingItem());
+        System.out.println(p.getInventory().getItem(itemIndex));
+        
         if (p.getCurrentRoom().getMonster() == null
                 || p.getCurrentRoom().getMonster().getDropItem() == null) {
             io.put("Der er ikke nogen, at bruge et Item imod");
@@ -348,4 +354,4 @@ public class Game {
         }
     }
     }
-}
+
