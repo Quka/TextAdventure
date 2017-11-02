@@ -353,9 +353,10 @@ public class Game {
             if ( p.getCurrentRoom().getMonster().getDropItem()!=null){
                 io.put("Du får " + p.getCurrentRoom().getMonster().getDropItem().toString());
                 p.getInventory().addToInventory(p.getCurrentRoom().getMonster().getDropItem());
+                p.getInventory().addToInventory(p.getCurrentRoom().getMonster().getDropItem());
             }
             p.getInventory().removeItemFromInventory(itemIndex);
-            p.getInventory().addToInventory(p.getCurrentRoom().getMonster().getDropItem());
+            
             p.getCurrentRoom().getMonster().setDropItemToNull();
             p.getCurrentRoom().getMonster().setPenalty(0);
             p.changeRounds(-1);
