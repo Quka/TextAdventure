@@ -334,9 +334,6 @@ public class Game {
             }
             
        }
-       
-        System.err.println(p.getCurrentRoom().getMonster().getNeutralizingItem());
-       // System.out.println(p.getInventory().getItem(itemIndex));
         
         if (p.getCurrentRoom().getMonster() == null
                 || p.getCurrentRoom().getMonster().getPenalty()==0) {
