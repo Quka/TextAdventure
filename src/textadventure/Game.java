@@ -51,7 +51,7 @@ public class Game {
 
         h = new HighScore();
        
-        io.put((h.printScores()));
+        io.put(("\nHighscores er, mon du kan gøre det bedre?\n" + h.printScores()));
 
         i = new Inventory();
 
@@ -71,7 +71,7 @@ public class Game {
             //Delete == true?
             if (p.getCurrentRoom().isWinGame()) {
                 gameEnded = true;
-                h.saveHighScoresToFile(p.getRoundsLeft());
+                h.addScore(new Score(p.getName(), p.getRoundsLeft()));
                 h.saveHighScoresToFile(5);
                 io.put((h.printScores()));
             }
