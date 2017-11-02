@@ -212,7 +212,7 @@ public class Game {
                     io.put(
                             clear()
                             + prettyMessage(
-                                    p.getCurrentRoom().getMonster().getName() + "!\n"
+                                    p.getCurrentRoom().getMonster().getName() + "!"
                                     + p.getCurrentRoom().getMonster().getDescription()
                                     + "(" + p.getCurrentRoom().getMonster().getPenalty() + ")", "Monster")
                     );
