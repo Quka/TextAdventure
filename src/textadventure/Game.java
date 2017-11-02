@@ -182,9 +182,26 @@ public class Game {
                     + prettyMessage(p.getCurrentRoom().getDescription(), "Rum")
             );
 
+            if (p.getCurrentRoom().equals(boss.getCurrentRoom())) {
+                io.put(clear() + "Chefen og spiller i samme rum.");
+                if (boss.getPenalty()==0){
+                    io.put(
+                        clear()
+                        + prettyMessage("Du støder på " + boss.getName() + ". "
+                                + boss.getName()
+                                + " er i godt humør, han lover dig en lønforhøjelse, og hilser pænt på dig", "Chefen")
+                            
+                            );
+                    
+                }
+                
+                else { 
+                    io.put("Vil du forsøge at brugen en Item mod Chefen? (Tryk \"u\" for at bruge en item!");
+                }
+            }
             if (p.getCurrentRoom().getMonster() != null) {
 
-                if (p.getCurrentRoom().getMonster().isHappy() == true) {
+                if (p.getCurrentRoom().getMonster().getPenalty() == 0) {
                     io.put(
                             clear()
                             + prettyMessage("Du støder på " + p.getCurrentRoom().getMonster().getName() + ". "
@@ -286,15 +303,21 @@ public class Game {
         io.put(p.getInventory().showInventory() + "\nHvilket item vil du bruge?\n");
         int itemIndex = Integer.parseInt(io.get());
 
-        // Check om man er i samme rum som bossen, og om bossen er sur, når man bruger item
-        if (p.getCurrentRoom().equals(boss.getCurrentRoom()) && boss.getPenalty() != 0) {
-            //To be done
-        }
+       if (p.getCurrentRoom().equals(boss.getCurrentRoom()) && boss.getPenalty() != 0) {
+            if(p.getItem(itemIndex)==boss.getNeutralizingItem())
+            {
+                boss.setPenalty(0);
+                io.put("Chefen skuler, men skynder sig at tage rapporten!");
+                p.getInventory().removeItemFromInventory(itemIndex);
+            }
+            else{
+                io.put("Denne Item har ingen effekt!");
+                p.changeRounds(boss.getPenalty());
+                io.put("Du mister " + boss.getPenalty()+ " runder!");
+            }
 
         if (p.getCurrentRoom().getMonster() == null
-                || !boss.getCurrentRoom().equals(p.getCurrentRoom())
-                || p.getCurrentRoom().getMonster().getDropItem() == null
-                || boss.getPenalty() != 0) {
+                || p.getCurrentRoom().getMonster().getDropItem() == null) {
             io.put("Der er ikke nogen, at bruge et Item imod");
             p.changeRounds(-1);
         } else if (!p.getCurrentRoom().getMonster().getNeutralizingItem().equals(p.getInventory().getItem(itemIndex))) {
@@ -313,5 +336,5 @@ public class Game {
             p.changeRounds(-1);
         }
     }
-
+    }
 }
