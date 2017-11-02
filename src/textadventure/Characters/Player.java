@@ -108,7 +108,7 @@ public class Player implements MainCharacter {
 
         if (item instanceof ConsumableItem) {
             // Hvis item er consumable så brug med det samme
-            changeRounds(item.getRoundsModifier());
+            changeRounds(((ConsumableItem) item).getRoundsModifier());
             itemUse = ((ConsumableItem) item).getDescriptionUsed();
         } else {
             // Hvis item er usable, så læg i backpack

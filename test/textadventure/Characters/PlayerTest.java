@@ -10,6 +10,7 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import textadventure.Inventory;
+import textadventure.Item.ConsumableItem;
 import textadventure.ItemList;
 import textadventure.Maze;
 import textadventure.Room;
@@ -20,18 +21,50 @@ import textadventure.Room;
  */
 public class PlayerTest {
 
-    @Test
-    public void testPickupItem() {
-        Maze m = new Maze();
-        ArrayList<Room> rooms = m.createMaze();
-        ItemList il = new ItemList();
-        Inventory i = new Inventory();
-        Player p = new Player("test", rooms.get(0));
-        
-        p.pickupItem(il.getItem(11));
-        i.addToInventory(il.getItem(11));
-        
-        assertEquals(p.getInventory().showInventory(), i.showInventory());
+    Maze m;
+    ArrayList<Room> rooms;
+    ItemList il;
+    Inventory i;
+    Player p;
+
+    @Before
+    public void setUp() {
+        this.m = new Maze();
+        this.rooms = m.createMaze();
+        this.il = new ItemList();
+        this.i = new Inventory();
+        this.p = new Player("test", rooms.get(0));
     }
     
+    @Test
+    public void testPickupPositiveConsumableItem() {
+        // Pickup mælk item (+6)
+        p.pickupItem(il.getItem(3));
+
+        int exptected = 106;
+        int actual = p.getRoundsLeft();
+        
+        assertEquals(exptected, actual);
+    }
+
+    @Test
+    public void testPickupNegativeConsumableItem() {
+        // Pickup mælk item (-4)
+        p.pickupItem(il.getItem(7));
+
+        int exptected = 96;
+        int actual = p.getRoundsLeft();
+        
+        assertEquals(exptected, actual);
+    }
+
+    @Test
+    public void testPickupItem() {
+
+        p.pickupItem(il.getItem(11));
+        i.addToInventory(il.getItem(11));
+
+        assertEquals(p.getInventory().showInventory(), i.showInventory());
+    }
+
 }
