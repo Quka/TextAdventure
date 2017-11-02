@@ -193,6 +193,17 @@ public class Game {
             );
 
             if (p.getCurrentRoom().getMonster() != null) {
+                
+                if (p.getCurrentRoom().getMonster().getDropItem()==null){
+                    io.put(
+                        clear()
+                        + prettyMessage("Du støder på " + p.getCurrentRoom().getMonster().getName() + ". "
+                                + p.getCurrentRoom().getMonster().getName() 
+                                + " er i godt humør, og hilser pænt på dig", "Monster")
+                            
+                            );
+                }
+                else{
                 io.put(
                         clear()
                         + prettyMessage(
@@ -200,6 +211,8 @@ public class Game {
                                 + p.getCurrentRoom().getMonster().getName() + " giver dig tæsk ("
                                 + p.getCurrentRoom().getMonster().getPenalty() + ")", "Monster")
                 );
+                
+                }
             }
 
             if (p.getCurrentRoom().getItem() != null) {
