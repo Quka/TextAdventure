@@ -2,7 +2,6 @@ package textadventure;
 
 import textadventure.Characters.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 import textio.*;
 
 /**
@@ -35,17 +34,14 @@ public class Game {
     public void play() {
         //Writes to console and get players name
         startGame();
-        // Setup rooms for the maze
+        // Setup rooms for the maze and initializes players
         m = new Maze(itemList);
         ArrayList<Room> rooms = m.createMaze();
-
-        // Initialize characters
         p = new Player(name, rooms.get(0));
         boss = new Boss("Chefen", -12, itemList.getItem(12), itemList.getItem(0), "", rooms.get(12), false);
 
         h = new HighScore();
-
-        io.put(("\nHighscores er, mon du kan gøre det bedre?\n" + h.printScores()));
+        io.put(("\nHighscores:\n" + h.printScores()));
 
         io.put(
                 clear()
@@ -63,10 +59,8 @@ public class Game {
             command(command);
 
             if (p.getCurrentRoom().equals(boss.getCurrentRoom())) {
-                // # Brug item her / mist liv
                 System.out.println(clear() + "Monster og spiller i samme rum.");
             }
-            //Delete == true?
             if (p.getCurrentRoom().isWinGame()) {
                 gameEnded = true;
                 h.addScore(new Score(p.getName(), p.getRoundsLeft()));
@@ -121,6 +115,7 @@ public class Game {
     /**
      * Takes commands from user and reacts accordingly
      *
+     * @param command
      */
     public void command(String command) {
         
@@ -194,14 +189,14 @@ public class Game {
                         clear()
                         + prettyMessage("Du støder på " + boss.getName() + ". "
                                 + boss.getName()
-                                + " er i godt humør, han lover dig en lønforhøjelse, og hilser pænt på dig", "Chefen")
+                                + " er i godt humør. Han hilser pænt på dig og lover dig en lønforhøjelse.", "Chefen")
                             
                             );
                     
                 }
                 
                 else { 
-                    io.put("Vil du forsøge at brugen en Item mod Chefen?\n(Tryk \"u\" for at bruge en item!)");
+                    io.put("Vil du forsøge at brugen et item mod Chefen?\n(Tryk \"u\" for at bruge et item!)");
                     if (io.get().equalsIgnoreCase("u")) useItem();
                      else
                        {
@@ -216,19 +211,18 @@ public class Game {
                             clear()
                             + prettyMessage("Du støder på " + p.getCurrentRoom().getMonster().getName() + ". "
                                     + p.getCurrentRoom().getMonster().getName()
-                                    + " er i godt humør, og hilser pænt på dig", p.getCurrentRoom().getMonster().getName())
+                                    + " er i godt humør og hilser pænt på dig", p.getCurrentRoom().getMonster().getName())
                     );
                 } else {
                     io.put(
                             clear()
                             + prettyMessage(
-                                //    p.getCurrentRoom().getMonster().getName() + "!"
                                      p.getCurrentRoom().getMonster().getDescription()
                                     + "(" + p.getCurrentRoom().getMonster().getPenalty() + ")", p.getCurrentRoom().getMonster().getName())
                     );
                     
-                    io.put("Vil du forsøge at brugen en item mod " + p.getCurrentRoom().getMonster().getName() 
-                            +"? \n(Tryk \"u\" for at bruge en item!)");
+                    io.put("Vil du forsøge at brugen et item mod " + p.getCurrentRoom().getMonster().getName() 
+                            +"? \n(Tryk \"u\" for at bruge et item!)");
                        if (io.get().equalsIgnoreCase("u")) useItem();
                        else
                        {
@@ -255,7 +249,7 @@ public class Game {
 
     private void pickup() {
         if (p.getCurrentRoom().getItem() == null) {
-            io.put("Der er ikke noget at samle op! (-1)");
+            io.put("Der er ikke noget at samle op! (-1 runde)");
             p.changeRounds(-1);
         } else {
             io.put(
@@ -328,7 +322,7 @@ public class Game {
                 p.getInventory().removeItemFromInventory(itemIndex);
             }
             else{
-                io.put("Denne item har ingen effekt!");
+                io.put("Dette item har ingen effekt!");
                 p.changeRounds(boss.getPenalty());
                 io.put("Du mister " + boss.getPenalty()+ " runder!");
             }
@@ -340,7 +334,7 @@ public class Game {
             io.put("Der er ikke nogen, at bruge et item imod");
             p.changeRounds(-1);
         } else if (!p.getCurrentRoom().getMonster().getNeutralizingItem().equals(p.getInventory().getItem(itemIndex))) {
-            io.put("Denne item har ingen effekt!");
+            io.put("Dette item har ingen effekt!");
             p.changeRounds(p.getCurrentRoom().getMonster().getPenalty());
             io.put("Du mister " + p.getCurrentRoom().getMonster().getPenalty() + " runder");
 

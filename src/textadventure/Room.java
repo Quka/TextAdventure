@@ -123,6 +123,7 @@ public class Room {
      * Adds item to the room
      * 
      */
+    //What does this actually do? Nothing?
     public void addItemToRoom(){
         this.item = item;
     }

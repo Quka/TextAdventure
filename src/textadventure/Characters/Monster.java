@@ -5,9 +5,7 @@
  */
 package textadventure.Characters;
 
-import java.util.ArrayList;
 import textadventure.Item.Item;
-import textadventure.Room;
 
 /**
  *
@@ -65,11 +63,6 @@ public class Monster {
         return "Monster{" + "name=" + name + '}';
     }  
     
-    // Kunne det være en ide, at lave en getDesription, og når vi går ind i et 
-    // rum, kunne der i getRoomDescription, indgå noget getMonsterDescription??
-    // Arraylisten med Item skal jo sættes ind, men da den ikke er lavet, er alle
-    // items bare sat til index1!
-
     public boolean isHappy() {
         return happy;
     }

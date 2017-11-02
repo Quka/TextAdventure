@@ -101,21 +101,16 @@ public class Player implements MainCharacter {
      * explains the user that there is not enough space.
      *
      * @param item
+     * @return 
      */
     public String pickupItem(Item item) {
         String itemUse = "";
         // Skal der være en Exceptions, hvis man prøver at samle op i et rum uden items??
 
         if (item instanceof ConsumableItem) {
-            // Hvis item er consumable så brug med det samme
             changeRounds(((ConsumableItem) item).getRoundsModifier());
             itemUse = ((ConsumableItem) item).getDescriptionUsed();
-        } else {
-            // Hvis item er usable, så læg i backpack
-            // Skal det her ikke være noget med
-         
-            // this.item = room.getItem();
-            
+        } else {     
             inventory.addToInventory(item);
             itemUse = "Du lægger " + item.getName() + " i rygsækken";
         }
