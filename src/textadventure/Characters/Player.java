@@ -130,8 +130,9 @@ public class Player implements MainCharacter {
      * @return 
      */
     public Item getItem(int itemIndex) {
+        Item item = inventory.getItem(itemIndex);
         inventory.removeItemFromInventory(itemIndex);
-        return inventory.getItem(itemIndex);
+        return item;
     }
 
     @Override
