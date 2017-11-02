@@ -216,6 +216,8 @@ public class Game {
                                     + p.getCurrentRoom().getMonster().getDescription()
                                     + "(" + p.getCurrentRoom().getMonster().getPenalty() + ")", "Monster")
                     );
+                    
+                    io.put("Vil du forsøge at brugen en Item mod " + p.getCurrentRoom().getMonster().getName() +"? (Tryk \"u\" for at bruge en item!)");
 
                 }
             }
