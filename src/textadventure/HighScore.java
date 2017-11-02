@@ -100,7 +100,7 @@ public class HighScore
         String str = "";
         for (int i = 0; i < scores.size(); i++)
         {
-            str += "\n" + scores.get(i).getName() + ": " + scores.get(i).getScore();
+            str += "\n" + scores.get(i).getScore() + ", " + scores.get(i).getName();
         }
         str += "\n\n";
         return str;
