@@ -196,7 +196,12 @@ public class Game {
                 }
                 
                 else { 
-                    io.put("Vil du forsøge at brugen en Item mod Chefen? (Tryk \"u\" for at bruge en item!");
+                    io.put("Vil du forsøge at brugen en Item mod Chefen?\n(Tryk \"u\" for at bruge en item!)");
+                    if (io.get().equalsIgnoreCase("u")) useItem();
+                     else
+                       {
+                           p.changeRounds(p.getCurrentRoom().getMonster().getPenalty());
+                       }
                 }
             }
             if (p.getCurrentRoom().getMonster() != null) {
@@ -217,8 +222,13 @@ public class Game {
                                     + "(" + p.getCurrentRoom().getMonster().getPenalty() + ")", "Monster")
                     );
                     
-                    io.put("Vil du forsøge at brugen en Item mod " + p.getCurrentRoom().getMonster().getName() +"? (Tryk \"u\" for at bruge en item!)");
-
+                    io.put("Vil du forsøge at brugen en Item mod " + p.getCurrentRoom().getMonster().getName() 
+                            +"? \n(Tryk \"u\" for at bruge en item!)");
+                       if (io.get().equalsIgnoreCase("u")) useItem();
+                       else
+                       {
+                           p.changeRounds(p.getCurrentRoom().getMonster().getPenalty());
+                       }
                 }
             }
 
