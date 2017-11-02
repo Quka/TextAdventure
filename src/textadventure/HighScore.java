@@ -161,4 +161,8 @@ public class HighScore
         str += "\n";
         return str;
     }
+
+    void saveHighScoresToFile(int i) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

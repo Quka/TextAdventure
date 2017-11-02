@@ -50,7 +50,7 @@ public class Game {
         boss = new Boss("Chefen", -12, itemList.getItem(12), itemList.getItem(0), "", rooms.get(12));
 
         h = new HighScore();
-       
+
         io.put(("\nHighscores er, mon du kan gøre det bedre?\n" + h.printScores()));
 
         i = new Inventory();
@@ -95,18 +95,19 @@ public class Game {
         String introHeader = "\n*****************************************************\n"
                 + "**************    FIRMA & FISKEFILET    *************\n"
                 + "*****************************************************\n\n";
-        String introBody = "Det er lige blevet frokost, og det er fiskedag. Du skal finde vej til kantinen inden alle fiskefileterne er udsolgt. Alt det andet fisk lugter og smager dårligt. Derfor er det vigtigt, at du gør dit bedste for at få fiskefilet til frokost i dag.";
+        String introBody = "Det er lige blevet frokost, og det er fiskedag. Du skal finde vej"
+                + " til kantinen inden alle fiskefileterne er udsolgt. Alt det andet fisk lugter"
+                + " og smager dårligt. Derfor er det vigtigt, at du gør dit bedste for at få"
+                + " fiskefilet til frokost i dag.";
         io.put(
                 introHeader
                 + prettyMessage(introBody, "Velkommen")
                 + clear()
-                + "Hvad hedder du, arbejdstager?"
-        );
+                + "Hvad hedder du, arbejdstager?");
 
         this.name = io.get();
 
-        io.put(
-                clear()
+        io.put(clear()
                 + "Hej " + name + ", velkommen til Firma & Fiskefilet\n"
                 + "Husk at du altid kan skrive h for hjælp\n"
                 + "-----------------------------------------\n");
