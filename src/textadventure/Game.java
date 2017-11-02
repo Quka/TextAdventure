@@ -212,10 +212,12 @@ public class Game {
                     io.put(
                             clear()
                             + prettyMessage(
-                                    p.getCurrentRoom().getMonster().getName() + "! "
+                                    p.getCurrentRoom().getMonster().getName() + "!\n"
                                     + p.getCurrentRoom().getMonster().getDescription()
                                     + "(" + p.getCurrentRoom().getMonster().getPenalty() + ")", "Monster")
                     );
+                    
+                    io.put("Vil du forsøge at brugen en Item mod " + p.getCurrentRoom().getMonster().getName() +"? (Tryk \"u\" for at bruge en item!)");
 
                 }
             }
