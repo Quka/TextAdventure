@@ -20,13 +20,15 @@ public class Monster {
     private int penalty;
     private final Item neutralizingItem;
     private Item dropItem;
+    private boolean happy;
 
-    public Monster(String name, int penalty, Item neutralizingItem, Item dropItem, String description) {
+    public Monster(String name, int penalty, Item neutralizingItem, Item dropItem, String description, boolean happy) {
         this.name = name;
         this.penalty = penalty;
         this.neutralizingItem = neutralizingItem;
         this.dropItem = dropItem;
         this.description = description;
+        this.happy = happy;
     }
 
     public String getName() {
@@ -54,6 +56,10 @@ public class Monster {
         this.dropItem = null;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
     @Override
     public String toString() {
         return "Monster{" + "name=" + name + '}';
@@ -63,4 +69,8 @@ public class Monster {
     // rum, kunne der i getRoomDescription, indgå noget getMonsterDescription??
     // Arraylisten med Item skal jo sættes ind, men da den ikke er lavet, er alle
     // items bare sat til index1!
+
+    public boolean isHappy() {
+        return happy;
+    }
 }

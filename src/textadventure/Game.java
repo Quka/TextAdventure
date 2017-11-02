@@ -40,8 +40,9 @@ public class Game {
         boss = new Boss("Chefen", -12, itemList.getItem(12), itemList.getItem(0), "", rooms.get(12));
 
         h = new HighScore();
+       
+        io.put(("\nHighscores er, mon du kan gøre det bedre?\n" + h.printScores()));
 
-//        io.put(("\nHighscores er, mon du kan gøre det bedre?\n" + h.printScores()));
         i = new Inventory();
 
         io.put(
@@ -96,6 +97,10 @@ public class Game {
                 + "Hvad hedder du, arbejdstager?");
 
         this.name = io.get();
+        if (name.contains(",")){
+            name = name.replaceAll(",", "");
+            
+        }
 
         io.clear();
         io.put(
@@ -180,13 +185,26 @@ public class Game {
             );
 
             if (p.getCurrentRoom().getMonster() != null) {
+                
+                if (p.getCurrentRoom().getMonster().isHappy()==true){
+                    io.put(
+                        clear()
+                        + prettyMessage("Du støder på " + p.getCurrentRoom().getMonster().getName() + ". "
+                                + p.getCurrentRoom().getMonster().getName() 
+                                + " er i godt humør, og hilser pænt på dig", "Monster")
+                            
+                            );
+                }
+                else{
                 io.put(
                         clear()
                         + prettyMessage(
-                                "Du støder på " + p.getCurrentRoom().getMonster().getName() + ". "
-                                + p.getCurrentRoom().getMonster().getName() + " giver dig tæsk ("
-                                + p.getCurrentRoom().getMonster().getPenalty() + ")", "Monster")
+                                  p.getCurrentRoom().getMonster().getName() + "!\n"
+                                + p.getCurrentRoom().getMonster().getDescription()
+                                + "(" +p.getCurrentRoom().getMonster().getPenalty() + ")", "Monster")
                 );
+                
+                }
             }
 
             if (p.getCurrentRoom().getItem() != null) {
