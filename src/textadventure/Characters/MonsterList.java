@@ -6,6 +6,7 @@
 package textadventure.Characters;
 
 import java.util.ArrayList;
+import textadventure.Item.Item;
 import textadventure.ItemList;
 
 /**
@@ -15,9 +16,9 @@ import textadventure.ItemList;
 public class MonsterList {
 
     private ArrayList<Monster> monsterList = new ArrayList<>();
-    private ItemList itemList = new ItemList();
+    private ItemList itemList;
 
-    public MonsterList() {
+    public MonsterList(ItemList itemList) {
         monsterList.add(new Monster("Tine", -3, itemList.getItem(9), itemList.getItem(16),
                 "Hun drejer stolen 180 grader og kigger dig direkte i øjnene. Du får et koldt gys. "
                 + "Hvordan opdagede hun dig?! Hvad har hun tænkt sig at gøre?! Hvilken "

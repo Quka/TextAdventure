@@ -20,7 +20,12 @@ public class Game {
     private Monster monster;
     private HighScore h;
     private int[] highScore = new int[5];
-    private ItemList itemList = new ItemList();
+    private ItemList itemList;
+
+    public Game()
+    {
+        this.itemList = new ItemList();
+    }
 
     /**
      * GameController. Is responsible for calling methods and starting and
@@ -31,7 +36,7 @@ public class Game {
         //Writes to console and get players name
         startGame();
         // Setup rooms for the maze
-        m = new Maze();
+        m = new Maze(itemList);
         ArrayList<Room> rooms = m.createMaze();
 
         // Initialize characters
@@ -330,8 +335,8 @@ public class Game {
             
        }
        
-        System.out.println(p.getCurrentRoom().getMonster().getNeutralizingItem());
-        System.out.println(p.getInventory().getItem(itemIndex));
+        System.err.println(p.getCurrentRoom().getMonster().getNeutralizingItem());
+       // System.out.println(p.getInventory().getItem(itemIndex));
         
         if (p.getCurrentRoom().getMonster() == null
                 || p.getCurrentRoom().getMonster().getPenalty()==0) {
@@ -344,8 +349,11 @@ public class Game {
 
         } else {
             io.put("Du gør " + p.getCurrentRoom().getMonster().getName()
-                    + " glad! Du får " + p.getCurrentRoom().getMonster().getDropItem().toString()
-                    + ", som du putter i din rygsæk");
+                    + " glad!" );
+            if ( p.getCurrentRoom().getMonster().getDropItem()!=null){
+                io.put("Du får " + p.getCurrentRoom().getMonster().getDropItem().toString());
+                p.getInventory().addToInventory(p.getCurrentRoom().getMonster().getDropItem());
+            }
             p.getInventory().removeItemFromInventory(itemIndex);
             p.getInventory().addToInventory(p.getCurrentRoom().getMonster().getDropItem());
             p.getCurrentRoom().getMonster().setDropItemToNull();

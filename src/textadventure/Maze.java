@@ -2,6 +2,7 @@ package textadventure;
 
 import java.util.ArrayList;
 import textadventure.Characters.MonsterList;
+import textadventure.Item.Item;
 
 /**
  * Class used to create rooms and maze to tell which rooms can access which
@@ -9,7 +10,8 @@ import textadventure.Characters.MonsterList;
  *
  * @author thomasfritzboger
  */
-public class Maze {
+public class Maze
+{
 
     private ArrayList<Room> rooms = new ArrayList<>();
     private ArrayList<Room> officeRooms = new ArrayList<>();
@@ -17,49 +19,58 @@ public class Maze {
     private ArrayList<Room> copyRooms = new ArrayList<>();
     private ArrayList<Room> meetingRooms = new ArrayList<>();
     private ArrayList<Room> restRooms = new ArrayList<>();
-    private ItemList itemList = new ItemList();
-    private MonsterList monsterList = new MonsterList();
+    private ItemList itemList;
+    private MonsterList monsterList;
 
     /**
      * Constructs a maze
      *
      */
-    public Maze() {
+    public Maze(ItemList itemList)
+    {
+        this.itemList = itemList;
+        this.monsterList = new MonsterList(itemList);
 
     }
 
-    public ArrayList<Room> createMaze() {
+    public ArrayList<Room> createMaze()
+    {
         createRooms();
         createAccess(rooms);
 
         return rooms;
     }
 
-    private void addOfficeRoom() {
+    private void addOfficeRoom()
+    {
         int removeIndex = (int) (Math.random() * officeRooms.size());
         rooms.add(officeRooms.get(removeIndex));
         officeRooms.remove(removeIndex);
     }
 
-    private void addSpecialRoom(ArrayList<Room> rooms, ArrayList<Room> specialRooms) {
+    private void addSpecialRoom(ArrayList<Room> rooms, ArrayList<Room> specialRooms)
+    {
         int removeIndex = ((int) (Math.random() * specialRooms.size()));
         rooms.add(specialRooms.get(removeIndex));
         specialRooms.remove(removeIndex);
     }
 
-    private void addCopyRoom(ArrayList<Room> rooms, ArrayList<Room> copyRooms) {
+    private void addCopyRoom(ArrayList<Room> rooms, ArrayList<Room> copyRooms)
+    {
         int removeIndex = ((int) (Math.random() * copyRooms.size()));
         rooms.add(copyRooms.get(removeIndex));
         copyRooms.remove(removeIndex);
     }
 
-    private void addMeetingRoom(ArrayList<Room> rooms, ArrayList<Room> meetingRooms) {
+    private void addMeetingRoom(ArrayList<Room> rooms, ArrayList<Room> meetingRooms)
+    {
         int removeIndex = ((int) (Math.random() * meetingRooms.size()));
         rooms.add(meetingRooms.get(removeIndex));
         meetingRooms.remove(removeIndex);
     }
 
-    private void addRestRoom(ArrayList<Room> rooms, ArrayList<Room> restRooms) {
+    private void addRestRoom(ArrayList<Room> rooms, ArrayList<Room> restRooms)
+    {
         int removeIndex = ((int) (Math.random() * restRooms.size()));
         rooms.add(restRooms.get(removeIndex));
         restRooms.remove(removeIndex);
@@ -71,7 +82,8 @@ public class Maze {
      *
      * @return ArrayList of rooms
      */
-    private ArrayList<Room> createRooms() {
+    private ArrayList<Room> createRooms()
+    {
         //Adding starting position, always rooms(index0)
 
         rooms.add(new Room(
@@ -254,7 +266,8 @@ public class Maze {
      *
      * @param rooms
      */
-    private void createAccess(ArrayList<Room> rooms) {
+    private void createAccess(ArrayList<Room> rooms)
+    {
 
         rooms.get(0).setNorth(rooms.get(1));
 
