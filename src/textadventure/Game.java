@@ -106,6 +106,10 @@ public class Game {
                 + "Hvad hedder du, arbejdstager?");
 
         this.name = io.get();
+        if (name.contains(",")){
+            name = name.replaceAll(",", "");
+            
+        }
 
         io.put(clear()
                 + "Hej " + name + ", velkommen til Firma & Fiskefilet\n"
