@@ -281,7 +281,9 @@ public class Game {
     }
     
     private void showInventory() {
-        io.put(i.showInventory());
+        io.put(
+                i.showInventory()
+        );
     }
 
     private void useItem() {

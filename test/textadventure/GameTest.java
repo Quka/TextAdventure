@@ -12,7 +12,17 @@ public class GameTest {
 
     @Test
     public void testShowInventory() {
-
+        Inventory i = new Inventory();
+        ItemList il = new ItemList();
+        
+        i.addToInventory(il.getItem(0));
+        i.addToInventory(il.getItem(1));
+        i.addToInventory(il.getItem(2));
+        i.addToInventory(il.getItem(3));
+        
+        System.out.println(
+                i.showInventory()
+        );
     }
 
     @Test

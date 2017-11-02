@@ -63,10 +63,11 @@ public class Inventory {
      */
     public String showInventory() {
 
-        String res = "";
+        String res = "===================== Inventory =====================\n";
         for (int i = 0; i < items.size(); i++) {
-            res += "[" + i + "] " + items.get(i).toString();
+            res += "[" + i + "] " + items.get(i).getName() + "\n";
         }
+        res += "=====================================================";
         return res;
     }
 
