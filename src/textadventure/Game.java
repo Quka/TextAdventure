@@ -37,7 +37,7 @@ public class Game {
 
         // Initialize characters
         p = new Player(name, rooms.get(0));
-        boss = new Boss("Chefen", -12, itemList.getItem(12), itemList.getItem(0), "", rooms.get(12));
+        boss = new Boss("Chefen", -12, itemList.getItem(12), itemList.getItem(0), "", rooms.get(12), false);
 
         h = new HighScore();
        
