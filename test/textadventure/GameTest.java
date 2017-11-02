@@ -1,13 +1,6 @@
 package textadventure;
 
-import java.util.ArrayList;
 import org.junit.Test;
-import static org.junit.Assert.*;
-import org.junit.Before;
-import textadventure.Characters.Monster;
-import textadventure.Characters.Player;
-import textadventure.Item.Item;
-import textadventure.Item.UsableItem;
 
 public class GameTest {
     

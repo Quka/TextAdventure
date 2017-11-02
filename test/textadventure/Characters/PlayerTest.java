@@ -10,7 +10,6 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import textadventure.Inventory;
-import textadventure.Item.ConsumableItem;
 import textadventure.ItemList;
 import textadventure.Maze;
 import textadventure.Room;
