@@ -50,8 +50,8 @@ public class Game {
         boss = new Boss("Chefen", -12, itemList.getItem(12), itemList.getItem(0), "", rooms.get(12));
 
         h = new HighScore();
-        h.loadHighScoresFromFile();
-        io.put(h.getHighScores());
+       
+        io.put((h.printScores()));
 
         i = new Inventory();
 
@@ -71,9 +71,9 @@ public class Game {
             //Delete == true?
             if (p.getCurrentRoom().isWinGame()) {
                 gameEnded = true;
-                h.sortHighScores(p.getRoundsLeft());
-                h.saveHighScoresToFile();
-                io.put(h.getHighScores());
+                h.saveHighScoresToFile(p.getRoundsLeft());
+                h.saveHighScoresToFile(5);
+                io.put((h.printScores()));
             }
             if (p.getRoundsLeft() < 1) {
                 gameEnded = true;
