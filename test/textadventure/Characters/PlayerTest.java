@@ -29,9 +29,9 @@ public class PlayerTest {
 
     @Before
     public void setUp() {
-        this.m = new Maze();
-        this.rooms = m.createMaze();
         this.il = new ItemList();
+        this.m = new Maze(il);
+        this.rooms = m.createMaze();
         this.i = new Inventory();
         this.p = new Player("test", rooms.get(0));
     }

@@ -7,6 +7,7 @@ package textadventure;
 
 import textadventure.Item.Item;
 import java.util.ArrayList;
+import textadventure.Item.UsableItem;
 
 /**
  * Inventory is used to hold items that i picked up during gameplay
@@ -25,7 +26,8 @@ public class Inventory {
     public Inventory() {
         items = new ArrayList<>();
         capacity = 10;
-
+        
+        items.add(new UsableItem("Luk inventory", "Lukker inventory"));
     }
 
     /**
