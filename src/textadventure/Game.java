@@ -47,7 +47,7 @@ public class Game {
 
         // Initialize characters
         p = new Player(name, rooms.get(0));
-        boss = new Boss("Chefen", -12, itemList.getItem(12), itemList.getItem(0), "", rooms.get(12), false);
+        boss = new Boss("Chefen", -12, itemList.getItem(12), itemList.getItem(0), "", rooms.get(12));
 
         h = new HighScore();
        
@@ -194,7 +194,7 @@ public class Game {
 
             if (p.getCurrentRoom().getMonster() != null) {
                 
-                if (p.getCurrentRoom().getMonster().getDropItem()==null){
+                if (p.getCurrentRoom().getMonster().isHappy()==true){
                     io.put(
                         clear()
                         + prettyMessage("Du støder på " + p.getCurrentRoom().getMonster().getName() + ". "
