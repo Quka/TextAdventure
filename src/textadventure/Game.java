@@ -40,7 +40,7 @@ public class Game {
         boss = new Boss("Chefen", -12, itemList.getItem(12), itemList.getItem(0), "", rooms.get(12), false);
 
         h = new HighScore();
-       
+
         io.put(("\nHighscores er, mon du kan gøre det bedre?\n" + h.printScores()));
 
         i = new Inventory();
@@ -53,7 +53,12 @@ public class Game {
         while (!gameEnded) {
 
             // Get a command from user
-            command();
+            io.put(
+                clear()
+                + "Hvad vil jeg gøre nu: (H for hjælp)"
+            );
+            String command = io.get().toUpperCase();
+            command(command);
 
             if (p.getCurrentRoom().equals(boss.getCurrentRoom())) {
                 // # Brug item her / mist liv
@@ -97,9 +102,9 @@ public class Game {
                 + "Hvad hedder du, arbejdstager?");
 
         this.name = io.get();
-        if (name.contains(",")){
+        if (name.contains(",")) {
             name = name.replaceAll(",", "");
-            
+
         }
 
         io.clear();
@@ -115,12 +120,8 @@ public class Game {
      * Takes commands from user and reacts accordingly
      *
      */
-    public void command() {
-        io.put(
-                clear()
-                + "Hvad vil jeg gøre nu: (H for hjælp)");
-        String command = io.get().toUpperCase();
-
+    public void command(String command) {
+        
         switch (command) {
             case "N":
             case "E":
@@ -185,25 +186,23 @@ public class Game {
             );
 
             if (p.getCurrentRoom().getMonster() != null) {
-                
-                if (p.getCurrentRoom().getMonster().isHappy()==true){
+
+                if (p.getCurrentRoom().getMonster().isHappy() == true) {
                     io.put(
-                        clear()
-                        + prettyMessage("Du støder på " + p.getCurrentRoom().getMonster().getName() + ". "
-                                + p.getCurrentRoom().getMonster().getName() 
-                                + " er i godt humør, og hilser pænt på dig", "Monster")
-                            
-                            );
-                }
-                else{
-                io.put(
-                        clear()
-                        + prettyMessage(
-                                  p.getCurrentRoom().getMonster().getName() + "!\n"
-                                + p.getCurrentRoom().getMonster().getDescription()
-                                + "(" +p.getCurrentRoom().getMonster().getPenalty() + ")", "Monster")
-                );
-                
+                            clear()
+                            + prettyMessage("Du støder på " + p.getCurrentRoom().getMonster().getName() + ". "
+                                    + p.getCurrentRoom().getMonster().getName()
+                                    + " er i godt humør, og hilser pænt på dig", "Monster")
+                    );
+                } else {
+                    io.put(
+                            clear()
+                            + prettyMessage(
+                                    p.getCurrentRoom().getMonster().getName() + "!\n"
+                                    + p.getCurrentRoom().getMonster().getDescription()
+                                    + "(" + p.getCurrentRoom().getMonster().getPenalty() + ")", "Monster")
+                    );
+
                 }
             }
 
@@ -279,7 +278,7 @@ public class Game {
 
         return result;
     }
-    
+
     private void showInventory() {
         io.put(
                 i.showInventory()

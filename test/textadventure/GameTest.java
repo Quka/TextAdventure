@@ -9,6 +9,13 @@ import textadventure.Item.Item;
 import textadventure.Item.UsableItem;
 
 public class GameTest {
+    
+    @Test
+    public void testPickup() {
+        Game game = new Game();
+        
+        game.command("P");
+    }
 
     @Test
     public void testShowInventory() {
