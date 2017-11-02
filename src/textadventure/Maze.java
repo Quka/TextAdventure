@@ -86,7 +86,7 @@ public class Maze {
                 "Du bliver kort blændet af en kontorlampe, som peger lige mod døråbningen. Du ser en gammel dame.",
                 false,
                 monsterList.getMonster(4),
-                null
+                itemList.getItem(13)
         ));
 
         officeRooms.add(new Room(
@@ -114,7 +114,7 @@ public class Maze {
                 "Tine sidder ved sit skrivebord. Du kan se, at hun er ved at skrive en lang indkøbsseddel. Hun skal nok have gæster i aften.",
                 false,
                 monsterList.getMonster(0),
-                null
+                itemList.getItem(18)
         ));
 
         officeRooms.add(new Room(
@@ -158,7 +158,7 @@ public class Maze {
                 "Pedersen er på vej ud fra toilettet. Han vasker ikke fingre! Slut med at give ham hånden.",
                 false,
                 monsterList.getMonster(7),
-                null
+                itemList.getItem(11)
         ));
 
         restRooms.add(new Room(
@@ -172,7 +172,7 @@ public class Maze {
                 "Lisette står og pudrer næse på dametoilettet. Hvorfor gik du herud?",
                 false,
                 monsterList.getMonster(8),
-                null
+                itemList.getItem(14)
         ));
 
         //Adding meetingrooms to<>meetingrooms, randomly placed later
@@ -180,21 +180,21 @@ public class Maze {
                 "Du træder ind i et lokale, hvor et vigtigt møde med en potentiel kunde er i gang. Du bliver nødt til at lade som om, at du er en sekretær.",
                 false,
                 monsterList.getMonster(9),
-                null
+                itemList.getItem(6)
         ));
 
         meetingRooms.add(new Room(
                 "Mødelokalet er tomt, men der står kopper og service fra sidste møde. Sikke et rod!",
                 false,
                 null,
-                null
+                itemList.getItem(3)
         ));
 
         meetingRooms.add(new Room(
                 "Projektgruppen sidder i mødelokalet. Vil du forsøge at forsinke dem i at nå fiskefileterne i kantinen?",
                 false,
                 monsterList.getMonster(10),
-                null
+                itemList.getItem(2)
         ));
 
         //Adding specialrooms to<>specialrooms, randomly placed later
