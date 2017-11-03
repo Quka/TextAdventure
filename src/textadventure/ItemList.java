@@ -109,6 +109,10 @@ public class ItemList {
                 "Salgspræsentation",
                 "Find ud af hvad der er det centrale budskab, som du vil have lytterne til at huske. Fokuser altid på kundens behov. Hvis du... vent, hvad prøver jeg at sælge?"
         ));
+        itemList.add(new UsableItem(
+                "Laserpointer",
+                "Rød? Grøn? Blå? Gul? Vælg  selv en farve, alle er cool."
+        ));
     }
 
     public Item getItem(int index) {
