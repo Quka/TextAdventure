@@ -96,7 +96,7 @@ public class HighScore
         {
             str += "\n" + scores.get(i).getScore() + "\t" + scores.get(i).getName();
         }
-        str += "\n\n";
+        str += "\n";
         return str;
     }
 

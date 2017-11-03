@@ -48,7 +48,7 @@ public class Game {
         );
 
         h = new HighScore();
-        io.put(("\nHighscores:\n" + h.printScores()));
+        io.put(("\nHighscores:" + h.printScores()));
 
         io.put(
                 clear()
@@ -164,7 +164,7 @@ public class Game {
      * user is entering "h"
      */
     private void helpMenu() {
-        String str = "\nDu har følgende muligheder: \n"
+        String str = "Du har følgende muligheder: \n"
                 + "E - for at gå mod øst\n"
                 + "S - for at gå mod syd\n"
                 + "W - for at gå mod vest\n"
@@ -225,7 +225,7 @@ public class Game {
                             clear()
                             + prettyMessage("Du støder på " + p.getCurrentRoom().getMonster().getName() + ". "
                                     + p.getCurrentRoom().getMonster().getName()
-                                    + " er i godt humør og hilser pænt på dig", p.getCurrentRoom().getMonster().getName())
+                                    + " er i godt humør og hilser pænt på dig", "Monster: " + p.getCurrentRoom().getMonster().getName())
                     );
                 } else {
                     io.put(

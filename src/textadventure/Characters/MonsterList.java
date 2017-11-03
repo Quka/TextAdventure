@@ -38,7 +38,7 @@ public class MonsterList {
         monsterList.add(new Monster("Phillipa", -4, itemList.getItem(15), null,
                 "Hun begynder at flirte med dig. Hvis bare hun havde sin mobil, så "
                 + "hun ikke forstyrrer dig. Hvor mon mobilen egentlig er?"));
-        monsterList.add(new Monster("IT Nørderne", -7, itemList.getItem(16), itemList.getItem(10),
+        monsterList.add(new Monster("IT-nørderne", -7, itemList.getItem(16), itemList.getItem(10),
                 "Lyset fra døren lyser fanger alles øjne og blænder dem kortvarigt. Det ligner "
                 + "ikke, at de havde forventet besøg. Og de ser ikke glade ud!"));
         monsterList.add(new Monster("Pedersen", -5, itemList.getItem(17), null,

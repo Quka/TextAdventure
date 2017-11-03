@@ -15,13 +15,4 @@ public class UsableItem extends Item {
     public UsableItem(String name, String description) {
         super(name, description);
     }
-    
-    /**
-     * Checks if the item is usable on the specific monster
-     * 
-     */
-    //Does this do anything? At all?
-    public void useItem() {
-        // not done
-    }
 }
