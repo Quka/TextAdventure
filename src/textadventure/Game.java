@@ -111,7 +111,7 @@ public class Game
 
         }
 
-        io.clear();
+        io.put(clear());
         io.put(
                 "\u001B[30m=============================================\n"
                 + "\u001B[30mHej " + name + ", velkommen til Firma & Fiskefilet\n"
