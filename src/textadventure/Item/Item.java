@@ -19,12 +19,6 @@ abstract public class Item {
         this.description = description;
     }
 
-    /**
-     * Method to see how the specific item modifies rounds left for the player
-     *
-     * @return
-     */
-    //Check if method is used
     public String getName() {
         return this.name;
     }
