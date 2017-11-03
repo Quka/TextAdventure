@@ -36,7 +36,8 @@ public class Game {
         // Setup rooms for the maze and initializes players
         m = new Maze(itemList);
         ArrayList<Room> rooms = m.createMaze();
-        p = new Player(name, rooms.get(0));
+        p = new Player(name, rooms.get(1));
+        p.getInventory().addToInventory(itemList.getItem(12));
         boss = new Boss(
                 "Chefen",
                 -12,
@@ -44,7 +45,7 @@ public class Game {
                 itemList.getItem(0),
                 "Du kan mærke en skummel tilstedeværelse. Det er chefen der vandrer igen, "
                 + "fordi han nok har glemt en rapport om angående nogle konsulenter eller noget",
-                rooms.get(12)
+                rooms.get(0)
         );
 
         h = new HighScore();
@@ -65,9 +66,6 @@ public class Game {
             String command = io.get().toUpperCase();
             command(command);
 
-            if (p.getCurrentRoom().equals(boss.getCurrentRoom())) {
-                System.out.println(clear() + "Chefen og spiller i samme rum.");
-            }
             if (p.getCurrentRoom().isWinGame()) {
                 gameEnded = true;
                 h.addScore(new Score(p.getName(), p.getRoundsLeft()));
@@ -185,7 +183,7 @@ public class Game {
      *
      * @param command
      */
-    private void changeRoom(String command) {
+    public void changeRoom(String command) {
         if (p.canWalk(command)) {
             p.walk(command);
             p.changeRounds(-3);
@@ -197,15 +195,10 @@ public class Game {
 
             if (p.getCurrentRoom().equals(boss.getCurrentRoom())) {
                 io.put(clear() + "Chefen og spiller i samme rum.");
-                if (boss.getPenalty() == 0) {
-                    io.put(
-                            clear()
-                            + prettyMessage("Du støder på " + boss.getName() + ". "
-                                    + boss.getName()
-                                    + " er i godt humør. Han hilser pænt på dig og lover dig en lønforhøjelse.", "Chefen")
-                    );
 
-                } else {
+                System.out.println(boss.getPenalty());
+
+                if (boss.getPenalty() < 0) {
                     io.put(
                             clear()
                             + prettyMessage(boss.getDescription(), "BOSS: Chefen")
@@ -215,6 +208,14 @@ public class Game {
                     } else {
                         p.changeRounds(p.getCurrentRoom().getMonster().getPenalty());
                     }
+                } else {
+                    io.put(
+                            clear()
+                            + prettyMessage("Du støder på " + boss.getName() + ". "
+                                    + boss.getName()
+                                    + " er i godt humør. Han hilser pænt på dig og lover dig en lønforhøjelse.", "Chefen")
+                    );
+
                 }
             }
             if (p.getCurrentRoom().getMonster() != null) {
@@ -391,7 +392,6 @@ public class Game {
                         boss.setPenalty(0);
                         io.put("Chefen skuler, men skynder sig at tage rapporten!\n");
                         p.getInventory().removeItemFromInventory(itemIndex);
-                        return;
                     } else {
                         io.put("Dette item har ingen effekt!");
                         p.changeRounds(boss.getPenalty());

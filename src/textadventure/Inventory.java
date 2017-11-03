@@ -70,7 +70,11 @@ public class Inventory {
      * @param itemIndex
      */
     public void removeItemFromInventory(int itemIndex) {
-        items.remove(itemIndex);
+        if(items.size() < 2) {
+            items.clear();
+        } else {
+            items.remove(itemIndex);
+        }
 
     }
     /**
