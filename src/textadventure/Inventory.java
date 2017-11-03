@@ -22,7 +22,7 @@ public class Inventory {
         items = new ArrayList<>();
         capacity = 10;
         
-        items.add(new UsableItem("Luk inventory", "Lukker inventory"));
+//        items.add(new UsableItem("Luk inventory", "Lukker inventory"));
     }
 
     /**
