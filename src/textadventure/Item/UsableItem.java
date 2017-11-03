@@ -1,6 +1,8 @@
 package textadventure.Item;
 
 /**
+ * Usable item (extends item). Can be used against monsters
+ * 
  * @author Arlind U. <arlind.u at cph-au53@cphbusiness.dk>
  */
 public class UsableItem extends Item {

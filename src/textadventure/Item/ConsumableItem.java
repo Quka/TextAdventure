@@ -42,7 +42,12 @@ public class ConsumableItem extends Item {
     public String getDescriptionUsed() {
         return this.descriptionUsed;
     }
-    
+    /**
+     * Returns the number of rounds the item either adds or subtracts from
+     * player
+     * 
+     * @return 
+     */
     public int getRoundsModifier(){
         return roundsLeftModifier;
     }

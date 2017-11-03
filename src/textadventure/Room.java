@@ -118,15 +118,6 @@ public class Room {
     public void removeItemFromRoom(){
        this.item=null;
     }
-    
-    /**
-     * Adds item to the room
-     * 
-     */
-    //What does this actually do? Nothing?
-    public void addItemToRoom(){
-        this.item = item;
-    }
 
     /**
      * Returns item in room
@@ -137,7 +128,11 @@ public class Room {
     {
         return item;
     }
-    
+    /**
+     * Returns monster
+     * 
+     * @return 
+     */
     public Monster getMonster()
     {
         return monster;

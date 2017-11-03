@@ -31,7 +31,12 @@ public class Maze
         this.monsterList = new MonsterList(itemList);
 
     }
-
+/**
+ * Methos used to create a maze. Calls private methods createRoom() and 
+ * createAccess(rooms)
+ * 
+ * @return 
+ */
     public ArrayList<Room> createMaze()
     {
         createRooms();

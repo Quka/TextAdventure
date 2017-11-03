@@ -11,7 +11,7 @@ public class Score
   private String name;
   private int score;
 /**
- * 
+ * Class for players name and final score
  * 
  * @param name
  * @param score 

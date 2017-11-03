@@ -3,13 +3,14 @@ package textadventure.Characters;
 import textadventure.Item.Item;
 
 /**
- *
+ * Monsters which is is bound to a specific room (room parameter) 
+ * 
  * @author Ionsight
  */
 public class Monster {
 
     private final String name;
-    private String description;
+    private final String description;
     private int penalty;
     private final Item neutralizingItem;
     private Item dropItem;
