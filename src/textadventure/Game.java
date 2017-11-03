@@ -164,7 +164,7 @@ public class Game {
      * user is entering "h"
      */
     private void helpMenu() {
-        String str = "\nDu har følgende muligheder: \n"
+        String str = "Du har følgende muligheder: \n"
                 + "E - for at gå mod øst\n"
                 + "S - for at gå mod syd\n"
                 + "W - for at gå mod vest\n"
