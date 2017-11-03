@@ -38,11 +38,12 @@ public class Game {
         ArrayList<Room> rooms = m.createMaze();
         p = new Player(name, rooms.get(0));
         boss = new Boss(
-                "Chefen", 
-                -12, itemList.getItem(12), 
-                itemList.getItem(0), 
-                "", 
-                rooms.get(12), 
+                "Chefen",
+                -12, itemList.getItem(12),
+                itemList.getItem(0),
+                "Du kan mærke en skummel tilstedeværelse. Det er chefen der vandrer igen, "
+                + "fordi han nok har glemt en rapport om angående nogle konsulenter eller noget",
+                rooms.get(12),
                 false
         );
 
@@ -199,7 +200,10 @@ public class Game {
                     );
 
                 } else {
-                    io.put("Vil du forsøge at brugen et item mod Chefen?\n(Tryk \"u\" for at bruge et item!)");
+                    io.put(
+                            clear()
+                            + prettyMessage(boss.getDescription(), "BOSS: Chefen")
+                            + "Vil du forsøge at brugen et item mod Chefen?\n(Tryk \"u\" for at bruge et item!)");
                     if (io.get().equalsIgnoreCase("u")) {
                         useItem();
                     } else {
@@ -313,31 +317,22 @@ public class Game {
         );
     }
 
-    private void useItem()
-    {
-        if (p.getInventory().getInventorySize() == 0)
-        {
+    private void useItem() {
+        if (p.getInventory().getInventorySize() == 0) {
             io.put("Lommerne er tomme kammerat, du skal finde noget, du kan gemme først");
-        } else
-
-        {
+        } else {
             io.put(p.getInventory().showInventory() + "\nHvilket item vil du bruge? Eller \"L\" for at lukke\n");
-            if (io.get().equalsIgnoreCase("L"))
-            {
+            if (io.get().equalsIgnoreCase("L")) {
                 io.put("Du vælger ikke at bruge et item");
-            } else
-            {
+            } else {
                 int itemIndex = io.getInteger(0, p.getInventory().getInventorySize() - 1);
-                if (p.getCurrentRoom().equals(boss.getCurrentRoom()) && boss.getPenalty() != 0)
-                {
+                if (p.getCurrentRoom().equals(boss.getCurrentRoom()) && boss.getPenalty() != 0) {
 
-                    if (p.getItem(itemIndex) == boss.getNeutralizingItem())
-                    {
+                    if (p.getItem(itemIndex) == boss.getNeutralizingItem()) {
                         boss.setPenalty(0);
                         io.put("Chefen skuler, men skynder sig at tage rapporten!\n");
                         p.getInventory().removeItemFromInventory(itemIndex);
-                    } else
-                    {
+                    } else {
                         io.put("Dette item har ingen effekt!");
                         p.changeRounds(boss.getPenalty());
                         io.put("Du mister " + boss.getPenalty() + " runder!");
@@ -345,23 +340,18 @@ public class Game {
 
                 }
                 if (p.getCurrentRoom().getMonster() == null
-                        || p.getCurrentRoom().getMonster().getPenalty() == 0)
-                {
+                        || p.getCurrentRoom().getMonster().getPenalty() == 0) {
                     io.put("Der er ikke nogen tilbage at bruge et item imod");
                     p.changeRounds(-1);
-                } else if (!p.getCurrentRoom().getMonster().getNeutralizingItem().equals(p.getInventory().getItem(itemIndex)))
-                {
+                } else if (!p.getCurrentRoom().getMonster().getNeutralizingItem().equals(p.getInventory().getItem(itemIndex))) {
                     io.put("Dette item har ingen effekt!");
                     p.changeRounds(p.getCurrentRoom().getMonster().getPenalty());
                     io.put("Du mister " + p.getCurrentRoom().getMonster().getPenalty() + " runder");
 
-                } else if (p.getCurrentRoom().getMonster().getNeutralizingItem().equals(p.getInventory().getItem(itemIndex)))
-
-                {
+                } else if (p.getCurrentRoom().getMonster().getNeutralizingItem().equals(p.getInventory().getItem(itemIndex))) {
                     io.put("Du gør " + p.getCurrentRoom().getMonster().getName()
                             + " glad! \n");
-                    if (p.getCurrentRoom().getMonster().getDropItem() != null)
-                    {
+                    if (p.getCurrentRoom().getMonster().getDropItem() != null) {
                         io.put("Du får " + p.getCurrentRoom().getMonster().getDropItem().toString());
                         p.getInventory().addToInventory(p.getCurrentRoom().getMonster().getDropItem());
                     }
@@ -370,8 +360,7 @@ public class Game {
                     p.getCurrentRoom().getMonster().setDropItemToNull();
                     p.getCurrentRoom().getMonster().setPenalty(0);
                     p.changeRounds(-1);
-                } else
-                {
+                } else {
                     io.put("Hvad gør du nu?");
                 }
             }
