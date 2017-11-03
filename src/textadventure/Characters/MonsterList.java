@@ -30,7 +30,7 @@ public class MonsterList {
         monsterList.add(new Monster("Viceværten", -5, itemList.getItem(13), null,
                 "Som ordsproget lyder: \"Det er altid en god idé at være på god fod med "
                 + "en vicevært\". Hvilket ordsprog spørger du? Dette ordsprog.", false));
-        monsterList.add(new Monster("Ruth", -2, itemList.getItem(14), null,
+        monsterList.add(new Monster("Ruth", -2, itemList.getItem(14), itemList.getItem(20),
                 "Det må være hende, som de omtaler som den \"blinde, for-altid-snakkende, "
                 + "pensionistparate sæk\". Du er forundret over hvorfor hun "
                 + "har lys tændt. Du prøver at liste forbi hende, men hun hører dig.", false));
@@ -50,7 +50,7 @@ public class MonsterList {
                 "Kunden beder dig om at pudse hans sko. Uforskammet. Sådane en type "
                 + "har du simpelthen ikke tid til. Det eneste han tænker på er sgu da "
                 + "også kun penge eller magt!", false));
-        monsterList.add(new Monster("Projektgruppen", -5, null, null,
+        monsterList.add(new Monster("Projektgruppen", -5, itemList.getItem(20), null,
                 "De kigger på dig. Du kigger på dem. Akavet.", false));
     }
 
