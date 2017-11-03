@@ -63,7 +63,7 @@ public class Game
 
             if (p.getCurrentRoom().equals(boss.getCurrentRoom()))
             {
-                System.out.println(clear() + "Monster og spiller i samme rum.");
+                System.out.println(clear() + "Chefen og spiller i samme rum.");
             }
             if (p.getCurrentRoom().isWinGame())
             {
