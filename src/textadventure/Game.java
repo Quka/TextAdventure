@@ -388,7 +388,7 @@ public class Game
             } else
             {
                 io.put("Du gør " + p.getCurrentRoom().getMonster().getName()
-                        + " glad! ");
+                        + " glad! \n");
                 if (p.getCurrentRoom().getMonster().getDropItem() != null)
                 {
                     io.put("Du får " + p.getCurrentRoom().getMonster().getDropItem().toString());
