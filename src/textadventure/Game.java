@@ -48,7 +48,7 @@ public class Game {
         );
 
         h = new HighScore();
-        io.put(("\nHighscores:\n" + h.printScores()));
+        io.put(("\nHighscores:" + h.printScores()));
 
         io.put(
                 clear()

@@ -94,7 +94,7 @@ public class HighScore
         String str = "";
         for (int i = 0; i < scores.size(); i++)
         {
-            str += "\n" + scores.get(i).getScore() + "\t" + scores.get(i).getName();
+            str += scores.get(i).getScore() + "\t" + scores.get(i).getName() + "\n";
         }
         str += "\n\n";
         return str;
