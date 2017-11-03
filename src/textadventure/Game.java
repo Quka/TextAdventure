@@ -39,12 +39,12 @@ public class Game {
         p = new Player(name, rooms.get(0));
         boss = new Boss(
                 "Chefen",
-                -12, itemList.getItem(12),
+                -12,
+                itemList.getItem(12),
                 itemList.getItem(0),
                 "Du kan mærke en skummel tilstedeværelse. Det er chefen der vandrer igen, "
                 + "fordi han nok har glemt en rapport om angående nogle konsulenter eller noget",
-                rooms.get(12),
-                false
+                rooms.get(12)
         );
 
         h = new HighScore();
