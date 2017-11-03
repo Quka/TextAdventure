@@ -21,7 +21,6 @@ public class Boss extends Monster implements MainCharacter {
      * @param dropItem
      * @param description
      * @param startingRoom 
-     * @param isHappy 
      */
     public Boss(String name, int penalty, Item neutralizingItem, Item dropItem, String description, Room startingRoom) {
         super(name, penalty, neutralizingItem, dropItem, description);

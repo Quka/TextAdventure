@@ -22,7 +22,6 @@ public class Monster {
      * @param neutralizingItem
      * @param dropItem
      * @param description
-     * @param happy 
      */
     public Monster(String name, int penalty, Item neutralizingItem, Item dropItem, String description) {
         this.name = name;
