@@ -23,8 +23,8 @@ public class Boss extends Monster implements MainCharacter {
      * @param startingRoom 
      * @param isHappy 
      */
-    public Boss(String name, int penalty, Item neutralizingItem, Item dropItem, String description, Room startingRoom, boolean isHappy) {
-        super(name, penalty, neutralizingItem, dropItem, description, isHappy);
+    public Boss(String name, int penalty, Item neutralizingItem, Item dropItem, String description, Room startingRoom) {
+        super(name, penalty, neutralizingItem, dropItem, description);
         this.currentRoom = startingRoom;
     }
 

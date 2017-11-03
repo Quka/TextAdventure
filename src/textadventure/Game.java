@@ -40,7 +40,7 @@ public class Game
         m = new Maze(itemList);
         ArrayList<Room> rooms = m.createMaze();
         p = new Player(name, rooms.get(0));
-        boss = new Boss("Chefen", -12, itemList.getItem(12), itemList.getItem(0), "", rooms.get(12), false);
+        boss = new Boss("Chefen", -12, itemList.getItem(12), itemList.getItem(0), "", rooms.get(12));
 
         h = new HighScore();
         io.put(("\nHighscores:\n" + h.printScores()));
@@ -183,6 +183,11 @@ public class Game
         io.put(str);
     }
 
+    /**
+     * Walks in the direction if it is possible. For now, this commans also fights the boss and monsters
+     * 
+     * @param command 
+     */
     private void changeRoom(String command)
     {
         if (p.canWalk(command))
@@ -268,7 +273,11 @@ public class Game
         }
 
     }
-
+/**
+ * Player(should be under player?) can pick up an item from the room. If there
+ * is no item, io.put message is displayed
+ * 
+ */
     private void pickup()
     {
         if (p.getCurrentRoom().getItem() == null)
@@ -287,12 +296,24 @@ public class Game
             p.getCurrentRoom().removeItemFromRoom();
         }
     }
-
+/**
+ * Makes 2 lines
+ * 
+ * @return 
+ */
     public String clear()
     {
         return "\n\n";
     }
 
+    /**
+     * Heart of the program. Surrounds text with a graphical box. Special shout-
+     * out to Arlind for making this happen.
+     * 
+     * @param str
+     * @param title
+     * @return 
+     */
     public String prettyMessage(String str, String title)
     {
         String prettyLine = "#------------------------------------------------";
@@ -332,14 +353,21 @@ public class Game
 
         return result;
     }
-
+/**
+ * Shows user the inventory
+ * 
+ */
     private void showInventory()
     {
         io.put(
                 p.getInventory().showInventory()
         );
     }
-
+/**
+ * Player (should be under player?) can use an item against a monster. Wholesome
+ * method that also checks if it effective and removes it from inventory if true 
+ * 
+ */
     private void useItem()
     {
         if (p.getInventory().getInventorySize() == 1)
