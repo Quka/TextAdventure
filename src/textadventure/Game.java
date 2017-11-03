@@ -225,7 +225,7 @@ public class Game {
                             clear()
                             + prettyMessage("Du støder på " + p.getCurrentRoom().getMonster().getName() + ". "
                                     + p.getCurrentRoom().getMonster().getName()
-                                    + " er i godt humør og hilser pænt på dig", p.getCurrentRoom().getMonster().getName())
+                                    + " er i godt humør og hilser pænt på dig", "Monster: " + p.getCurrentRoom().getMonster().getName())
                     );
                 } else {
                     io.put(
