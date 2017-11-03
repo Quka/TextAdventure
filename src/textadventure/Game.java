@@ -179,8 +179,15 @@ public class Game {
         io.put(str);
     }
 
-    private void changeRoom(String command) {
-        if (p.canWalk(command)) {
+    /**
+     * Walks in the direction if it is possible. For now, this commans also fights the boss and monsters
+     * 
+     * @param command 
+     */
+    private void changeRoom(String command)
+    {
+        if (p.canWalk(command))
+        {
             p.walk(command);
             p.changeRounds(-3);
 
@@ -254,9 +261,15 @@ public class Game {
         }
 
     }
-
-    private void pickup() {
-        if (p.getCurrentRoom().getItem() == null) {
+/**
+ * Player(should be under player?) can pick up an item from the room. If there
+ * is no item, io.put message is displayed
+ * 
+ */
+    private void pickup()
+    {
+        if (p.getCurrentRoom().getItem() == null)
+        {
             io.put("Der er ikke noget at samle op! (-1 runde)");
             p.changeRounds(-1);
         } else {
@@ -270,12 +283,26 @@ public class Game {
             p.getCurrentRoom().removeItemFromRoom();
         }
     }
-
-    public String clear() {
+/**
+ * Makes 2 lines
+ * 
+ * @return 
+ */
+    public String clear()
+    {
         return "\n\n";
     }
 
-    public String prettyMessage(String str, String title) {
+    /**
+     * Heart of the program. Surrounds text with a graphical box. Special shout-
+     * out to Arlind for making this happen.
+     * 
+     * @param str
+     * @param title
+     * @return 
+     */
+    public String prettyMessage(String str, String title)
+    {
         String prettyLine = "#------------------------------------------------";
         prettyLine += title.length() % 2 == 0 ? "-#" : "#"; // tilføj ekstra "-" for at flugte teksten
         int lineBreak = 39;
@@ -310,15 +337,25 @@ public class Game {
 
         return result;
     }
-
-    private void showInventory() {
+/**
+ * Shows user the inventory
+ * 
+ */
+    private void showInventory()
+    {
         io.put(
                 p.getInventory().showInventory()
         );
     }
-
-    private void useItem() {
-        if (p.getInventory().getInventorySize() == 0) {
+/**
+ * Player (should be under player?) can use an item against a monster. Wholesome
+ * method that also checks if it effective and removes it from inventory if true 
+ * 
+ */
+    private void useItem()
+    {
+        if (p.getInventory().getInventorySize() == 0)
+        {
             io.put("Lommerne er tomme kammerat, du skal finde noget, du kan gemme først");
         } else {
             io.put(p.getInventory().showInventory() + "\nHvilket item vil du bruge? Eller \"L\" for at lukke\n");

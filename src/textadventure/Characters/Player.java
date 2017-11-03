@@ -82,17 +82,31 @@ public class Player implements MainCharacter {
     public int getRoundsLeft() {
         return roundsLeft;
     }
-    
-    public void setRoundsLeft(int i){
-        
-        this.roundsLeft=i;
+
+    /**
+     * Sets rounds left for player
+     *
+     * @param i
+     */
+    public void setRoundsLeft(int i) {
+
+        this.roundsLeft = i;
     }
 
+    /**
+     * Returns player name
+     *
+     * @return
+     */
     public String getName() {
         return name;
     }
-    
-    public Inventory getInventory () {
+    /**
+     * Returns player inventory
+     * 
+     * @return 
+     */
+    public Inventory getInventory() {
         return this.inventory;
     }
 
@@ -101,7 +115,7 @@ public class Player implements MainCharacter {
      * explains the user that there is not enough space.
      *
      * @param item
-     * @return 
+     * @return
      */
     // Could this just be void?
     public String pickupItem(Item item) {
@@ -111,11 +125,11 @@ public class Player implements MainCharacter {
         if (item instanceof ConsumableItem) {
             changeRounds(((ConsumableItem) item).getRoundsModifier());
             itemUse = ((ConsumableItem) item).getDescriptionUsed();
-        } else {     
+        } else {
             inventory.addToInventory(item);
             itemUse = "Du lægger " + item.getName() + " i rygsækken";
         }
-        
+
         return itemUse;
     }
 
@@ -123,7 +137,7 @@ public class Player implements MainCharacter {
      * Removes the item from inventory and modifies round timer(?)
      *
      * @param itemIndex
-     * @return 
+     * @return
      */
     public Item getItem(int itemIndex) {
         Item item = inventory.getItem(itemIndex);
@@ -132,10 +146,8 @@ public class Player implements MainCharacter {
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "Player{" + "name=" + name + ", roundsLeft=" + roundsLeft + '}';
     }
 
-    
 }
