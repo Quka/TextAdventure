@@ -352,20 +352,46 @@ public class Game {
      *
      */
     private void useItem() {
+
         if (p.getInventory().getInventorySize() == 0) {
             io.put("Lommerne er tomme kammerat, du skal finde noget, du kan gemme først");
         } else {
+
             io.put(p.getInventory().showInventory() + "\nHvilket item vil du bruge? Eller \"L\" for at lukke\n");
-            if (io.get().equalsIgnoreCase("L")) {
-                io.put("Du vælger ikke at bruge et item");
+            String input = io.get();
+
+            boolean cont = false;
+            while (!cont) {
+                if (input.equalsIgnoreCase("L")) {
+                    io.put("Du vælger ikke at bruge et item");
+                    cont = true;
+                } else {
+                    try {
+                        int i = Integer.parseInt(input);
+                        if (i >= 0 || i <= p.getInventory().getInventorySize() - 1) {
+                            cont = true;
+                        } else {
+                            io.put("Du må kun bruge \"L\", eller tal fra listen");
+                        }
+                    } catch (NumberFormatException e) {
+                        io.put("Du må kun bruge \"L\", eller tal fra listen");
+                        input = io.get();
+                    }
+                }
+            }
+
+            if (input.equalsIgnoreCase("L")) {
+                io.put("Du vælger ikke at bruge noget");
             } else {
-                int itemIndex = io.getInteger(0, p.getInventory().getInventorySize() - 1);
+
+                int itemIndex = Integer.parseInt(input);
                 if (p.getCurrentRoom().equals(boss.getCurrentRoom()) && boss.getPenalty() != 0) {
 
                     if (p.getItem(itemIndex) == boss.getNeutralizingItem()) {
                         boss.setPenalty(0);
                         io.put("Chefen skuler, men skynder sig at tage rapporten!\n");
                         p.getInventory().removeItemFromInventory(itemIndex);
+                        return;
                     } else {
                         io.put("Dette item har ingen effekt!");
                         p.changeRounds(boss.getPenalty());
