@@ -359,7 +359,7 @@ public class Game
                 if (p.getItem(itemIndex) == boss.getNeutralizingItem())
                 {
                     boss.setPenalty(0);
-                    io.put("Chefen skuler, men skynder sig at tage rapporten!");
+                    io.put("Chefen skuler, men skynder sig at tage rapporten!\n");
                     p.getInventory().removeItemFromInventory(itemIndex);
                 } else
                 {
@@ -377,7 +377,7 @@ public class Game
             else if (p.getCurrentRoom().getMonster() == null
                     || p.getCurrentRoom().getMonster().getPenalty() == 0)
             {
-                io.put("Der er ikke nogen, at bruge et item imod");
+                io.put("Der er ikke nogen tilbage at bruge et item imod");
                 p.changeRounds(-1);
             } else if (!p.getCurrentRoom().getMonster().getNeutralizingItem().equals(p.getInventory().getItem(itemIndex)))
             {
