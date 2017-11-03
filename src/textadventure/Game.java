@@ -354,9 +354,10 @@ public class Game
                 io.put("Du vælger ikke at bruge et item");
             } else
             {
+                int itemIndex = io.getInteger(0, p.getInventory().getInventorySize() - 1);
                 if (p.getCurrentRoom().equals(boss.getCurrentRoom()) && boss.getPenalty() != 0)
                 {
-                    int itemIndex = io.getInteger(0, p.getInventory().getInventorySize() - 1);
+
                     if (p.getItem(itemIndex) == boss.getNeutralizingItem())
                     {
                         boss.setPenalty(0);
@@ -398,7 +399,7 @@ public class Game
                     p.changeRounds(-1);
                 } else
                 {
-
+                    io.put("Hvad gør du nu?");
                 }
             }
         }
