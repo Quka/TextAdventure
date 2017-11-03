@@ -5,7 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
+ * Players having the highest number of rounds left when game is won
+ * 
  * @author thomasfritzboger
  */
 public class HighScore
@@ -15,16 +16,28 @@ public class HighScore
     private List<Score> scores = new ArrayList<Score>();
     private String path = "highScore.txt";
 
+    /**
+     * Contrucsts a high score by loading it from a txt file
+     * 
+     */
     public HighScore()
     {
         loadHighScoresFromFile();
     }
-
+    /**
+     * Adds player score to an ArrayList of scores
+     * 
+     * @param score 
+     */
     public void addScore(Score score)
     {
         scores.add(score);
     }
-
+    /**
+     * 
+     * 
+     * @return 
+     */
     public Score[] getScores()
     {
         Score[] scores = new Score[this.scores.size()];
