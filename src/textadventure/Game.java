@@ -61,7 +61,6 @@ public class Game {
             io.put(
                     clear()
                     + "Hvad vil jeg gøre nu: (H for hjælp)"
-                    + boss.getCurrentRoom() //fjernes
             );
             String command = io.get().toUpperCase();
             command(command);
