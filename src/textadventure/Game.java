@@ -61,9 +61,11 @@ public class Game {
             io.put(
                     clear()
                     + "Hvad vil jeg gøre nu: (H for hjælp)"
+                    + boss.getCurrentRoom() //fjernes
             );
             String command = io.get().toUpperCase();
             command(command);
+            
 
             if (p.getCurrentRoom().isWinGame()) {
                 gameEnded = true;
@@ -191,32 +193,8 @@ public class Game {
                     clear()
                     + prettyMessage(p.getCurrentRoom().getDescription(), "Rum")
             );
+            checkIfMonsterAndBossSameRoom();
 
-            if (p.getCurrentRoom().equals(boss.getCurrentRoom())) {
-                io.put(clear() + "Chefen og spiller i samme rum.");
-
-                System.out.println(boss.getPenalty());
-
-                if (boss.getPenalty() < 0) {
-                    io.put(
-                            clear()
-                            + prettyMessage(boss.getDescription(), "BOSS: Chefen")
-                            + "Vil du forsøge at brugen et item mod Chefen?\n(Tryk \"u\" for at bruge et item!)");
-                    if (io.get().equalsIgnoreCase("u")) {
-                        useItem();
-                    } else {
-                        p.changeRounds(p.getCurrentRoom().getMonster().getPenalty());
-                    }
-                } else {
-                    io.put(
-                            clear()
-                            + prettyMessage("Du støder på " + boss.getName() + ". "
-                                    + boss.getName()
-                                    + " er i godt humør. Han hilser pænt på dig og lover dig en lønforhøjelse.", "Chefen")
-                    );
-
-                }
-            }
             if (p.getCurrentRoom().getMonster() != null) {
 
                 if (p.getCurrentRoom().getMonster().getPenalty() == 0) {
@@ -254,6 +232,7 @@ public class Game {
 
             // Move boss, only if user also moves (issues move command)
             boss.moveMonster();
+            checkIfMonsterAndBossSameRoom();
         } else {
             io.put("Der er ingen dør i den retning. Prøv igen!");
             p.changeRounds(-1);
@@ -390,7 +369,7 @@ public class Game {
                     if (p.getItem(itemIndex) == boss.getNeutralizingItem()) {
                         boss.setPenalty(0);
                         io.put("Chefen skuler, men skynder sig at tage rapporten!\n");
-                        p.getInventory().removeItemFromInventory(itemIndex);
+                       // p.getInventory().removeItemFromInventory(itemIndex);
                     } else {
                         io.put("Dette item har ingen effekt!");
                         p.changeRounds(boss.getPenalty());
@@ -425,4 +404,38 @@ public class Game {
             }
         }
     }
-}
+     /**
+     *  Checks if Chefen and player are in the same room
+     *  Checks if Chefen is neutralized
+     *  
+     *
+     */
+
+public void checkIfMonsterAndBossSameRoom() {
+if (p.getCurrentRoom().equals(boss.getCurrentRoom())) {
+                io.put(clear() + "Chefen og spiller i samme rum.");
+
+                System.out.println(boss.getPenalty());
+
+                if (boss.getPenalty() < 0) {
+                    io.put(
+                            clear()
+                            + prettyMessage(boss.getDescription(), "BOSS: Chefen")
+                            + "Vil du forsøge at brugen et item mod Chefen?\n(Tryk \"u\" for at bruge et item!)");
+                    if (io.get().equalsIgnoreCase("u")) {
+                        useItem();
+                    } else {
+                        p.changeRounds(boss.getPenalty());
+                    }
+                } else {
+                    io.put(
+                            clear()
+                            + prettyMessage("Du støder på " + boss.getName() + ". "
+                                    + boss.getName()
+                                    + " er i godt humør. Han hilser pænt på dig og lover dig en lønforhøjelse.", "Chefen")
+                    );
+
+                }
+            }
+
+}}

@@ -55,6 +55,7 @@ public class Boss extends Monster implements MainCharacter {
             // try and walk
             if (currentRoom.getRoom(direction) != null) {
                 this.walk(direction);
+                
                 cont = false;
             } else {
                 // remove direction
