@@ -135,9 +135,8 @@ public class Player implements MainCharacter {
      * @param item
      * @return
      */
-    // Could this just be void?
     public String pickupItem(Item item) {
-        String itemUse = "";
+        String itemUse;
         // Skal der være en Exceptions, hvis man prøver at samle op i et rum uden items??
 
         if (item instanceof ConsumableItem) {
