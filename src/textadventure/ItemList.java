@@ -14,7 +14,7 @@ public class ItemList {
 
     public ItemList() {
         itemList.add(new ConsumableItem(
-                "Redbull",
+                "En Redbull",
                 "Du spotter en 25cl. blå dåse, med to røde tyre der støder hinanden, markeret udenpå.",
                 5,
                 "Du føler dig rig på energi (+5 runder)")
@@ -26,7 +26,7 @@ public class ItemList {
                 "Du fandt nogen kiks og nipper lidt til dem (+3 runder)")
         );
         itemList.add(new ConsumableItem(
-                "Cola",
+                "En cola",
                 "En sødet læskedrik. Drikken indeholder ofte kulsyre, koffein, fosforsyre (E338) og karamel (E-150d).",
                 3,
                 "Forfriskende! Du tænker tilbage på sidst du fik en cola, ah minder. (+3 runder)")
@@ -38,19 +38,19 @@ public class ItemList {
                 "Mums! Du elsker chokolade. (+6 runder)")
         );
         itemList.add(new ConsumableItem(
-                "Gulerødder",
+                "Nogle gulerødder",
                 "Hvad er det orange, kaninen sidder og nipper til?",
                 4,
                 "Det var Snurre Snups favorit måltid! (+4 runder)")
         );
         itemList.add(new ConsumableItem(
-                "Glas vand",
+                "Et glas vand",
                 "To hydrogen og ét oxygen i en kovalent binding omringet af glas.",
                 5,
                 "Mhmm vand (+5 runder)")
         );
         itemList.add(new ConsumableItem(
-                "Nødder.",
+                "Nødder",
                 "Deez?",
                 7,
                 "Nutz. (+7)")
@@ -68,31 +68,31 @@ public class ItemList {
                 "Her, tag en Snickers! (+9 runder)")
         );
         itemList.add(new UsableItem(
-                "Tilbudsavis",
+                "En tilbudsavis",
                 "På trods af 'Nej Tak' klistermærket, ligger den her stadig."
         ));
         itemList.add(new UsableItem(
-                "3D Gamerblad",
+                "et 3D Gamerblad",
                 "Firkantet hovede og pickaxe? Er det om 3D og gaming?"
         ));
         itemList.add(new UsableItem(
-                "Rulle toiletpapir",
+                "En rulle toiletpapir",
                 "Dejlig blødt og i 3-lag."
         ));
         itemList.add(new UsableItem(
-                "Konsulentrapport",
+                "En konsulentrapport",
                 "Dette executive summary indeholder et kortfattet resumé af en række konklusioner og anbefalinger i ... zzzZZZzzz.."
         ));
         itemList.add(new UsableItem(
-                "Telefonoplader",
+                "En telefonoplader",
                 "En oplader, men er det mini, micro, USB C eller lightning stik?"
         ));
         itemList.add(new UsableItem(
-                "Stok",
+                "En stok",
                 "Anvendes når man står, eller går, eller at partere med hvis man fjerner hylsteret."
         ));
         itemList.add(new UsableItem(
-                "Håndtaske",
+                "En håndtaske",
                 "En taske man holder på med hænderne. Er det et 'P' indgraveret på?"
         ));
         itemList.add(new UsableItem(
@@ -108,11 +108,11 @@ public class ItemList {
                 "Påfør sminken på øjnene, så de træder mere ud."
         ));
         itemList.add(new UsableItem(
-                "Salgspræsentation",
+                "En salgspræsentation",
                 "Find ud af hvad der er det centrale budskab, som du vil have lytterne til at huske. Fokuser altid på kundens behov. Hvis du... vent, hvad prøver jeg at sælge?"
         ));
         itemList.add(new UsableItem(
-                "Laserpointer",
+                "En laserpointer",
                 "Rød? Grøn? Blå? Gul? Vælg en farve, alle er cool."
         ));
     }

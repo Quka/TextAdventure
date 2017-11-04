@@ -145,7 +145,7 @@ public class Player implements MainCharacter {
             itemUse = ((ConsumableItem) item).getDescriptionUsed();
         } else {
             inventory.addToInventory(item);
-            itemUse = "Du lægger \"" + item.getName() + "\" i rygsækken.";
+            itemUse = "Du lægger " + item.getName().toLowerCase() + " i rygsækken.";
         }
 
         return itemUse;

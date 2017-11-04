@@ -113,7 +113,7 @@ public class Maze
         ));
 
         officeRooms.add(new Room(
-                "Du vader ind i et lokale, som er dunkelt oplyst af små, blinkende lamper og har en stank, der siger så meget spar fem, at det kun kan være IT-lokalet. Du når lige at høre ordene \"Rick & Morty\"",
+                "Du vader ind i et lokale, som er dunkelt oplyst af små, blinkende lamper og har en stank, der siger så meget spar fem, at det kun kan være IT-lokalet. Du når lige at høre ordene \"Rick & Morty\".",
                 false,
                 monsterList.getMonster(6),
                 itemList.getItem(7)
