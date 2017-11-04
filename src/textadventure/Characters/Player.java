@@ -61,7 +61,25 @@ public class Player implements MainCharacter {
      */
     @Override
     public void walk(String direction) {
-        io.put("Du går imod retningen >" + direction + "<");
+        io.put("Du går ");
+         switch (direction) {
+            case "N":
+                io.put("nord");
+                break;
+            case "E":
+                io.put("øst");
+                break;
+            case "S":
+                io.put("syd");
+                break;
+            case "W":
+                io.put("vest");
+                break;
+            default:
+                io.put("Det er ikke en gyldig retning");
+                break;
+         }
+         io.put(".");
         currentRoom = currentRoom.getRoom(direction);
     }
 
@@ -127,7 +145,7 @@ public class Player implements MainCharacter {
             itemUse = ((ConsumableItem) item).getDescriptionUsed();
         } else {
             inventory.addToInventory(item);
-            itemUse = "Du lægger " + item.getName() + " i rygsækken";
+            itemUse = "Du lægger \"" + item.getName() + "\" i rygsækken.";
         }
 
         return itemUse;
