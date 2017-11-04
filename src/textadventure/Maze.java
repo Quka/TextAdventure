@@ -106,7 +106,7 @@ public class Maze
         ));
 
         officeRooms.add(new Room(
-                "Rummet er tomt, men Phillipa har glemt sin håndtaske.",
+                "Der er ingen i rummet, men rodet afslører, at det nok er Phillipas kontor.",
                 false,
                 null,
                 itemList.getItem(15)
@@ -149,7 +149,7 @@ public class Maze
 
         //Adding copyrooms to <>copyrooms, randomly placed later 
         copyRooms.add(new Room(
-                "Døren knirker som du åbner den. Et kopirum! Det burde du have set komme. Især fordi det var en glasdør.",
+                "Døren knirker, som du åbner den. Et kopirum! Det burde du have set komme. Især fordi det var en glasdør.",
                 false,
                 null,
                 itemList.getItem(19)
@@ -222,7 +222,7 @@ public class Maze
         ));
 
         specialRooms.add(new Room(
-                "Det her ligner øjensynligt det kosteskab, Harry Potter boede i Viceværten sidder og swiper på Tinder. Du tænker \"er han ikke gift med hende Ruth fra regnskabsafdelingen?\"",
+                "Det her ligner øjensynligt det kosteskab, Harry Potter boede i.",
                 false,
                 monsterList.getMonster(3),
                 itemList.getItem(4)

@@ -43,7 +43,7 @@ public class Game {
                 itemList.getItem(12),
                 itemList.getItem(0),
                 "Du kan mærke en skummel tilstedeværelse. Det er chefen der vandrer igen, "
-                + "fordi han nok har glemt en rapport om angående nogle konsulenter eller noget",
+                + "fordi han nok har glemt en rapport angående nogle konsulenter eller noget",
                 rooms.get(12)
         );
 
@@ -64,7 +64,6 @@ public class Game {
             );
             String command = io.get().toUpperCase();
             command(command);
-            
 
             if (p.getCurrentRoom().isWinGame()) {
                 gameEnded = true;
@@ -212,7 +211,7 @@ public class Game {
                                     "Monster: " + p.getCurrentRoom().getMonster().getName())
                     );
 
-                    io.put("Vil du forsøge at brugen et item mod " + p.getCurrentRoom().getMonster().getName()
+                    io.put("Vil du forsøge at bruge et item mod " + p.getCurrentRoom().getMonster().getName()
                             + "? \n(Tryk \"U\" for at bruge et item, eller \"N\" for at gå videre)");
                     if (io.get().equalsIgnoreCase("u")) {
                         useItem();
@@ -368,7 +367,7 @@ public class Game {
                     if (p.getItem(itemIndex) == boss.getNeutralizingItem()) {
                         boss.setPenalty(0);
                         io.put("Chefen skuler, men skynder sig at tage rapporten!\n");
-                       // p.getInventory().removeItemFromInventory(itemIndex);
+                        // p.getInventory().removeItemFromInventory(itemIndex);
                     } else {
                         io.put("Dette item har ingen effekt!");
                         p.changeRounds(boss.getPenalty());
@@ -403,38 +402,40 @@ public class Game {
             }
         }
     }
-     /**
-     *  Checks if Chefen and player are in the same room
-     *  Checks if Chefen is neutralized
-     *  
+
+    /**
+     * Checks if Chefen and player are in the same room Checks if Chefen is
+     * neutralized
+     *
      *
      */
 
-public void checkIfMonsterAndBossSameRoom() {
-if (p.getCurrentRoom().equals(boss.getCurrentRoom())) {
-                io.put(clear() + "Chefen og spiller i samme rum.");
+    public void checkIfMonsterAndBossSameRoom() {
+        if (p.getCurrentRoom().equals(boss.getCurrentRoom())) {
+            io.put(clear() + "Chefen og spiller i samme rum.");
 
-                System.out.println(boss.getPenalty());
+            System.out.println(boss.getPenalty());
 
-                if (boss.getPenalty() < 0) {
-                    io.put(
-                            clear()
-                            + prettyMessage(boss.getDescription(), "BOSS: Chefen")
-                            + "Vil du forsøge at brugen et item mod Chefen?\n(Tryk \"u\" for at bruge et item!)");
-                    if (io.get().equalsIgnoreCase("u")) {
-                        useItem();
-                    } else {
-                        p.changeRounds(boss.getPenalty());
-                    }
+            if (boss.getPenalty() < 0) {
+                io.put(
+                        clear()
+                        + prettyMessage(boss.getDescription(), "BOSS: Chefen")
+                        + "Vil du forsøge at brugen et item mod Chefen?\n(Tryk \"u\" for at bruge et item!)");
+                if (io.get().equalsIgnoreCase("u")) {
+                    useItem();
                 } else {
-                    io.put(
-                            clear()
-                            + prettyMessage("Du støder på " + boss.getName() + ". "
-                                    + boss.getName()
-                                    + " er i godt humør. Han hilser pænt på dig og lover dig en lønforhøjelse.", "Chefen")
-                    );
-
+                    p.changeRounds(boss.getPenalty());
                 }
-            }
+            } else {
+                io.put(
+                        clear()
+                        + prettyMessage("Du støder på " + boss.getName() + ". "
+                                + boss.getName()
+                                + " er i godt humør. Han hilser pænt på dig og lover dig en lønforhøjelse.", "Chefen")
+                );
 
-}}
+            }
+        }
+
+    }
+}

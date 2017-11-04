@@ -45,7 +45,7 @@ public class ItemList {
         );
         itemList.add(new ConsumableItem(
                 "Glas vand",
-                "To hydrogen og ét oxygen i en kovalent binding omringent af glas.",
+                "To hydrogen og ét oxygen i en kovalent binding omringet af glas.",
                 5,
                 "Mhmm vand (+5 runder)")
         );
@@ -65,7 +65,7 @@ public class ItemList {
                 "Snickers",
                 "Du føler dig sulten og ikke helt som dig selv.",
                 9,
-                "Her, tag en snickers! (+9 runder)")
+                "Her, tag en Snickers! (+9 runder)")
         );
         itemList.add(new UsableItem(
                 "Tilbudsavis",
@@ -85,7 +85,7 @@ public class ItemList {
         ));
         itemList.add(new UsableItem(
                 "Telefonoplader",
-                "En oplader, men er det mini, micro, nano, USB C eller lightning stik?"
+                "En oplader, men er det mini, micro, USB C eller lightning stik?"
         ));
         itemList.add(new UsableItem(
                 "Stok",
@@ -105,7 +105,7 @@ public class ItemList {
         ));
         itemList.add(new UsableItem(
                 "Mascara",
-                "Påfør sminken på øjnene så de træder mere ud."
+                "Påfør sminken på øjnene, så de træder mere ud."
         ));
         itemList.add(new UsableItem(
                 "Salgspræsentation",
@@ -113,7 +113,7 @@ public class ItemList {
         ));
         itemList.add(new UsableItem(
                 "Laserpointer",
-                "Rød? Grøn? Blå? Gul? Vælg  selv en farve, alle er cool."
+                "Rød? Grøn? Blå? Gul? Vælg en farve, alle er cool."
         ));
     }
     /**

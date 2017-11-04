@@ -30,10 +30,11 @@ public class MonsterList {
                 + "af sine lungers fulde kraft."));
         monsterList.add(new Monster("Viceværten", -5, itemList.getItem(13), null,
                 "Som ordsproget lyder: \"Det er altid en god idé at være på god fod med "
-                + "en vicevært\". Hvilket ordsprog spørger du? Dette ordsprog."));
+                + "en vicevært\". Hvilket ordsprog spørger du? Dette ordsprog. "
+                + "Han sidder og swiper på Tinder, men han er jo gift?"));
         monsterList.add(new Monster("Ruth", -2, itemList.getItem(14), itemList.getItem(20),
                 "Det må være hende, som de omtaler som den \"blinde, for-altid-snakkende, "
-                + "pensionistparate sæk\". Du er forundret over hvorfor hun "
+                + "pensionistparate sæk\". Du er forundret over, hvorfor hun "
                 + "har lys tændt. Du prøver at liste forbi hende, men hun hører dig."));
         monsterList.add(new Monster("Phillipa", -4, itemList.getItem(15), null,
                 "Hun begynder at flirte med dig. Hvis bare hun havde sin mobil, så "
@@ -48,7 +49,7 @@ public class MonsterList {
                 "Du når lige at høre rædselsskriget. I ren slowmo matrix-style ser du en "
                 + "syngende lussing komme flyvende i mod dig. Du kigger på hendes øjne."));
         monsterList.add(new Monster("Potentiel Kunde", -7, itemList.getItem(19), null,
-                "Kunden beder dig om at pudse hans sko. Uforskammet. Sådane en type "
+                "Kunden kræver at du pudser hans sko. Uforskammet. Sådane en type "
                 + "har du simpelthen ikke tid til. Det eneste han tænker på er sgu da "
                 + "også kun penge eller magt!"));
         monsterList.add(new Monster("Projektgruppen", -5, itemList.getItem(20), null,
