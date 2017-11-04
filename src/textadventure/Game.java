@@ -420,7 +420,8 @@ public class Game {
                 io.put(
                         clear()
                         + prettyMessage(boss.getDescription(), "BOSS: Chefen")
-                        + "Vil du forsøge at brugen et item mod Chefen?\n(Tryk \"u\" for at bruge et item!)");
+                        + "Vil du forsøge at brugen et item mod Chefen?\n"
+                                + "(Tryk \"U\" for at bruge et item, eller \"N\" for at gå videre)");
                 if (io.get().equalsIgnoreCase("u")) {
                     useItem();
                 } else {
