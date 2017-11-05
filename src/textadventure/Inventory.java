@@ -70,18 +70,19 @@ public class Inventory {
      * @param itemIndex
      */
     public void removeItemFromInventory(int itemIndex) {
-        if(items.size() < 2) {
+        if (items.size() < 2) {
             items.clear();
         } else {
             items.remove(itemIndex);
         }
 
     }
+
     /**
      * Returns item at specified index
-     * 
+     *
      * @param itemIndex
-     * @return 
+     * @return
      */
     public Item getItem(int itemIndex) {
         return items.get(itemIndex);

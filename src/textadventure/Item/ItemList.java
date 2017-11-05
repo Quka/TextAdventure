@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 /**
  * Creates an ArrayList consisting of both consumable and usable items
- * 
+ *
  * @author Arlind U. <arlind.u at cph-au53@cphbusiness.dk>
  */
 public class ItemList {
@@ -115,11 +115,12 @@ public class ItemList {
                 "Rød? Grøn? Blå? Gul? Vælg en farve, alle er cool."
         ));
     }
+
     /**
      * Returns item at specified index in the ArrayList
-     * 
+     *
      * @param index
-     * @return 
+     * @return
      */
     public Item getItem(int index) {
         return itemList.get(index);

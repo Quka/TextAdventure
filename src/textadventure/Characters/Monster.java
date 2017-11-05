@@ -3,8 +3,8 @@ package textadventure.Characters;
 import textadventure.Item.Item;
 
 /**
- * Monsters which is is bound to a specific room (room parameter) 
- * 
+ * Monsters which is is bound to a specific room (room parameter)
+ *
  * @author Ionsight
  */
 public class Monster {
@@ -17,7 +17,7 @@ public class Monster {
 
     /**
      * Creates a monster
-     * 
+     *
      * @param name
      * @param penalty
      * @param neutralizingItem
@@ -31,64 +31,71 @@ public class Monster {
         this.dropItem = dropItem;
         this.description = description;
     }
+
     /**
      * Return monsters name
-     * 
-     * @return 
+     *
+     * @return
      */
     public String getName() {
         return name;
     }
+
     /**
      * Returns damage player takes from monster
-     * 
-     * @return 
+     *
+     * @return
      */
     public int getPenalty() {
         return penalty;
     }
+
     /**
      * Returns the item that sets monster damage to 0
-     * 
-     * @return 
+     *
+     * @return
      */
     public Item getNeutralizingItem() {
         return neutralizingItem;
     }
+
     /**
      * Returns the item monster drop if defeated
-     * 
-     * @return 
+     *
+     * @return
      */
     public Item getDropItem() {
         return dropItem;
     }
+
     /**
      * Sets damage player takes from monster
-     * 
-     * @param penalty 
+     *
+     * @param penalty
      */
     public void setPenalty(int penalty) {
         this.penalty = penalty;
     }
+
     /**
      * Removes drop item from monster
-     * 
+     *
      */
-    public void setDropItemToNull()
-    {
+    public void setDropItemToNull() {
         this.dropItem = null;
     }
+
     /**
      * Returns monster description
-     * 
-     * @return 
+     *
+     * @return
      */
     public String getDescription() {
         return description;
     }
+
     @Override
     public String toString() {
         return "Monster{" + "name=" + name + '}';
-    }  
+    }
 }

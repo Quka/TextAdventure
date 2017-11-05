@@ -409,7 +409,6 @@ public class Game {
      *
      *
      */
-
     public void checkIfMonsterAndBossSameRoom() {
         if (p.getCurrentRoom().equals(boss.getCurrentRoom())) {
             io.put(clear() + "Chefen og spiller i samme rum.");
@@ -421,7 +420,7 @@ public class Game {
                         clear()
                         + prettyMessage(boss.getDescription(), "BOSS: Chefen")
                         + "Vil du forsøge at brugen et item mod Chefen?\n"
-                                + "(Tryk \"U\" for at bruge et item, eller \"N\" for at gå videre)");
+                        + "(Tryk \"U\" for at bruge et item, eller \"N\" for at gå videre)");
                 if (io.get().equalsIgnoreCase("u")) {
                     useItem();
                 } else {

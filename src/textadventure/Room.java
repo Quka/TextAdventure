@@ -22,14 +22,14 @@ public class Room {
     private boolean winGame;
     private final String description;
 
-/**
- * Constructs and initializes a room
- * 
- * @param description
- * @param winGame
- * @param monster
- * @param item 
- */
+    /**
+     * Constructs and initializes a room
+     *
+     * @param description
+     * @param winGame
+     * @param monster
+     * @param item
+     */
     public Room(String description, boolean winGame, Monster monster, Item item) {
         this.description = description;
         this.winGame = winGame;
@@ -83,11 +83,11 @@ public class Room {
     }
 
     /**
-     * Returns the room in the direction the Character wants to move or null
-     * if there is no room in that direction
-     * 
+     * Returns the room in the direction the Character wants to move or null if
+     * there is no room in that direction
+     *
      * @param direction
-     * @return 
+     * @return
      */
     public Room getRoom(String direction) {
         Room returnRoom = null;
@@ -112,31 +112,30 @@ public class Room {
 
     /**
      * Removes item from the room
-     * 
+     *
      */
-    public void removeItemFromRoom(){
-       this.item=null;
+    public void removeItemFromRoom() {
+        this.item = null;
     }
 
     /**
      * Returns item in room
-     * 
-     * @return 
+     *
+     * @return
      */
-    public Item getItem()
-    {
+    public Item getItem() {
         return item;
     }
+
     /**
      * Returns monster
-     * 
-     * @return 
+     *
+     * @return
      */
-    public Monster getMonster()
-    {
+    public Monster getMonster() {
         return monster;
     }
-    
+
     /**
      * Shows room description
      *

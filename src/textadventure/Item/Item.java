@@ -2,7 +2,7 @@ package textadventure.Item;
 
 /**
  * Abstract class for items
- * 
+ *
  * @author Arlind U. <arlind.u at cph-au53@cphbusiness.dk>
  */
 abstract public class Item {
@@ -20,18 +20,20 @@ abstract public class Item {
         this.name = name;
         this.description = description;
     }
+
     /**
      * Returns item name
-     * 
-     * @return 
+     *
+     * @return
      */
     public String getName() {
         return this.name;
     }
+
     /**
      * Return item description
-     * 
-     * @return 
+     *
+     * @return
      */
     public String getDescription() {
         return this.description;
@@ -42,5 +44,4 @@ abstract public class Item {
         return description;
     }
 
-    
 }

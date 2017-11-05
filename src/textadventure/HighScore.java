@@ -95,10 +95,11 @@ public class HighScore {
             System.out.println(ex);
         }
     }
+
     /**
      * Returns a string of the high scores
-     * 
-     * @return 
+     *
+     * @return
      */
     public String printScores() {
         String str = "";

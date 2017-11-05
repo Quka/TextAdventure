@@ -2,44 +2,41 @@ package textadventure;
 
 /**
  * Score class used to manage high scores
- * 
+ *
  * @author thomasfritzboger
  */
-public class Score
-{
+public class Score {
 
-  private String name;
-  private int score;
-/**
- * Class for players name and final score
- * 
- * @param name
- * @param score 
- */
-    public Score(String name, int score)
-    {
+    private String name;
+    private int score;
+
+    /**
+     * Class for players name and final score
+     *
+     * @param name
+     * @param score
+     */
+    public Score(String name, int score) {
         this.name = name;
         this.score = score;
     }
-/**
- * Returns name of player
- * 
- * @return 
- */
-    public String getName()
-    {
+
+    /**
+     * Returns name of player
+     *
+     * @return
+     */
+    public String getName() {
         return name;
     }
-/**
- * Returns player score
- * 
- * @return 
- */
-    public int getScore()
-    {
+
+    /**
+     * Returns player score
+     *
+     * @return
+     */
+    public int getScore() {
         return score;
     }
-    
-    
-    
+
 }

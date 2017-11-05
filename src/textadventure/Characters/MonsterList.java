@@ -5,7 +5,7 @@ import textadventure.Item.ItemList;
 
 /**
  * Creates an ArrayList of Monster objects
- * 
+ *
  * @author thomasfritzboger
  */
 public class MonsterList {
@@ -58,9 +58,9 @@ public class MonsterList {
 
     /**
      * Gets monster at index specified
-     * 
+     *
      * @param index
-     * @return 
+     * @return
      */
     public Monster getMonster(int index) {
         return monsterList.get(index);

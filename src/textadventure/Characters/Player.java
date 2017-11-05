@@ -62,7 +62,7 @@ public class Player implements MainCharacter {
     @Override
     public void walk(String direction) {
         io.put("\n\n\n\nDu går ");
-         switch (direction) {
+        switch (direction) {
             case "N":
                 io.put("nord");
                 break;
@@ -78,8 +78,8 @@ public class Player implements MainCharacter {
             default:
                 io.put("Det er ikke en gyldig retning");
                 break;
-         }
-         io.put(".");
+        }
+        io.put(".");
         currentRoom = currentRoom.getRoom(direction);
     }
 
@@ -119,10 +119,11 @@ public class Player implements MainCharacter {
     public String getName() {
         return name;
     }
+
     /**
      * Returns player inventory
-     * 
-     * @return 
+     *
+     * @return
      */
     public Inventory getInventory() {
         return this.inventory;

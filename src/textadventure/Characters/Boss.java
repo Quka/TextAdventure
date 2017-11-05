@@ -6,7 +6,7 @@ import textadventure.Room;
 
 /**
  * "Boss" walking around in the maze
- * 
+ *
  * @author Ionsight
  */
 public class Boss extends Monster implements MainCharacter {
@@ -15,12 +15,13 @@ public class Boss extends Monster implements MainCharacter {
 
     /**
      * Constructs a monster and places it in the maze
+     *
      * @param name
      * @param penalty
      * @param neutralizingItem
      * @param dropItem
      * @param description
-     * @param startingRoom 
+     * @param startingRoom
      */
     public Boss(String name, int penalty, Item neutralizingItem, Item dropItem, String description, Room startingRoom) {
         super(name, penalty, neutralizingItem, dropItem, description);
@@ -39,7 +40,7 @@ public class Boss extends Monster implements MainCharacter {
 
     /**
      * Moves the monster in a random available(!) direction
-     * 
+     *
      */
     public void moveBoss() {
         boolean cont = true;
@@ -55,7 +56,7 @@ public class Boss extends Monster implements MainCharacter {
             // try and walk
             if (currentRoom.getRoom(direction) != null) {
                 this.walk(direction);
-                
+
                 cont = false;
             } else {
                 // remove direction
