@@ -200,7 +200,7 @@ public class Game {
                             clear()
                             + prettyMessage("Du støder på " + p.getCurrentRoom().getMonster().getName() + ". "
                                     + p.getCurrentRoom().getMonster().getName()
-                                    + " er i godt humør og hilser pænt på dig", "Monster: " + p.getCurrentRoom().getMonster().getName())
+                                    + " er i godt humør og hilser pænt på dig.", "Monster: " + p.getCurrentRoom().getMonster().getName())
                     );
                 } else {
                     io.put(
@@ -367,13 +367,13 @@ public class Game {
                     if (p.getItem(itemIndex) == boss.getNeutralizingItem()) {
                         boss.setPenalty(0);
                         io.put("Chefen skuler, men skynder sig at tage rapporten!\n");
-                        // p.getInventory().removeItemFromInventory(itemIndex);
+                        p.getInventory().removeItemFromInventory(itemIndex);
                     } else {
                         io.put("Dette item har ingen effekt!");
                         p.changeRounds(boss.getPenalty());
                         io.put("Du mister " + boss.getPenalty() + " runder!");
                     }
-
+                    return;
                 }
                 if (p.getCurrentRoom().getMonster() == null
                         || p.getCurrentRoom().getMonster().getPenalty() == 0) {

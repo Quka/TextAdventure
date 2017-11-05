@@ -152,14 +152,13 @@ public class Player implements MainCharacter {
     }
 
     /**
-     * Removes the item from inventory and modifies round timer(?)
+     * Returns item at specified index
      *
      * @param itemIndex
      * @return
      */
     public Item getItem(int itemIndex) {
         Item item = inventory.getItem(itemIndex);
-        inventory.removeItemFromInventory(itemIndex);
         return item;
     }
 
