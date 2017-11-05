@@ -11,7 +11,6 @@ import textio.*;
  */
 public class Room {
 
-    private int id; // Not necessary for the code to function
     private TextIO io = new TextIO(new SysTextIO());
     private Room north;
     private Room east;

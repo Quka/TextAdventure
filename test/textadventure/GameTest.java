@@ -1,5 +1,6 @@
 package textadventure;
 
+import textadventure.Item.ItemList;
 import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;

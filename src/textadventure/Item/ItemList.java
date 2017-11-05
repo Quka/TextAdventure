@@ -1,7 +1,6 @@
-package textadventure;
+package textadventure.Item;
 
 import java.util.ArrayList;
-import textadventure.Item.*;
 
 /**
  * Creates an ArrayList consisting of both consumable and usable items

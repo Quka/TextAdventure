@@ -1,7 +1,7 @@
 package textadventure.Characters;
 
 import java.util.ArrayList;
-import textadventure.ItemList;
+import textadventure.Item.ItemList;
 
 /**
  * Creates an ArrayList of Monster objects

@@ -1,5 +1,6 @@
 package textadventure;
 
+import textadventure.Item.ItemList;
 import java.util.ArrayList;
 import textadventure.Characters.MonsterList;
 
@@ -24,6 +25,7 @@ public class Maze
     /**
      * Constructs a maze
      *
+     * @param itemList
      */
     public Maze(ItemList itemList)
     {

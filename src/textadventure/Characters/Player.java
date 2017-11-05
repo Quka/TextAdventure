@@ -61,7 +61,7 @@ public class Player implements MainCharacter {
      */
     @Override
     public void walk(String direction) {
-        io.put("Du går ");
+        io.put("\n\n\n\nDu går ");
          switch (direction) {
             case "N":
                 io.put("nord");

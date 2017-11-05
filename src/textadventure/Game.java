@@ -1,5 +1,6 @@
 package textadventure;
 
+import textadventure.Item.ItemList;
 import textadventure.Characters.*;
 import java.util.ArrayList;
 import textio.*;
@@ -16,7 +17,6 @@ public class Game {
     private String name;
     private Boss boss;
     private Maze m;
-    private Monster monster;
     private HighScore h;
     private int[] highScore = new int[5];
     private ItemList itemList;
@@ -229,7 +229,7 @@ public class Game {
             }
 
             // Move boss, only if user also moves (issues move command)
-            boss.moveMonster();
+            boss.moveBoss();
             checkIfMonsterAndBossSameRoom();
         } else {
             io.put("Der er ingen dør i den retning. Prøv igen!");

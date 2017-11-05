@@ -9,20 +9,20 @@ import textadventure.Characters.Player;
  */
 public class ConsumableItem extends Item {
     private final String descriptionUsed;
-    private int roundsLeftModifier;
+    private int roundsModifier;
     
     /**
      * Constructs a consumable item
      * 
      * @param name
      * @param description
-     * @param roundsLeftModifier
+     * @param roundsModifier
      * @param descriptionUsed
      */
-    public ConsumableItem(String name, String description, int roundsLeftModifier, String descriptionUsed) {
+    public ConsumableItem(String name, String description, int roundsModifier, String descriptionUsed) {
         super(name, description);
         this.descriptionUsed = descriptionUsed;
-        this.roundsLeftModifier = roundsLeftModifier;
+        this.roundsModifier = roundsModifier;
     }
     
     /**
@@ -32,7 +32,7 @@ public class ConsumableItem extends Item {
      */
     
     public void changeRoundsLeft(Player p) {
-        p.changeRounds(roundsLeftModifier);
+        p.changeRounds(roundsModifier);
     }
    /**
     * Returns the description for when the consumed item is (automatically)used
@@ -49,6 +49,6 @@ public class ConsumableItem extends Item {
      * @return 
      */
     public int getRoundsModifier(){
-        return roundsLeftModifier;
+        return roundsModifier;
     }
 }

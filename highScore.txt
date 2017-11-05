@@ -1,5 +1,5 @@
-Thomas,98
-sdfd,80
-ale,72
-sfada,54
-thhaas,33
+Arlind,100
+Alperen,80
+Alexander,60
+Anders,40
+Thomas,20

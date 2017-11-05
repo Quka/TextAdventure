@@ -41,7 +41,7 @@ public class Boss extends Monster implements MainCharacter {
      * Moves the monster in a random available(!) direction
      * 
      */
-    public void moveMonster() {
+    public void moveBoss() {
         boolean cont = true;
         ArrayList<String> availableDirections = new ArrayList<>();
         availableDirections.add("N");
