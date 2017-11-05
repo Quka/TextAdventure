@@ -358,7 +358,7 @@ public class Game {
             }
 
             if (input.equalsIgnoreCase("L")) {
-                io.put("Du vælger ikke at bruge noget");
+                //do nothing
             } else {
 
                 int itemIndex = Integer.parseInt(input);
