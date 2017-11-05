@@ -41,7 +41,7 @@ abstract public class Item {
 
     @Override
     public String toString() {
-        return description + "\n- " + name;
+        return name + "\n- " + description;
     }
 
 }
