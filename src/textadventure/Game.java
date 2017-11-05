@@ -212,7 +212,7 @@ public class Game {
                     );
 
                     io.put("Vil du forsøge at bruge et item mod " + p.getCurrentRoom().getMonster().getName()
-                            + "? \n(Tryk \"U\" for at bruge et item, eller \"N\" for at gå videre)");
+                            + "? \n(Tryk \"U\" for at bruge et item, ellers \"N\".)");
                     if (io.get().equalsIgnoreCase("u")) {
                         useItem();
                     } else {
@@ -417,7 +417,7 @@ public class Game {
                         clear()
                         + prettyMessage(boss.getDescription(), "BOSS: Chefen")
                         + "Vil du forsøge at brugen et item mod Chefen?\n"
-                        + "(Tryk \"U\" for at bruge et item, eller \"N\" for at gå videre)");
+                        + "(Tryk \"U\" for at bruge et item, ellers \"N\".)");
                 if (io.get().equalsIgnoreCase("u")) {
                     useItem();
                 } else {
