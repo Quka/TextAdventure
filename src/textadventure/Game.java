@@ -411,8 +411,9 @@ public class Game {
      */
     public void checkIfMonsterAndBossSameRoom() {
         if (p.getCurrentRoom().equals(boss.getCurrentRoom())) {
-
             if (boss.getPenalty() < 0) {
+                io.put("Hvis der er ting at samle op i rummet må du hellere vente.\n"
+                        + "Bossen ser nemlig ret sur ud.");
                 io.put(
                         clear()
                         + prettyMessage(boss.getDescription(), "BOSS: Chefen")
