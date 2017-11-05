@@ -11,7 +11,6 @@ import textadventure.Item.ItemList;
 public class MonsterList {
 
     private ArrayList<Monster> monsterList = new ArrayList<>();
-    private ItemList itemList;
 
     public MonsterList(ItemList itemList) {
         monsterList.add(new Monster("Tine", -3, itemList.getItem(9), itemList.getItem(16),

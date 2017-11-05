@@ -53,7 +53,7 @@ public class Boss extends Monster implements MainCharacter {
         do {
             int rand = (int) (Math.random() * availableDirections.size());
             String direction = availableDirections.get(rand);
-            // try and walk
+            // try to walk
             if (currentRoom.getRoom(direction) != null) {
                 this.walk(direction);
 

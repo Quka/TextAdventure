@@ -43,7 +43,7 @@ public class Game {
                 itemList.getItem(12),
                 itemList.getItem(0),
                 "Du kan mærke en skummel tilstedeværelse. Det er chefen der vandrer igen, "
-                + "fordi han nok har glemt en rapport angående nogle konsulenter eller noget",
+                + "fordi han nok har glemt en rapport angående nogle konsulenter eller noget (-12 runder)",
                 rooms.get(12)
         );
 
@@ -331,7 +331,7 @@ public class Game {
     private void useItem() {
 
         if (p.getInventory().getInventorySize() == 0) {
-            io.put("Lommerne er tomme kammerat, du skal finde noget, du kan gemme først");
+            io.put("Lommerne er tomme kammerat. Du skal finde noget, du kan gemme først.");
         } else {
 
             io.put(p.getInventory().showInventory() + "\nHvilket item vil du bruge? Eller \"L\" for at lukke\n");
@@ -377,7 +377,7 @@ public class Game {
                 }
                 if (p.getCurrentRoom().getMonster() == null
                         || p.getCurrentRoom().getMonster().getPenalty() == 0) {
-                    io.put("Der er ikke nogen tilbage at bruge et item imod");
+                    io.put("Der er ikke nogen at bruge et item imod");
                     p.changeRounds(-1);
                 } else if (!p.getCurrentRoom().getMonster().getNeutralizingItem().equals(p.getInventory().getItem(itemIndex))) {
                     io.put("Dette item har ingen effekt!");
@@ -411,8 +411,6 @@ public class Game {
      */
     public void checkIfMonsterAndBossSameRoom() {
         if (p.getCurrentRoom().equals(boss.getCurrentRoom())) {
-            io.put(clear() + "Chefen og spiller i samme rum.");
-
             System.out.println(boss.getPenalty());
 
             if (boss.getPenalty() < 0) {
