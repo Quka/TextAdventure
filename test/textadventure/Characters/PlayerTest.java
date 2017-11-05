@@ -34,7 +34,7 @@ public class PlayerTest {
         this.i = new Inventory();
         this.p = new Player("test", rooms.get(0));
     }
-    
+
     @Test
     public void testPickupPositiveConsumableItem() {
         // Pickup mælk item (+6)
@@ -42,7 +42,7 @@ public class PlayerTest {
 
         int exptected = 106;
         int actual = p.getRoundsLeft();
-        
+
         assertEquals(exptected, actual);
     }
 
@@ -53,7 +53,7 @@ public class PlayerTest {
 
         int exptected = 96;
         int actual = p.getRoundsLeft();
-        
+
         assertEquals(exptected, actual);
     }
 

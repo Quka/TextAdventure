@@ -4,8 +4,6 @@ import textadventure.Item.ItemList;
 import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
-import textadventure.Characters.Boss;
-import textadventure.Characters.Player;
 
 public class GameTest {
 
@@ -20,7 +18,7 @@ public class GameTest {
         game = new Game();
         il = new ItemList();
         i = new Inventory();
-        maze =  new Maze(il);
+        maze = new Maze(il);
         rooms = maze.createMaze();
     }
 
