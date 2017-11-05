@@ -411,7 +411,6 @@ public class Game {
      */
     public void checkIfMonsterAndBossSameRoom() {
         if (p.getCurrentRoom().equals(boss.getCurrentRoom())) {
-            System.out.println(boss.getPenalty());
 
             if (boss.getPenalty() < 0) {
                 io.put(
